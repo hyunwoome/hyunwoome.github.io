@@ -1,0 +1,22 @@
+I"c<p><a href="https://leetcode.com/problems/replace-all-digits-with-characters/">문제</a></p>
+
+<h2 id="접근하기">접근하기</h2>
+
+<p>주어진 문자열은 짝수 인덱스에 알파벳, 홀수 인덱스에 숫자가 있다.
+이 문자열을 순회하면서 짝수 인덱스의 알파벳이 홀수 인덱스의 숫자만큼 이동한 알파벳으로 교체하여 반환한다.</p>
+
+<h2 id="코드">코드</h2>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">replaceDigits</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">s</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">let</span> <span class="nx">answer</span> <span class="o">=</span> <span class="dl">''</span><span class="p">;</span>
+  <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">s</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">s</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="dl">'</span><span class="s1">a</span><span class="dl">'</span> <span class="o">&amp;&amp;</span> <span class="nx">s</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="dl">'</span><span class="s1">z</span><span class="dl">'</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">answer</span> <span class="o">+=</span> <span class="nx">s</span><span class="p">[</span><span class="nx">i</span><span class="p">];</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+      <span class="nx">answer</span> <span class="o">+=</span> <span class="nb">String</span><span class="p">.</span><span class="nx">fromCharCode</span><span class="p">(</span><span class="nx">s</span><span class="p">[</span><span class="nx">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">].</span><span class="nx">charCodeAt</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="o">+</span> <span class="nb">parseInt</span><span class="p">(</span><span class="nx">s</span><span class="p">[</span><span class="nx">i</span><span class="p">]));</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+  <span class="k">return</span> <span class="nx">answer</span><span class="p">;</span>
+<span class="p">};</span>
+</code></pre></div></div>
+:ET
