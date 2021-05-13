@@ -3,7 +3,7 @@ email: hyunwoome@icloud.com #youremail@domain.com
 description: hyunwoome blog
 
 baseurl: # the subpath of the site
-url: http://starry99.github.io/catbook # the base hostname & protocol for your site
+url: https://hyunwoome.github.io/ # the base hostname & protocol for your site
 
 permalink: /:year-:month/:title
 timezone: Asia/Seoul
