@@ -1,0 +1,16 @@
+I"�<p><a href="https://leetcode.com/problems/sign-of-the-product-of-an-array/">문제</a></p>
+
+<h2 id="접근하기">접근하기</h2>
+
+<p>주어진 배열의 원소들을 모두 곱해서 나온 값이 양수이면 1, 음수이면 -1, 0이면 0을 반환하는 문제이다.</p>
+
+<h2 id="코드">코드</h2>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">arraySign</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">nums</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">let</span> <span class="nx">mul</span> <span class="o">=</span> <span class="nx">nums</span><span class="p">.</span><span class="nx">reduce</span><span class="p">((</span><span class="nx">acc</span><span class="p">,</span> <span class="nx">cur</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">acc</span> <span class="o">*</span> <span class="nx">cur</span><span class="p">);</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">mul</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="k">return</span> <span class="mi">1</span><span class="p">;</span>
+  <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">mul</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span> <span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+  <span class="k">else</span> <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">};</span>
+</code></pre></div></div>
+:ET
