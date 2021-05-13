@@ -19,7 +19,7 @@ disqus_shortname: hyunwoox #disqus shortname
 user:
   name: hyunwoome
   pic: /assets/img/profile.jpg
-  picAlt: 'catbook'
+  picAlt: 'hyunwoo_profile'
   # job: 🧑🏻‍💻 JS
   # aboutme: true # comment this out if you don't need the 'about' page.
 
