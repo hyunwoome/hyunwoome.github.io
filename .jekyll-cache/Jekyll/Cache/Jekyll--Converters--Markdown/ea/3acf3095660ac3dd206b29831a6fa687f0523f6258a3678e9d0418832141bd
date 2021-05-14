@@ -1,0 +1,19 @@
+I"�<p><a href="https://programmers.co.kr/learn/courses/30/lessons/12944">문제</a></p>
+
+<h2 id="접근하기">접근하기</h2>
+
+<p>정수를 담고 있는 배열의 평균값을 반환하는 문제이다.</p>
+
+<p><br /></p>
+
+<h2 id="내-코드">내 코드</h2>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">solution</span><span class="p">(</span><span class="nx">arr</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="nx">arr</span><span class="p">.</span><span class="nx">reduce</span><span class="p">((</span><span class="nx">cur</span><span class="p">,</span> <span class="nx">acc</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">cur</span> <span class="o">+</span> <span class="nx">acc</span><span class="p">)</span> <span class="o">/</span> <span class="nx">arr</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<ol>
+  <li><code class="language-plaintext highlighter-rouge">reduce</code>로 총합을 구하고 배열 요소의 갯수로 나눠주면 평균값을 구할 수 있다.</li>
+</ol>
+:ET

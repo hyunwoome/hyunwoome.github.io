@@ -1,0 +1,21 @@
+I"�<p><a href="https://programmers.co.kr/learn/courses/30/lessons/12947">문제</a></p>
+
+<h2 id="접근하기">접근하기</h2>
+
+<p>주어진 수의 각 자릿수의 합으로 나누어 떨어지면 하샤드 수이며, <code class="language-plaintext highlighter-rouge">true</code>를 반환하고 하샤드 수가 아니면 <code class="language-plaintext highlighter-rouge">false</code>를 반환한다.</p>
+
+<p><br /></p>
+
+<h2 id="내-코드">내 코드</h2>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">solution</span><span class="p">(</span><span class="nx">x</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">let</span> <span class="nx">arr</span> <span class="o">=</span> <span class="nb">String</span><span class="p">(</span><span class="nx">x</span><span class="p">).</span><span class="nx">split</span><span class="p">(</span><span class="dl">''</span><span class="p">);</span>
+  <span class="kd">let</span> <span class="nx">sum</span> <span class="o">=</span> <span class="nx">arr</span><span class="p">.</span><span class="nx">reduce</span><span class="p">((</span><span class="nx">acc</span><span class="p">,</span> <span class="nx">cur</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nb">parseInt</span><span class="p">(</span><span class="nx">acc</span><span class="p">)</span> <span class="o">+</span> <span class="nb">parseInt</span><span class="p">(</span><span class="nx">cur</span><span class="p">));</span>
+  <span class="k">return</span> <span class="nx">x</span> <span class="o">%</span> <span class="nx">sum</span> <span class="o">===</span> <span class="mi">0</span> <span class="p">?</span> <span class="kc">true</span> <span class="p">:</span> <span class="kc">false</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<ol>
+  <li>각 자릿수를 배열로 변경하고 각 자릿수를 더해 나뉘면 <code class="language-plaintext highlighter-rouge">true</code>를, 아니면 <code class="language-plaintext highlighter-rouge">false</code>를 반환한다.</li>
+</ol>
+:ET
