@@ -1,0 +1,56 @@
+I"�<p><a href="https://leetcode.com/problems/count-the-number-of-consistent-strings/">문제</a></p>
+
+<h2 id="접근하기">접근하기</h2>
+
+<p><code class="language-plaintext highlighter-rouge">allowed</code>라는 문자열이 주어지고, <code class="language-plaintext highlighter-rouge">words</code>라는 문자열 배열이 주어진다. <code class="language-plaintext highlighter-rouge">words</code>의 문자열 배열 중 문자열 원소가 <code class="language-plaintext highlighter-rouge">allowed</code>의 모든 문자가 일치하면 일치한 문자열의 원소 수를 반환한다.</p>
+
+<p><br /></p>
+
+<h2 id="내-풀이">내 풀이</h2>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">countConsistentStrings</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">allowed</span><span class="p">,</span> <span class="nx">words</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">let</span> <span class="nx">arrAllowed</span> <span class="o">=</span> <span class="nx">allowed</span><span class="p">.</span><span class="nx">split</span><span class="p">(</span><span class="dl">''</span><span class="p">);</span>
+  <span class="kd">let</span> <span class="nx">answer</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+  <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">words</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">let</span> <span class="nx">stack</span> <span class="o">=</span> <span class="p">[];</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">j</span> <span class="o">&lt;</span> <span class="nx">words</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">length</span><span class="p">;</span> <span class="nx">j</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">if</span> <span class="p">(</span><span class="nx">arrAllowed</span><span class="p">.</span><span class="nx">includes</span><span class="p">(</span><span class="nx">words</span><span class="p">[</span><span class="nx">i</span><span class="p">][</span><span class="nx">j</span><span class="p">]))</span> <span class="nx">stack</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">stack</span><span class="p">.</span><span class="nx">length</span> <span class="o">===</span> <span class="nx">words</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">length</span><span class="p">)</span> <span class="nx">answer</span><span class="o">++</span><span class="p">;</span>
+  <span class="p">}</span>
+  <span class="k">return</span> <span class="nx">answer</span><span class="p">;</span>
+<span class="p">};</span>
+</code></pre></div></div>
+
+<ol>
+  <li>먼저 문자열 <code class="language-plaintext highlighter-rouge">allowed</code>를 각각의 문자로 떨어뜨려 배열로 만든다.</li>
+  <li><code class="language-plaintext highlighter-rouge">words</code>문자열 배열을 2중for문을 이용해서 <code class="language-plaintext highlighter-rouge">allowed</code>의 문자열에 포함되는지 확인한다.</li>
+  <li>만약 포함된다면 <code class="language-plaintext highlighter-rouge">stack</code>에 임의의 원소를 집어넣고, 포함되지 않는다면 무시한다.</li>
+  <li>문자열 하나가 끝나면 <code class="language-plaintext highlighter-rouge">stack</code>의 길이와 끝난 문자열의 길이를 비교해서 일치한다면 <code class="language-plaintext highlighter-rouge">words</code> 문자열 배열의 한 원소(문자열)가 <code class="language-plaintext highlighter-rouge">allowed</code> 문자열에 모두 포함된다는 것이기 때문에 <code class="language-plaintext highlighter-rouge">count</code>를 증가시킨다.</li>
+</ol>
+
+<h2 id="다른-풀이">다른 풀이</h2>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">countConsistentStrings</span> <span class="o">=</span> <span class="p">(</span><span class="nx">allowed</span><span class="p">,</span> <span class="nx">words</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="kd">const</span> <span class="nx">allowedSet</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Set</span><span class="p">(</span><span class="nx">allowed</span><span class="p">);</span>
+
+  <span class="k">return</span> <span class="nx">words</span><span class="p">.</span><span class="nx">reduce</span><span class="p">((</span><span class="nx">count</span><span class="p">,</span> <span class="nx">word</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kd">const</span> <span class="nx">char</span> <span class="k">of</span> <span class="nx">word</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">allowedSet</span><span class="p">.</span><span class="nx">has</span><span class="p">(</span><span class="nx">char</span><span class="p">))</span> <span class="p">{</span>
+        <span class="nx">count</span><span class="o">--</span><span class="p">;</span>
+        <span class="k">break</span><span class="p">;</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="k">return</span> <span class="nx">count</span><span class="p">;</span>
+  <span class="p">},</span> <span class="nx">words</span><span class="p">.</span><span class="nx">length</span><span class="p">);</span>
+<span class="p">};</span>
+</code></pre></div></div>
+
+<ol>
+  <li>같은 문자가 중복된 것은 의미없기 때문에 <code class="language-plaintext highlighter-rouge">Set</code>을 이용해서 중복을 제거한다.</li>
+  <li><code class="language-plaintext highlighter-rouge">words</code> 문자열 배열을 <code class="language-plaintext highlighter-rouge">reduce</code>를 이용해 순회한다. 여기서 <code class="language-plaintext highlighter-rouge">count</code> 변수는 <code class="language-plaintext highlighter-rouge">words.length</code>로 초기화한다.</li>
+  <li>이제 <code class="language-plaintext highlighter-rouge">words</code>문자열 배열의 원소인 문자열을 <code class="language-plaintext highlighter-rouge">char of word</code>로 순회한다.</li>
+  <li>중복을 제거한 <code class="language-plaintext highlighter-rouge">allowedSet</code>에 <code class="language-plaintext highlighter-rouge">word</code>가 포함되어 있지 않다면 <code class="language-plaintext highlighter-rouge">count</code>를 감소시킨다.</li>
+</ol>
+:ET
