@@ -1,0 +1,22 @@
+I"�<p><a href="https://programmers.co.kr/learn/courses/30/lessons/12901#">문제</a></p>
+
+<h2 id="접근하기">접근하기</h2>
+
+<p>2016년도의 월과 일이 주어지면 해당 요일을 반환하는 문제이다.</p>
+
+<p><br /></p>
+
+<h2 id="내-코드">내 코드</h2>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">solution</span><span class="p">(</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">const</span> <span class="nx">days</span> <span class="o">=</span> <span class="p">[</span><span class="dl">'</span><span class="s1">FRI</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">SAT</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">SUN</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">MON</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">TUE</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">WED</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">THU</span><span class="dl">'</span><span class="p">];</span>
+  <span class="kd">const</span> <span class="nx">month</span> <span class="o">=</span> <span class="p">[</span><span class="mi">31</span><span class="p">,</span> <span class="mi">29</span><span class="p">,</span> <span class="mi">31</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">31</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">31</span><span class="p">,</span> <span class="mi">31</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">31</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">31</span><span class="p">];</span>
+  <span class="kd">let</span> <span class="nx">sum</span> <span class="o">=</span> <span class="nx">b</span><span class="p">;</span>
+  <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">a</span> <span class="o">-</span> <span class="mi">1</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">sum</span> <span class="o">+=</span> <span class="nx">month</span><span class="p">[</span><span class="nx">i</span><span class="p">];</span>
+  <span class="p">}</span>
+  <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="p">(</span><span class="nx">sum</span> <span class="o">%</span> <span class="mi">7</span><span class="p">))</span> <span class="k">return</span> <span class="nx">days</span><span class="p">[</span><span class="mi">6</span><span class="p">];</span>
+  <span class="k">else</span> <span class="k">return</span> <span class="nx">days</span><span class="p">[(</span><span class="nx">sum</span> <span class="o">%</span> <span class="mi">7</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">];</span>
+<span class="p">}</span>
+</code></pre></div></div>
+:ET
