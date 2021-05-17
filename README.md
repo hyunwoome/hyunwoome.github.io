@@ -10,19 +10,21 @@
 <details>
 <summary>Easy</summary>
 <br>
-+ #1844. Replace All Digits with Characters
-+ #1822. Sign of the Product of an Array
-+ #1534. Count Good Triplets
-+ #1588. Sum of All Odd Length Subarrays
-+ #1684. Count the Number of Consistent Strings
-+ #1688. Count of Matches in Tournament
-+ #1732. Find the Highest Altitude
-+ #1266. Minimum Time Visiting All Points
-+ #1816. Truncate Sentence
-+ #804. Unique Morse Code Words
-+ #1021. Remove Outermost Parentheses
-+ #1704. Determine if String Halves Are Alike
-+ #1827. Minimum Operations to Make the Array Increasing
+
+- #1844. Replace All Digits with Characters
+- #1822. Sign of the Product of an Array
+- #1534. Count Good Triplets
+- #1588. Sum of All Odd Length Subarrays
+- #1684. Count the Number of Consistent Strings
+- #1688. Count of Matches in Tournament
+- #1732. Find the Highest Altitude
+- #1266. Minimum Time Visiting All Points
+- #1816. Truncate Sentence
+- #804. Unique Morse Code Words
+- #1021. Remove Outermost Parentheses
+- #1704. Determine if String Halves Are Alike
+- #1827. Minimum Operations to Make the Array Increasing
+
 </details>
 
 ### Programmers
