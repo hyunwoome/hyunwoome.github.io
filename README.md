@@ -7,9 +7,7 @@
 
 ### LeetCode
 
-<details>
-<summary>Easy</summary>
-<br>
+#### Easy
 
 - #1844. Replace All Digits with Characters
 - #1822. Sign of the Product of an Array
@@ -24,8 +22,6 @@
 - #1021. Remove Outermost Parentheses
 - #1704. Determine if String Halves Are Alike
 - #1827. Minimum Operations to Make the Array Increasing
-
-</details>
 
 ### Programmers
 
