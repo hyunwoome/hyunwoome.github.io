@@ -1,0 +1,33 @@
+I"�<p><a href="https://programmers.co.kr/learn/courses/30/lessons/12915">문제</a></p>
+
+<h2 id="접근하기">접근하기</h2>
+
+<p>주어진 문자열 배열에서 각 문자열의 인덱스를 가리키는 <code class="language-plaintext highlighter-rouge">n</code>을 기준으로 문자열을 정렬하여 반환한다.</p>
+
+<p><br /></p>
+
+<h2 id="내-코드">내 코드</h2>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">solution</span><span class="p">(</span><span class="nx">strings</span><span class="p">,</span> <span class="nx">n</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">answer</span> <span class="o">=</span> <span class="p">[];</span>
+  <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">strings</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">let</span> <span class="nx">index</span> <span class="o">=</span> <span class="nx">strings</span><span class="p">[</span><span class="nx">i</span><span class="p">][</span><span class="nx">n</span><span class="p">];</span>
+    <span class="nx">strings</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="o">=</span> <span class="nx">index</span> <span class="o">+</span> <span class="nx">strings</span><span class="p">[</span><span class="nx">i</span><span class="p">];</span>
+  <span class="p">}</span>
+  <span class="nx">strings</span><span class="p">.</span><span class="nx">sort</span><span class="p">();</span>
+  <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">strings</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">strings</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="o">=</span> <span class="nx">strings</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">replace</span><span class="p">(</span><span class="nx">strings</span><span class="p">[</span><span class="nx">i</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span> <span class="dl">''</span><span class="p">);</span>
+    <span class="nx">answer</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">strings</span><span class="p">[</span><span class="nx">i</span><span class="p">]);</span>
+  <span class="p">}</span>
+  <span class="k">return</span> <span class="nx">answer</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<ol>
+  <li>먼저 주어진 문자열 배열을 순회한다.</li>
+  <li><code class="language-plaintext highlighter-rouge">n</code>이 가리키는 인덱스의 문자를 가져와서 기존 문자열 앞에 더한다.</li>
+  <li>예를 들어, <code class="language-plaintext highlighter-rouge">sun</code>이라는 문자열에 <code class="language-plaintext highlighter-rouge">n</code>이 <code class="language-plaintext highlighter-rouge">1</code>이면 1번 인덱스인 <code class="language-plaintext highlighter-rouge">u</code>를 가져와 <code class="language-plaintext highlighter-rouge">usun</code>이 되게 만드는 것이다. 이유는 <code class="language-plaintext highlighter-rouge">sort()</code>를 하기 위해서이다.</li>
+  <li>변환된 문자열을 정렬(<code class="language-plaintext highlighter-rouge">sort()</code>)하고 정렬이 된 후 다시 앞에 있는 글자를 빼야한다.</li>
+  <li><code class="language-plaintext highlighter-rouge">replace()</code>는 보통 정규식을 사용할 때 많이 사용하는데, 일반적인 문자열도 인수로 받을 수 있다. <code class="language-plaintext highlighter-rouge">replace(변경해야할 값, 변경할 값)</code>으로 문자열의 0번 인덱스를 빈 문자열로 교체한 후 반환한다.</li>
+</ol>
+:ET

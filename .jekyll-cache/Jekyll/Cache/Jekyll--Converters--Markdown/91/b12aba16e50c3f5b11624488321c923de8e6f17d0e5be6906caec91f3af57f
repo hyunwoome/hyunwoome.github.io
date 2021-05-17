@@ -1,0 +1,27 @@
+I"�<p><a href="https://programmers.co.kr/learn/courses/30/lessons/12935">문제</a></p>
+
+<h2 id="접근하기">접근하기</h2>
+
+<p>주어진 배열에서 제일 작은수를 가진 원소만 제거 후 반환한다. 만약 배열의 원소 개수가 1개뿐이라면 바로 -1을 반환한다.</p>
+
+<p><br /></p>
+
+<h2 id="내-코드">내 코드</h2>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">solution</span><span class="p">(</span><span class="nx">arr</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">arr</span><span class="p">.</span><span class="nx">length</span> <span class="o">!==</span> <span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">let</span> <span class="nx">minIdx</span> <span class="o">=</span> <span class="nx">arr</span><span class="p">.</span><span class="nx">indexOf</span><span class="p">(</span><span class="nb">Math</span><span class="p">.</span><span class="nx">min</span><span class="p">(...</span><span class="nx">arr</span><span class="p">));</span>
+    <span class="nx">arr</span><span class="p">.</span><span class="nx">splice</span><span class="p">(</span><span class="nx">minIdx</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
+    <span class="k">return</span> <span class="nx">arr</span><span class="p">;</span>
+  <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">];</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<ol>
+  <li>배열의 길이가 1개라면 바로 <code class="language-plaintext highlighter-rouge">[-1]</code>을 반환한다.</li>
+  <li>그렇지 않다면, 배열의 최소값과 동시에 인덱스를 찾고,</li>
+  <li><code class="language-plaintext highlighter-rouge">splice()</code>를 사용해 배열을 제거한 후 제거된 원래 배열을 반환한다.</li>
+</ol>
+:ET

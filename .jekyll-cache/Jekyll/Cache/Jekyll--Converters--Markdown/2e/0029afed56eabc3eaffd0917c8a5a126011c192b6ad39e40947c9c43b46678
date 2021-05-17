@@ -1,0 +1,27 @@
+I"C<p><a href="https://programmers.co.kr/learn/courses/30/lessons/12916">문제</a></p>
+
+<h2 id="접근하기">접근하기</h2>
+
+<p>주어진 문자열에서 <code class="language-plaintext highlighter-rouge">p</code>와 <code class="language-plaintext highlighter-rouge">y</code>의 개수가 동일하면 <code class="language-plaintext highlighter-rouge">true</code>, 아니면 <code class="language-plaintext highlighter-rouge">false</code>를 반환한다.</p>
+
+<p><br /></p>
+
+<h2 id="내-코드">내 코드</h2>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">solution</span><span class="p">(</span><span class="nx">s</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">const</span> <span class="nx">lowerCase</span> <span class="o">=</span> <span class="nx">s</span><span class="p">.</span><span class="nx">split</span><span class="p">(</span><span class="dl">''</span><span class="p">).</span><span class="nx">map</span><span class="p">((</span><span class="nx">el</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">el</span><span class="p">.</span><span class="nx">toLowerCase</span><span class="p">());</span>
+  <span class="kd">let</span> <span class="nx">p</span> <span class="o">=</span> <span class="p">[];</span>
+  <span class="kd">let</span> <span class="nx">y</span> <span class="o">=</span> <span class="p">[];</span>
+  <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">lowerCase</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">lowerCase</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="o">===</span> <span class="dl">'</span><span class="s1">p</span><span class="dl">'</span><span class="p">)</span> <span class="nx">p</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">lowerCase</span><span class="p">[</span><span class="nx">i</span><span class="p">]);</span>
+    <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">lowerCase</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="o">===</span> <span class="dl">'</span><span class="s1">y</span><span class="dl">'</span><span class="p">)</span> <span class="nx">y</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">lowerCase</span><span class="p">[</span><span class="nx">i</span><span class="p">]);</span>
+  <span class="p">}</span>
+  <span class="k">return</span> <span class="nx">p</span><span class="p">.</span><span class="nx">length</span> <span class="o">===</span> <span class="nx">y</span><span class="p">.</span><span class="nx">length</span> <span class="p">?</span> <span class="kc">true</span> <span class="p">:</span> <span class="kc">false</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<ol>
+  <li>문자열에서 대문자와 소문자를 통일시키기 위해 모두 소문자로 변경시켰다.</li>
+  <li>변경된 문자열을 순회하면서 <code class="language-plaintext highlighter-rouge">p</code>와 <code class="language-plaintext highlighter-rouge">y</code>를 찾아 배열에 넣고, 각 배열의 길이가 동일하다면 <code class="language-plaintext highlighter-rouge">true</code>를, 아니면 <code class="language-plaintext highlighter-rouge">false</code>를 반환한다.</li>
+</ol>
+:ET
