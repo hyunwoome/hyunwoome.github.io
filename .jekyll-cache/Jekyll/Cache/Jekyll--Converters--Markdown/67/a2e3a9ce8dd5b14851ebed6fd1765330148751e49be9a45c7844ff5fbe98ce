@@ -1,0 +1,35 @@
+I"_<blockquote>
+  <p>이 포스팅은 이웅모님의 <a href="https://wikibook.co.kr/mjs/">JavaScript Deep Dive</a>를 읽고 정리한 내용입니다.</p>
+</blockquote>
+
+<p><br /></p>
+
+<h2 id="1-값">1. 값</h2>
+
+<ul>
+  <li><strong>값은 식(표현식, expression)이 평가(evaluate)되어 생성된 결과</strong></li>
+</ul>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// 10 + 20은 평가되어 30을 생성</span>
+<span class="mi">10</span> <span class="o">+</span> <span class="mi">20</span><span class="p">;</span> <span class="c1">// 30</span>
+
+<span class="c1">// 변수에는 10 + 20이 평가되어 생성된 숫자 30이 할당</span>
+<span class="kd">var</span> <span class="nx">sum</span> <span class="o">=</span> <span class="mi">10</span> <span class="o">+</span> <span class="mi">20</span><span class="p">;</span> <span class="c1">// var sum = 30</span>
+</code></pre></div></div>
+
+<ul>
+  <li>즉, 할당되기 이전, 평가 가능한 식은 평가하여 값으로 만든 후 할당된다.</li>
+</ul>
+
+<p><br /></p>
+
+<h2 id="2-리터럴">2. 리터럴</h2>
+
+<ul>
+  <li><strong>리터럴(literal)은 사람이 이해할 수 있는 문자 또는 약속된 기호를 사용해 값을 생성하는 표기법(notation)</strong></li>
+</ul>
+
+<p><br /></p>
+
+<h2 id="3-표현식">3. 표현식</h2>
+:ET
