@@ -26,6 +26,9 @@
 - #832. Flipping an Image
 - #1725. Number Of Rectangles That Can Form The Largest Square
 - #1323. Maximum 69 Number
+- #1812. Determine Color of a Chessboard Square
+- #1572. Matrix Diagonal Sum
+- #1309. Decrypt String from Alphabet to Integer Mapping
 
 ### Programmers
 
