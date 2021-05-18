@@ -24,6 +24,7 @@
 - #1827. Minimum Operations to Make the Array Increasing
 - #1252. Cells with Odd Values in a Matrix
 - #832. Flipping an Image
+- #1725. Number Of Rectangles That Can Form The Largest Square
 
 ### Programmers
 
