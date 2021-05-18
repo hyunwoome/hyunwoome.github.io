@@ -22,6 +22,7 @@
 - #1021. Remove Outermost Parentheses
 - #1704. Determine if String Halves Are Alike
 - #1827. Minimum Operations to Make the Array Increasing
+- #1252. Cells with Odd Values in a Matrix
 
 ### Programmers
 
