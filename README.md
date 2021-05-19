@@ -30,6 +30,8 @@
 - #1572. Matrix Diagonal Sum
 - #1309. Decrypt String from Alphabet to Integer Mapping
 - #1436. Destination City
+- #1464. Maximum Product of Two Elements in an Array
+- #1374. Generate a String With Characters That Have Odd Counts
 
 ### Programmers
 
