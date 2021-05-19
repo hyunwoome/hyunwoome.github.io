@@ -29,6 +29,7 @@
 - #1812. Determine Color of a Chessboard Square
 - #1572. Matrix Diagonal Sum
 - #1309. Decrypt String from Alphabet to Integer Mapping
+- #1436. Destination City
 
 ### Programmers
 
