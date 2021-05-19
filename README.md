@@ -33,6 +33,7 @@
 - #1464. Maximum Product of Two Elements in an Array
 - #1374. Generate a String With Characters That Have Odd Counts
 - #1450. Number of Students Doing Homework at a Given Time
+- #1304. Find N Unique Integers Sum up to Zero
 
 ### Programmers
 
