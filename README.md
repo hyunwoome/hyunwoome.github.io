@@ -38,6 +38,7 @@
 - #1351. Count Negative Numbers in a Sorted Matrix
 - #1475. Final Prices With a Special Discount in a Shop
 - #905. Sort Array By Parity
+- #961. N-Repeated Element in Size 2N Array
 
 ### Programmers
 
