@@ -35,6 +35,7 @@
 - #1450. Number of Students Doing Homework at a Given Time
 - #1304. Find N Unique Integers Sum up to Zero
 - #728. Self Dividing Numbers
+- #1351. Count Negative Numbers in a Sorted Matrix
 
 ### Programmers
 
