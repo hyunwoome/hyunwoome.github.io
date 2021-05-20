@@ -36,6 +36,8 @@
 - #1304. Find N Unique Integers Sum up to Zero
 - #728. Self Dividing Numbers
 - #1351. Count Negative Numbers in a Sorted Matrix
+- #1475. Final Prices With a Special Discount in a Shop
+- #905. Sort Array By Parity
 
 ### Programmers
 
