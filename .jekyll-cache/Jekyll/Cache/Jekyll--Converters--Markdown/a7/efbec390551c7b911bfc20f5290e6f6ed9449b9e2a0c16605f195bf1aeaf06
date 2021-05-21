@@ -1,0 +1,20 @@
+I"?<p><a href="https://programmers.co.kr/learn/courses/30/lessons/76501">문제</a></p>
+
+<h2 id="접근하기">접근하기</h2>
+
+<p>정수 배열과 불리언 배열이 주어진다. 불리언의 인덱스 값에 따라 정수 배열의 부호를 바꿔서 더하는데, <code class="language-plaintext highlighter-rouge">true</code>라면 양수, <code class="language-plaintext highlighter-rouge">false</code>라면 음수로 더해준다.</p>
+
+<p><br /></p>
+
+<h2 id="내-코드">내 코드</h2>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">solution</span><span class="p">(</span><span class="nx">absolutes</span><span class="p">,</span> <span class="nx">signs</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">let</span> <span class="nx">answer</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+  <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">absolutes</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">signs</span><span class="p">[</span><span class="nx">i</span><span class="p">])</span> <span class="nx">answer</span> <span class="o">+=</span> <span class="nx">absolutes</span><span class="p">[</span><span class="nx">i</span><span class="p">];</span>
+    <span class="k">else</span> <span class="nx">answer</span> <span class="o">+=</span> <span class="o">-</span><span class="nx">absolutes</span><span class="p">[</span><span class="nx">i</span><span class="p">];</span>
+  <span class="p">}</span>
+  <span class="k">return</span> <span class="nx">answer</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+:ET

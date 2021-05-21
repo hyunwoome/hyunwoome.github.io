@@ -1,0 +1,30 @@
+I"�<p><a href="https://programmers.co.kr/learn/courses/30/lessons/12982">문제</a></p>
+
+<h2 id="접근하기">접근하기</h2>
+
+<p><code class="language-plaintext highlighter-rouge">d</code>라는 정수형 배열을 순회하면서 <code class="language-plaintext highlighter-rouge">budget</code>을 넘지 않을 정도로 최대한 많이 더할 수 있는 수의 개수를 반환한다.</p>
+
+<p><br /></p>
+
+<h2 id="내-코드">내 코드</h2>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">solution</span><span class="p">(</span><span class="nx">d</span><span class="p">,</span> <span class="nx">budget</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">let</span> <span class="nx">sortArr</span> <span class="o">=</span> <span class="nx">d</span><span class="p">.</span><span class="nx">sort</span><span class="p">((</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">a</span> <span class="o">-</span> <span class="nx">b</span><span class="p">);</span>
+  <span class="kd">let</span> <span class="nx">value</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+  <span class="kd">let</span> <span class="nx">answer</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+  <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">sortArr</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">value</span> <span class="o">+=</span> <span class="nx">sortArr</span><span class="p">[</span><span class="nx">i</span><span class="p">];</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">value</span> <span class="o">&lt;=</span> <span class="nx">budget</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">answer</span><span class="o">++</span><span class="p">;</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+  <span class="k">return</span> <span class="nx">answer</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<ol>
+  <li>최대한 많은 숫자를 더하기 위해선 낮은 숫자부터 더한다. 낮은 숫자부터 더하기 위해 <code class="language-plaintext highlighter-rouge">d</code>배열을 오름차순으로 정렬한다.</li>
+  <li>정렬된 배열을 순회하면서 각 요소를 더해준다.</li>
+  <li>예산을 넘어서기 전까지 더한다. 넘어서면 조건문을 타지 않도록 한다.</li>
+</ol>
+:ET

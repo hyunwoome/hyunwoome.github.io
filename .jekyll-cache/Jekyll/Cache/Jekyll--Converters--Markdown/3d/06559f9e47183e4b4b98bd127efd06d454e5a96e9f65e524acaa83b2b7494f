@@ -1,0 +1,59 @@
+I"�<p><a href="https://programmers.co.kr/learn/courses/30/lessons/77484">문제</a></p>
+
+<h2 id="접근하기">접근하기</h2>
+
+<p>숫자가 가려진(0으로 된) 로또 번호 배열 <code class="language-plaintext highlighter-rouge">lottos</code>와 당첨 번호를 나타내는 <code class="language-plaintext highlighter-rouge">win_nums</code>가 주어진다.</p>
+
+<p><code class="language-plaintext highlighter-rouge">win_nums</code>와 비교해 맞은 숫자와 가려진 숫자를 맞은 숫자로 해서 최저 순위와 최고 순위를 반환한다.</p>
+
+<p><br /></p>
+
+<h2 id="내-코드">내 코드</h2>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">solution</span><span class="p">(</span><span class="nx">lottos</span><span class="p">,</span> <span class="nx">win_nums</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">let</span> <span class="nx">max</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+  <span class="kd">let</span> <span class="nx">min</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+  <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">lottos</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">lottos</span><span class="p">.</span><span class="nx">includes</span><span class="p">(</span><span class="nx">win_nums</span><span class="p">[</span><span class="nx">i</span><span class="p">]))</span> <span class="p">{</span>
+      <span class="nx">max</span><span class="o">++</span><span class="p">,</span> <span class="nx">min</span><span class="o">++</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">lottos</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="o">===</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">max</span><span class="o">++</span><span class="p">;</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+  <span class="kd">function</span> <span class="nx">rank</span><span class="p">(</span><span class="nx">num</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">let</span> <span class="nx">answer</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="k">switch</span> <span class="p">(</span><span class="nx">num</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">case</span> <span class="mi">6</span><span class="p">:</span>
+        <span class="nx">answer</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+        <span class="k">break</span><span class="p">;</span>
+      <span class="k">case</span> <span class="mi">5</span><span class="p">:</span>
+        <span class="nx">answer</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+        <span class="k">break</span><span class="p">;</span>
+      <span class="k">case</span> <span class="mi">4</span><span class="p">:</span>
+        <span class="nx">answer</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>
+        <span class="k">break</span><span class="p">;</span>
+      <span class="k">case</span> <span class="mi">3</span><span class="p">:</span>
+        <span class="nx">answer</span> <span class="o">=</span> <span class="mi">4</span><span class="p">;</span>
+        <span class="k">break</span><span class="p">;</span>
+      <span class="k">case</span> <span class="mi">2</span><span class="p">:</span>
+        <span class="nx">answer</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>
+        <span class="k">break</span><span class="p">;</span>
+      <span class="nl">default</span><span class="p">:</span>
+        <span class="nx">answer</span> <span class="o">=</span> <span class="mi">6</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="nx">answer</span><span class="p">;</span>
+  <span class="p">}</span>
+  <span class="kd">let</span> <span class="nx">answer</span> <span class="o">=</span> <span class="p">[];</span>
+  <span class="nx">answer</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">rank</span><span class="p">(</span><span class="nx">max</span><span class="p">));</span>
+  <span class="nx">answer</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">rank</span><span class="p">(</span><span class="nx">min</span><span class="p">));</span>
+  <span class="k">return</span> <span class="nx">answer</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<ol>
+  <li><code class="language-plaintext highlighter-rouge">lottos</code>의 배열을 순회하면서, <code class="language-plaintext highlighter-rouge">lottos</code>에 <code class="language-plaintext highlighter-rouge">win_nums</code>의 수가 들어있다면, 로또번호가 일치하기 때문에 <code class="language-plaintext highlighter-rouge">min</code>과 <code class="language-plaintext highlighter-rouge">max</code>를 증가시킨다.</li>
+  <li><code class="language-plaintext highlighter-rouge">lottos</code>에 0인 숫자는 가려진 숫자이다. 0은 다 맞는걸로 취급하기 때문에 <code class="language-plaintext highlighter-rouge">max</code>값을 증가시킨다.</li>
+  <li>각각의 값을 <code class="language-plaintext highlighter-rouge">switch</code>문을 통해 등수로 전환 후 반환한다.</li>
+</ol>
+:ET

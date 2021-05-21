@@ -1,0 +1,25 @@
+I"�	<p><a href="https://leetcode.com/problems/maximum-product-of-two-elements-in-an-array/">문제</a></p>
+
+<h2 id="접근하기">접근하기</h2>
+
+<p>정수형 배열이 주어진다. 첫 번째로 큰 수를 뽑고, 그 다음 큰 수를 뽑은 후 각각 1을 빼고 곱한 수를 반환한다.</p>
+
+<p><br /></p>
+
+<h2 id="내-코드">내 코드</h2>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">maxProduct</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">nums</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">const</span> <span class="nx">maxOne</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">max</span><span class="p">(...</span><span class="nx">nums</span><span class="p">);</span>
+  <span class="kd">const</span> <span class="nx">maxIndex</span> <span class="o">=</span> <span class="nx">nums</span><span class="p">.</span><span class="nx">indexOf</span><span class="p">(</span><span class="nx">maxOne</span><span class="p">);</span>
+  <span class="nx">nums</span><span class="p">.</span><span class="nx">splice</span><span class="p">(</span><span class="nx">maxIndex</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
+  <span class="kd">const</span> <span class="nx">maxTwo</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">max</span><span class="p">(...</span><span class="nx">nums</span><span class="p">);</span>
+  <span class="k">return</span> <span class="p">(</span><span class="nx">maxOne</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="nx">maxTwo</span> <span class="o">-</span> <span class="mi">1</span><span class="p">);</span>
+<span class="p">};</span>
+</code></pre></div></div>
+
+<ol>
+  <li>먼저 주어진 정수형 배열에서 가장 큰 수를 뽑기 위해 <code class="language-plaintext highlighter-rouge">Math.max()</code>함수를 이용한다.</li>
+  <li>그리고 그 수를 배열에서 제거해야 하므로, 해당 인덱스를 구해 <code class="language-plaintext highlighter-rouge">splice()</code>로 제거한다.</li>
+  <li>제거한 배열에서 다시 가장 큰 수를 뽑고 두 수를 1을 뺀 후 곱해서 반환한다.</li>
+</ol>
+:ET

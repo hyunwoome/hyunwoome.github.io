@@ -1,0 +1,32 @@
+I"�<p><a href="https://programmers.co.kr/learn/courses/30/lessons/42748">문제</a></p>
+
+<h2 id="접근하기">접근하기</h2>
+
+<p>배열 <code class="language-plaintext highlighter-rouge">array</code>의 <code class="language-plaintext highlighter-rouge">i</code>번째 숫자부터 <code class="language-plaintext highlighter-rouge">j</code>번째 숫자까지 자르고 정렬했을 때, <code class="language-plaintext highlighter-rouge">k</code>번째에 있는 수를 구한다.</p>
+
+<p><code class="language-plaintext highlighter-rouge">commands</code> 2차원 배열의 각 원소배열들은 <code class="language-plaintext highlighter-rouge">i</code>, <code class="language-plaintext highlighter-rouge">j</code>, <code class="language-plaintext highlighter-rouge">k</code>를 의미한다.</p>
+
+<p><br /></p>
+
+<h2 id="내-코드">내 코드</h2>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">solution</span><span class="p">(</span><span class="nx">array</span><span class="p">,</span> <span class="nx">commands</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">let</span> <span class="nx">answer</span> <span class="o">=</span> <span class="p">[];</span>
+  <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">commands</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">let</span> <span class="nx">start</span> <span class="o">=</span> <span class="nx">commands</span><span class="p">[</span><span class="nx">i</span><span class="p">][</span><span class="mi">0</span><span class="p">];</span>
+    <span class="kd">let</span> <span class="nx">end</span> <span class="o">=</span> <span class="nx">commands</span><span class="p">[</span><span class="nx">i</span><span class="p">][</span><span class="mi">1</span><span class="p">];</span>
+    <span class="kd">let</span> <span class="nx">th</span> <span class="o">=</span> <span class="nx">commands</span><span class="p">[</span><span class="nx">i</span><span class="p">][</span><span class="mi">2</span><span class="p">];</span>
+
+    <span class="kd">let</span> <span class="nx">arr</span> <span class="o">=</span> <span class="nx">array</span><span class="p">.</span><span class="nx">slice</span><span class="p">(</span><span class="nx">start</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="nx">end</span><span class="p">);</span>
+    <span class="kd">let</span> <span class="nx">sortArr</span> <span class="o">=</span> <span class="nx">arr</span><span class="p">.</span><span class="nx">sort</span><span class="p">((</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">a</span> <span class="o">-</span> <span class="nx">b</span><span class="p">);</span>
+    <span class="nx">answer</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">sortArr</span><span class="p">[</span><span class="nx">th</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]);</span>
+  <span class="p">}</span>
+  <span class="k">return</span> <span class="nx">answer</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<ol>
+  <li>for문을 돌면서 <code class="language-plaintext highlighter-rouge">시작</code>과 <code class="language-plaintext highlighter-rouge">끝</code>, <code class="language-plaintext highlighter-rouge">몇번째</code>를 나타내는 각 원소를 먼저 추출한다.</li>
+  <li>그리고 <code class="language-plaintext highlighter-rouge">array</code>를 <code class="language-plaintext highlighter-rouge">시작</code>과 <code class="language-plaintext highlighter-rouge">끝</code>으로 분리하고, 정렬한 뒤, <code class="language-plaintext highlighter-rouge">answer</code>배열에 몇번째의 수를 삽입하여 반환한다.</li>
+</ol>
+:ET

@@ -1,0 +1,28 @@
+I"g<p><a href="https://leetcode.com/problems/flipping-an-image/">문제</a></p>
+
+<h2 id="접근하기">접근하기</h2>
+
+<p>정수형 2차원 배열이 주어진다. 정수를 담고 있는 각각의 배열들을 뒤집고, 0을 1로, 1은 0으로 변경 후 반환한다.</p>
+
+<p><br /></p>
+
+<h2 id="내-코드">내 코드</h2>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">flipAndInvertImage</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">image</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">let</span> <span class="nx">arr</span> <span class="o">=</span> <span class="nx">image</span><span class="p">.</span><span class="nx">map</span><span class="p">((</span><span class="nx">el</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">el</span><span class="p">.</span><span class="nx">reverse</span><span class="p">());</span>
+  <span class="nx">arr</span><span class="p">.</span><span class="nx">forEach</span><span class="p">((</span><span class="nx">num</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">num</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">if</span> <span class="p">(</span><span class="nx">num</span><span class="p">[</span><span class="nx">i</span><span class="p">])</span> <span class="nx">num</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+      <span class="k">else</span> <span class="nx">num</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="p">}</span>
+  <span class="p">});</span>
+  <span class="k">return</span> <span class="nx">arr</span><span class="p">;</span>
+<span class="p">};</span>
+</code></pre></div></div>
+
+<ol>
+  <li>2차원 배열 각 원소에 접근해서(<code class="language-plaintext highlighter-rouge">map</code>) <code class="language-plaintext highlighter-rouge">reverse()</code>로 앞뒤를 바꿔준다.</li>
+  <li>다시 해당 2차원 배열에 <code class="language-plaintext highlighter-rouge">forEach()</code>를 사용해서 내부로 진입한다.</li>
+  <li>내부 정수에 접근하여 만약 0이라면 1을 할당하고 아니면 0을 할당하도록 한다.</li>
+</ol>
+:ET
