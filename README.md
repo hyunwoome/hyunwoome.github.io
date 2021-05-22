@@ -4,6 +4,7 @@
 
 - JavaScript Deep Dive - 1. 변수
 - JavaScript Deep Dive - 2. 표현식과 문
+- JavaScript Deep Dive - 3. 데이터 타입
 
 ### LeetCode
 
@@ -39,6 +40,10 @@
 - #1475. Final Prices With a Special Discount in a Shop
 - #905. Sort Array By Parity
 - #961. N-Repeated Element in Size 2N Array
+- #657. Robot Return to Origin
+- #942. DI String Match
+- #1299. Replace Elements with Greatest Element on Right Side
+- #1748. Sum of Unique Elements
 
 ### Programmers
 
@@ -86,3 +91,4 @@
 - 완주하지 못한 선수
 - 로또의 최고 순위와 최저 순위
 - 폰켓몬
+- 신규 아이디 추천
