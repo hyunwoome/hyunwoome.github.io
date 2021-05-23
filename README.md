@@ -44,6 +44,8 @@
 - #942. DI String Match
 - #1299. Replace Elements with Greatest Element on Right Side
 - #1748. Sum of Unique Elements
+- #561. Array Partition I
+- #1742. Maximum Number of Balls in a Box
 
 ### Programmers
 
