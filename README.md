@@ -48,6 +48,8 @@
 - #1742. Maximum Number of Balls in a Box
 - #557. Reverse Words in a String III
 - #1051. Height Checker
+- #1460. Make Two Arrays Equal by Reversing Sub-arrays
+- #1207. Unique Number of Occurrences
 
 ### Programmers
 
