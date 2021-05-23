@@ -50,6 +50,7 @@
 - #1051. Height Checker
 - #1460. Make Two Arrays Equal by Reversing Sub-arrays
 - #1207. Unique Number of Occurrences
+- #1337. The K Weakest Rows in a Matrix
 
 ### Programmers
 
