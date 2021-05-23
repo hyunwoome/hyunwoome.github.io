@@ -47,6 +47,7 @@
 - #561. Array Partition I
 - #1742. Maximum Number of Balls in a Box
 - #557. Reverse Words in a String III
+- #1051. Height Checker
 
 ### Programmers
 
