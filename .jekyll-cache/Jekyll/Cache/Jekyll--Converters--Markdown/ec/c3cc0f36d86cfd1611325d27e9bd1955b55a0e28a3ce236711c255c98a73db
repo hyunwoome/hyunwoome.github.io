@@ -1,0 +1,40 @@
+I"'<p><a href="https://leetcode.com/problems/merge-strings-alternately/">문제</a></p>
+
+<h2 id="접근하기">접근하기</h2>
+
+<p>두 문자열이 주어진다. 이 문자열을 번갈아 가면서 합치려 한다. 한 쪽의 길이가 작으면 나머지는 더 긴쪽의 문자열로 채운다.</p>
+
+<p><br /></p>
+
+<h2 id="내-코드">내 코드</h2>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">mergeAlternately</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">word1</span><span class="p">,</span> <span class="nx">word2</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">let</span> <span class="nx">answer</span> <span class="o">=</span> <span class="dl">''</span><span class="p">;</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">word1</span><span class="p">.</span><span class="nx">length</span> <span class="o">&gt;=</span> <span class="nx">word2</span><span class="p">.</span><span class="nx">length</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">word1</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">if</span> <span class="p">(</span><span class="nx">word2</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="o">!==</span> <span class="kc">undefined</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">answer</span> <span class="o">+=</span> <span class="nx">word1</span><span class="p">[</span><span class="nx">i</span><span class="p">];</span>
+        <span class="nx">answer</span> <span class="o">+=</span> <span class="nx">word2</span><span class="p">[</span><span class="nx">i</span><span class="p">];</span>
+      <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+        <span class="nx">answer</span> <span class="o">+=</span> <span class="nx">word1</span><span class="p">[</span><span class="nx">i</span><span class="p">];</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+  <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">word2</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">if</span> <span class="p">(</span><span class="nx">word1</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="o">!==</span> <span class="kc">undefined</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">answer</span> <span class="o">+=</span> <span class="nx">word1</span><span class="p">[</span><span class="nx">i</span><span class="p">];</span>
+        <span class="nx">answer</span> <span class="o">+=</span> <span class="nx">word2</span><span class="p">[</span><span class="nx">i</span><span class="p">];</span>
+      <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+        <span class="nx">answer</span> <span class="o">+=</span> <span class="nx">word2</span><span class="p">[</span><span class="nx">i</span><span class="p">];</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+  <span class="k">return</span> <span class="nx">answer</span><span class="p">;</span>
+<span class="p">};</span>
+</code></pre></div></div>
+
+<ol>
+  <li>긴 문자열과 짧은 문자열을 구분한다.</li>
+  <li>짧은 문자열의 길이가 끝나서 <code class="language-plaintext highlighter-rouge">undefined</code>를 반환하면 더 긴 문자열을 추가한다.</li>
+</ol>
+:ET

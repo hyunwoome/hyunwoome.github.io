@@ -1,0 +1,50 @@
+I"�<p><a href="https://leetcode.com/problems/maximum-number-of-balls-in-a-box/">문제</a></p>
+
+<h2 id="접근하기">접근하기</h2>
+
+<p>정수 <code class="language-plaintext highlighter-rouge">lowLimit</code>과 <code class="language-plaintext highlighter-rouge">highLimit</code>이 주어진다. <code class="language-plaintext highlighter-rouge">lowLimit</code>부터 <code class="language-plaintext highlighter-rouge">highLimit</code>까지 수들의 자릿수를 더해서 중복된 숫자가 몇개가 있는지를 반환한다.</p>
+
+<p>예를들어, <code class="language-plaintext highlighter-rouge">lowLimit</code>이 <code class="language-plaintext highlighter-rouge">1</code>이고 <code class="language-plaintext highlighter-rouge">highLimit</code>이 <code class="language-plaintext highlighter-rouge">10</code>이라면,</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">공</span> <span class="nx">숫자</span><span class="p">:</span> <span class="mi">1</span> <span class="mi">2</span> <span class="mi">3</span> <span class="mi">4</span> <span class="mi">5</span> <span class="mi">6</span> <span class="mi">7</span> <span class="mi">8</span> <span class="mi">9</span> <span class="mi">10</span>
+<span class="nx">중복개수</span><span class="p">:</span> <span class="mi">2</span> <span class="mi">1</span> <span class="mi">1</span> <span class="mi">1</span> <span class="mi">1</span> <span class="mi">1</span> <span class="mi">1</span> <span class="mi">1</span> <span class="mi">1</span> <span class="mi">0</span>
+</code></pre></div></div>
+
+<p>이 되며, 1이 두번 나오게 되므로 2를 반환하면 된다.</p>
+
+<p><br /></p>
+
+<h2 id="내-코드">내 코드</h2>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">countBalls</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">lowLimit</span><span class="p">,</span> <span class="nx">highLimit</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">const</span> <span class="nx">sumDigit</span> <span class="o">=</span> <span class="p">(</span><span class="nx">num</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="kd">const</span> <span class="nx">splittedNum</span> <span class="o">=</span> <span class="nx">num</span><span class="p">.</span><span class="nx">toString</span><span class="p">().</span><span class="nx">split</span><span class="p">(</span><span class="dl">''</span><span class="p">);</span>
+    <span class="k">return</span> <span class="nx">splittedNum</span>
+      <span class="p">.</span><span class="nx">map</span><span class="p">((</span><span class="nx">el</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nb">parseInt</span><span class="p">(</span><span class="nx">el</span><span class="p">))</span>
+      <span class="p">.</span><span class="nx">reduce</span><span class="p">((</span><span class="nx">acc</span><span class="p">,</span> <span class="nx">cur</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">acc</span> <span class="o">+</span> <span class="nx">cur</span><span class="p">);</span>
+  <span class="p">};</span>
+
+  <span class="kd">let</span> <span class="nx">arr</span> <span class="o">=</span> <span class="p">[];</span>
+  <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="nx">lowLimit</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;=</span> <span class="nx">highLimit</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">arr</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">sumDigit</span><span class="p">(</span><span class="nx">i</span><span class="p">));</span>
+  <span class="p">}</span>
+
+  <span class="kd">let</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">arr</span><span class="p">.</span><span class="nx">reduce</span><span class="p">((</span><span class="nx">acc</span><span class="p">,</span> <span class="nx">cur</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="nx">acc</span><span class="p">[</span><span class="nx">cur</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="nx">acc</span><span class="p">[</span><span class="nx">cur</span><span class="p">]</span> <span class="o">||</span> <span class="mi">0</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="k">return</span> <span class="nx">acc</span><span class="p">;</span>
+  <span class="p">},</span> <span class="p">{});</span>
+  <span class="kd">let</span> <span class="nx">max</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+  <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">key</span> <span class="k">in</span> <span class="nx">result</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">max</span> <span class="o">&lt;</span> <span class="nx">result</span><span class="p">[</span><span class="nx">key</span><span class="p">])</span> <span class="nx">max</span> <span class="o">=</span> <span class="nx">result</span><span class="p">[</span><span class="nx">key</span><span class="p">];</span>
+  <span class="p">}</span>
+  <span class="k">return</span> <span class="nx">max</span><span class="p">;</span>
+<span class="p">};</span>
+</code></pre></div></div>
+
+<ol>
+  <li><code class="language-plaintext highlighter-rouge">lowLimit</code>부터 <code class="language-plaintext highlighter-rouge">highLimit</code>까지 순회하면서 각 자릿수를 더하기 위해 <code class="language-plaintext highlighter-rouge">sumDigit</code>이란 함수를 정의했다. 이 함수는 숫자를 입력받아 각 배열로 만들고, 각 자릿수를 더해 반환하는 함수이다.</li>
+  <li>각각의 자릿수를 더해 <code class="language-plaintext highlighter-rouge">arr</code>라는 변수에 담았다. 그럼 <code class="language-plaintext highlighter-rouge">arr</code>는 1부터 10기준으로 <code class="language-plaintext highlighter-rouge">[1, 2, 3, 4, 5, 6, 7, 8, 9, 1]</code>이 담기게 된다.</li>
+  <li>이 배열에서 중복된 숫자의 갯수를 가져오기 위해서 <code class="language-plaintext highlighter-rouge">reduce</code>로 객체를 만들어주었다. 키와 값으로 중복된 값이 나오면 +1을 더해서 중복횟수를 찾는다.</li>
+  <li>반환된 객체에서 <code class="language-plaintext highlighter-rouge">max</code>값을 찾기 위해 <code class="language-plaintext highlighter-rouge">for in</code>문으로 객체를 순회한다.</li>
+</ol>
+:ET
