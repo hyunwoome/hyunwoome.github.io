@@ -5,6 +5,7 @@
 - JavaScript Deep Dive - 1. 변수
 - JavaScript Deep Dive - 2. 표현식과 문
 - JavaScript Deep Dive - 3. 데이터 타입
+- JavaScript Deep Dive - 4. 연산자
 
 ### LeetCode
 
@@ -57,6 +58,7 @@
 - #1502. Can Make Arithmetic Progression From Sequence
 - #338. Counting Bits
 - #1356. Sort Integers by The Number of 1 Bits
+- #1441. Build an Array With Stack Operations
 
 ### Programmers
 
