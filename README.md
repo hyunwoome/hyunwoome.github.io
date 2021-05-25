@@ -51,6 +51,12 @@
 - #1460. Make Two Arrays Equal by Reversing Sub-arrays
 - #1207. Unique Number of Occurrences
 - #1337. The K Weakest Rows in a Matrix
+- #944. Delete Columns to Make Sorted
+- #1047. Remove All Adjacent Duplicates In String
+- #1403. Minimum Subsequence in Non-Increasing Order
+- #1502. Can Make Arithmetic Progression From Sequence
+- #338. Counting Bits
+- #1356. Sort Integers by The Number of 1 Bits
 
 ### Programmers
 
@@ -102,3 +108,14 @@
 - 체육복
 - 비밀지도
 - 실패율
+- 크레인 인형뽑기 게임
+
+#### LV2
+
+- 피보나치 수
+- JadenCase 문자열 만들기
+- N개의 최소공배수
+- 행렬의 곱셈
+- 최댓값과 최솟값
+- 최솟값 만들기
+- 숫자의 표현
