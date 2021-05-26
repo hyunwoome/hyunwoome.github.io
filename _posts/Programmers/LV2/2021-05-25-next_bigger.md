@@ -12,7 +12,7 @@ comments: true
 
 <br>
 
-## 참고 코드
+## 내 코드
 
 ```js
 function solution(n) {
