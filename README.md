@@ -59,6 +59,8 @@
 - #338. Counting Bits
 - #1356. Sort Integers by The Number of 1 Bits
 - #1441. Build an Array With Stack Operations
+- #1380. Lucky Numbers in a Matrix
+- #821. Shortest Distance to a Character
 
 ### Programmers
 
