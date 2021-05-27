@@ -62,6 +62,7 @@
 - #1380. Lucky Numbers in a Matrix
 - #821. Shortest Distance to a Character
 - #1710. Maximum Units on a Truck
+- #1002. Find Common Characters
 
 ### Programmers
 
