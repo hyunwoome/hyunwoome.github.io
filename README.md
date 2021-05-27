@@ -63,6 +63,7 @@
 - #821. Shortest Distance to a Character
 - #1710. Maximum Units on a Truck
 - #1002. Find Common Characters
+- #26. Remove Duplicates from Sorted Array
 
 ### Programmers
 
