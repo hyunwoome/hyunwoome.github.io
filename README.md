@@ -64,6 +64,12 @@
 - #1710. Maximum Units on a Truck
 - #1002. Find Common Characters
 - #26. Remove Duplicates from Sorted Array
+- #122. Best Time to Buy and Sell Stock II
+- #217. Contains Duplicate
+
+#### Medium
+
+- #189. Rotate Array
 
 ### Programmers
 
