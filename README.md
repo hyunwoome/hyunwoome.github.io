@@ -70,6 +70,7 @@
 - #66. Plus One
 - #283. Move Zeroes
 - #387. First Unique Character in a String
+- #242. Valid Anagram
 
 #### Medium
 
