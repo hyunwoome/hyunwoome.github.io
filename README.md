@@ -69,10 +69,12 @@
 - #350. Intersection of Two Arrays II
 - #66. Plus One
 - #283. Move Zeroes
+- #387. First Unique Character in a String
 
 #### Medium
 
 - #189. Rotate Array
+- #36. Valid Sudoku
 
 ### Programmers
 
