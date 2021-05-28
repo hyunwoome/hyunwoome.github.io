@@ -67,6 +67,8 @@
 - #122. Best Time to Buy and Sell Stock II
 - #217. Contains Duplicate
 - #350. Intersection of Two Arrays II
+- #66. Plus One
+- #283. Move Zeroes
 
 #### Medium
 
