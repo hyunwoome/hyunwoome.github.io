@@ -72,6 +72,7 @@
 - #387. First Unique Character in a String
 - #242. Valid Anagram
 - #125. Valid Palindrome
+- #14. Longest Common Prefix
 
 #### Medium
 
