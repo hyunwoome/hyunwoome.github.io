@@ -74,6 +74,7 @@
 - #125. Valid Palindrome
 - #14. Longest Common Prefix
 - #1640. Check Array Formation Through Concatenation
+- #929. Unique Email Addresses
 
 #### Medium
 
