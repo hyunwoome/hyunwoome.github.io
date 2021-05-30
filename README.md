@@ -73,6 +73,7 @@
 - #242. Valid Anagram
 - #125. Valid Palindrome
 - #14. Longest Common Prefix
+- #1640. Check Array Formation Through Concatenation
 
 #### Medium
 
