@@ -75,6 +75,7 @@
 - #14. Longest Common Prefix
 - #1640. Check Array Formation Through Concatenation
 - #929. Unique Email Addresses
+- #1491. Average Salary Excluding the Minimum and Maximum Salary
 
 #### Medium
 
@@ -150,5 +151,6 @@
 - 전화번호목록
 - 기능개발
 - 가장 큰 수
+- H-Index
 
 #### LV3
