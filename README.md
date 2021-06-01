@@ -79,6 +79,7 @@
 - #1876. Substrings of Size Three with Distinct Characters
 - #1455. Check If a Word Occurs As a Prefix of Any Word in a Sentence
 - #1694. Reformat Phone Number
+- #1408. String Matching in an Array
 
 #### Medium
 
