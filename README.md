@@ -76,6 +76,7 @@
 - #1640. Check Array Formation Through Concatenation
 - #929. Unique Email Addresses
 - #1491. Average Salary Excluding the Minimum and Maximum Salary
+- #1876. Substrings of Size Three with Distinct Characters
 
 #### Medium
 
