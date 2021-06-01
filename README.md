@@ -78,6 +78,7 @@
 - #1491. Average Salary Excluding the Minimum and Maximum Salary
 - #1876. Substrings of Size Three with Distinct Characters
 - #1455. Check If a Word Occurs As a Prefix of Any Word in a Sentence
+- #1694. Reformat Phone Number
 
 #### Medium
 
