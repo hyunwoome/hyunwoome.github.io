@@ -1,0 +1,28 @@
+I",<p><a href="https://leetcode.com/problems/intersection-of-two-arrays/">문제</a></p>
+
+<h2 id="접근하기">접근하기</h2>
+
+<p>숫자형 배열 <code class="language-plaintext highlighter-rouge">nums1</code>과 <code class="language-plaintext highlighter-rouge">nums2</code>가 주어진다. 두 배열의 원소중 공통된 원소를 반환한다.</p>
+
+<p><br /></p>
+
+<h2 id="참고-코드">참고 코드</h2>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">intersection</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">nums1</span><span class="p">,</span> <span class="nx">nums2</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">const</span> <span class="nx">setNums1</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Set</span><span class="p">(</span><span class="nx">nums1</span><span class="p">);</span>
+  <span class="kd">const</span> <span class="nx">setNums2</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Set</span><span class="p">(</span><span class="nx">nums2</span><span class="p">);</span>
+  <span class="kd">const</span> <span class="nx">arrNums1</span> <span class="o">=</span> <span class="nb">Array</span><span class="p">.</span><span class="k">from</span><span class="p">(</span><span class="nx">setNums1</span><span class="p">);</span>
+  <span class="kd">const</span> <span class="nx">arrNums2</span> <span class="o">=</span> <span class="nb">Array</span><span class="p">.</span><span class="k">from</span><span class="p">(</span><span class="nx">setNums2</span><span class="p">);</span>
+  <span class="kd">const</span> <span class="nx">answer</span> <span class="o">=</span> <span class="p">[];</span>
+  <span class="k">for</span> <span class="p">(</span><span class="kd">const</span> <span class="nx">number</span> <span class="k">of</span> <span class="nx">arrNums1</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">arrNums2</span><span class="p">.</span><span class="nx">includes</span><span class="p">(</span><span class="nx">number</span><span class="p">))</span> <span class="nx">answer</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">number</span><span class="p">);</span>
+  <span class="p">}</span>
+  <span class="k">return</span> <span class="nx">answer</span><span class="p">;</span>
+<span class="p">};</span>
+</code></pre></div></div>
+
+<ol>
+  <li>매개변수 두 배열을 <code class="language-plaintext highlighter-rouge">Set</code>을 이용해서 각각의 중복된 수를 제거한다.</li>
+  <li>비교를 위해 다시 배열로 변경 후, <code class="language-plaintext highlighter-rouge">arr2</code>에 <code class="language-plaintext highlighter-rouge">arr1</code>의 원소가 포함되어 있다면 <code class="language-plaintext highlighter-rouge">answer</code>에 푸쉬한 후 반환한다.</li>
+</ol>
+:ET

@@ -1,0 +1,34 @@
+I"<p><a href="https://leetcode.com/problems/design-hashmap/submissions/">문제</a></p>
+
+<h2 id="접근하기">접근하기</h2>
+
+<p>조건에 맞게 해시맵 자료구조를 완성한다.</p>
+
+<p><br /></p>
+
+<h2 id="참고-코드">참고 코드</h2>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">MyHashMap</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+  <span class="k">this</span><span class="p">.</span><span class="kd">set</span> <span class="o">=</span> <span class="p">{};</span>
+<span class="p">};</span>
+
+<span class="nx">MyHashMap</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">put</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">key</span><span class="p">,</span> <span class="nx">value</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">this</span><span class="p">.</span><span class="kd">set</span><span class="p">[</span><span class="nx">key</span><span class="p">]</span> <span class="o">=</span> <span class="nx">value</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="nx">MyHashMap</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="kd">get</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">key</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="kd">set</span><span class="p">[</span><span class="nx">key</span><span class="p">]</span> <span class="o">!==</span> <span class="kc">undefined</span> <span class="p">?</span> <span class="k">this</span><span class="p">.</span><span class="kd">set</span><span class="p">[</span><span class="nx">key</span><span class="p">]</span> <span class="p">:</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="nx">MyHashMap</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">remove</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">key</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">delete</span> <span class="k">this</span><span class="p">.</span><span class="kd">set</span><span class="p">[</span><span class="nx">key</span><span class="p">];</span>
+<span class="p">};</span>
+</code></pre></div></div>
+
+<ol>
+  <li>맵 구조를 구현하기 위해선 객체를 사용해야 하므로 <code class="language-plaintext highlighter-rouge">set = {}</code>으로 초기화한다.</li>
+  <li><code class="language-plaintext highlighter-rouge">put</code>은 키와 값이 들어오면 <code class="language-plaintext highlighter-rouge">set</code>객체에 키와 값으로 전달된다.</li>
+  <li><code class="language-plaintext highlighter-rouge">get</code>은 set의 값이 <code class="language-plaintext highlighter-rouge">undefined</code>가 아니라면 값을 반환하고 아니면 <code class="language-plaintext highlighter-rouge">-1</code>을 반환한다.</li>
+  <li><code class="language-plaintext highlighter-rouge">remove</code>는 객체의 원소를 삭제하는 <code class="language-plaintext highlighter-rouge">delete</code> 연산자를 이용해 해당 키와 값을 제거하도록 한다.</li>
+</ol>
+:ET

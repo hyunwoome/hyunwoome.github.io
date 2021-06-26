@@ -1,0 +1,33 @@
+I"�<p><a href="https://leetcode.com/problems/minimum-number-of-operations-to-move-all-balls-to-each-box/">문제</a></p>
+
+<h2 id="접근하기">접근하기</h2>
+
+<p><code class="language-plaintext highlighter-rouge">boxes</code>라는 이진 문자열이 주어진다. 각 인덱스별로 숫자 1을 몰아주어야 한다.
+예를 들어, ‘110’이면, 0번 인덱스에 1번 인덱스의 1을 주기 위해 카운트 1을 증가시키고 배열에 푸쉬한다. (<code class="language-plaintext highlighter-rouge">[1]</code>) 다음 1번 인덱스에 0번 인덱스의 1을 주기 위해 카운트 1을 증가시키고 푸쉬한다. (<code class="language-plaintext highlighter-rouge">[1, 1]</code>) 다음 2번 인덱스는 0이므로 0번 인덱스와 1번 인덱스의 1을 둘다 넘겨야 하는데, 이 때 한 카운트당 한자리씩만 넘어갈 수 있다. 0번 인덱스는 2번 인덱스로 가기 위해 2칸을 움직여야 하므로 카운트 2를 증가시켜야 하고, 1번 인덱스의 1은 2번 인덱스로 가기 위해선 한 칸을 움직여야 하므로 1을 증가시킨다. (<code class="language-plaintext highlighter-rouge">[1, 1, 3]</code>)</p>
+
+<p><br /></p>
+
+<h2 id="내-코드">내 코드</h2>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">minOperations</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">boxes</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">let</span> <span class="nx">answer</span> <span class="o">=</span> <span class="p">[];</span>
+  <span class="kd">let</span> <span class="nx">oneIndex</span> <span class="o">=</span> <span class="p">[];</span>
+  <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">boxes</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">boxes</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="o">===</span> <span class="dl">'</span><span class="s1">1</span><span class="dl">'</span><span class="p">)</span> <span class="nx">oneIndex</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">i</span><span class="p">);</span>
+  <span class="p">}</span>
+  <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">boxes</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">let</span> <span class="nx">sum</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">j</span> <span class="o">&lt;</span> <span class="nx">oneIndex</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">j</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">sum</span> <span class="o">+=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">abs</span><span class="p">(</span><span class="nx">oneIndex</span><span class="p">[</span><span class="nx">j</span><span class="p">]</span> <span class="o">-</span> <span class="nx">i</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="nx">answer</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">sum</span><span class="p">);</span>
+  <span class="p">}</span>
+  <span class="k">return</span> <span class="nx">answer</span><span class="p">;</span>
+<span class="p">};</span>
+</code></pre></div></div>
+
+<ol>
+  <li>먼저 1이 들어있는 인덱스 번호를 추출했다. <code class="language-plaintext highlighter-rouge">oneIndex</code></li>
+  <li>다음 <code class="language-plaintext highlighter-rouge">boxes</code>를 돌면서 <code class="language-plaintext highlighter-rouge">i</code>일 때 <code class="language-plaintext highlighter-rouge">oneIndex</code>의 <code class="language-plaintext highlighter-rouge">j</code>와 비교해서 거리의 차를 더해 <code class="language-plaintext highlighter-rouge">answer</code>에 푸쉬하면 된다.</li>
+</ol>
+:ET

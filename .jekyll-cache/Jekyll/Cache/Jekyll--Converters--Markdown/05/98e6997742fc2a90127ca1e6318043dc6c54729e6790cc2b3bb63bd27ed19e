@@ -1,0 +1,38 @@
+I")<p><a href="https://leetcode.com/problems/maximum-score-after-splitting-a-string/">문제</a></p>
+
+<h2 id="접근하기">접근하기</h2>
+
+<p>문자열 <code class="language-plaintext highlighter-rouge">s</code>가 주어진다. <code class="language-plaintext highlighter-rouge">s</code>를 왼쪽과 오른쪽으로 나누는데, 왼쪽일 때만 0이 있으면 카운팅을 증가시키고 반대로 오른쪽에 1이 있을때만 카운팅을 증가시킨다.
+문자열을 차례대로 두 그룹으로 자르며 각각의 조건에 맞게 더했을 때 가장 큰 수를 반환한다.</p>
+
+<p><br /></p>
+
+<h2 id="참고-코드">참고 코드</h2>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">maxScore</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">s</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">const</span> <span class="nx">getScore</span> <span class="o">=</span> <span class="p">(</span><span class="nx">left</span><span class="p">,</span> <span class="nx">right</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="kd">let</span> <span class="nx">count</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">left</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">if</span> <span class="p">(</span><span class="nx">left</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="o">===</span> <span class="dl">'</span><span class="s1">0</span><span class="dl">'</span><span class="p">)</span> <span class="nx">count</span><span class="o">++</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">right</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">if</span> <span class="p">(</span><span class="nx">right</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="o">===</span> <span class="dl">'</span><span class="s1">1</span><span class="dl">'</span><span class="p">)</span> <span class="nx">count</span><span class="o">++</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="nx">count</span><span class="p">;</span>
+  <span class="p">};</span>
+
+  <span class="kd">const</span> <span class="nx">score</span> <span class="o">=</span> <span class="p">[];</span>
+  <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">s</span><span class="p">.</span><span class="nx">length</span> <span class="o">-</span> <span class="mi">1</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">const</span> <span class="nx">left</span> <span class="o">=</span> <span class="nx">s</span><span class="p">.</span><span class="nx">slice</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nx">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">);</span>
+    <span class="kd">const</span> <span class="nx">right</span> <span class="o">=</span> <span class="nx">s</span><span class="p">.</span><span class="nx">slice</span><span class="p">(</span><span class="nx">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="nx">s</span><span class="p">.</span><span class="nx">length</span><span class="p">);</span>
+    <span class="nx">score</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">getScore</span><span class="p">(</span><span class="nx">left</span><span class="p">,</span> <span class="nx">right</span><span class="p">));</span>
+  <span class="p">}</span>
+  <span class="k">return</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">max</span><span class="p">(...</span><span class="nx">score</span><span class="p">);</span>
+<span class="p">};</span>
+</code></pre></div></div>
+
+<ol>
+  <li>우선 함수를 하나 만드는데, <code class="language-plaintext highlighter-rouge">left</code>와 <code class="language-plaintext highlighter-rouge">right</code>를 받고 0과 1의 개수를 파악해 <code class="language-plaintext highlighter-rouge">count</code>를 증가시킨다.</li>
+  <li>이제 문자열 <code class="language-plaintext highlighter-rouge">s</code>를 순회하는데, 0부터 i + 1까지, i + 1부터 끝까지 <code class="language-plaintext highlighter-rouge">getScore()</code>함수를 사용해 개수를 반환하고 가장 큰 값을 반환한다.</li>
+</ol>
+:ET

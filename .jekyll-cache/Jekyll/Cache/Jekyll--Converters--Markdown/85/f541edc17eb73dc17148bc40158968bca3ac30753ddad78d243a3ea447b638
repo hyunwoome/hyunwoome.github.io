@@ -1,0 +1,65 @@
+I"�<p><a href="https://leetcode.com/problems/subdomain-visit-count/">문제</a></p>
+
+<h2 id="문제-설명">문제 설명</h2>
+
+<p>문자열 배열 cpdomains가 주어진다.</p>
+
+<p>cpdomains의 각 문자열들은 [방문 횟수, 도메인]으로 나뉘며,</p>
+
+<p>도메인은 하위 도메인들로 구성되어 있다. 상위 도메인에 방문하면 하위 도메인도 방문 횟수가 증가하므로,</p>
+
+<p>각각의 모든 도메인의 방문횟수와 도메인을 반환하는 문제이다.</p>
+
+<p><br /></p>
+
+<h2 id="참고-코드">참고 코드</h2>
+
+<ul>
+  <li>Runtime: 96 ms, faster than 82.82%</li>
+  <li>Memory Usage: 45 MB, less than 25.95%</li>
+</ul>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+ * @param {string[]} cpdomains
+ * @return {string[]}
+ */</span>
+<span class="kd">var</span> <span class="nx">subdomainVisits</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">cpdomains</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">const</span> <span class="nx">obj</span> <span class="o">=</span> <span class="p">{};</span>
+
+  <span class="nx">cpdomains</span><span class="p">.</span><span class="nx">forEach</span><span class="p">((</span><span class="nx">cpdomain</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="kd">let</span> <span class="p">[</span><span class="nx">visited</span><span class="p">,</span> <span class="nx">domain</span><span class="p">]</span> <span class="o">=</span> <span class="nx">cpdomain</span><span class="p">.</span><span class="nx">split</span><span class="p">(</span><span class="dl">'</span><span class="s1"> </span><span class="dl">'</span><span class="p">);</span>
+    <span class="kd">const</span> <span class="nx">domains</span> <span class="o">=</span> <span class="p">[];</span>
+    <span class="kd">let</span> <span class="nx">dot</span> <span class="o">=</span> <span class="nx">domain</span><span class="p">.</span><span class="nx">indexOf</span><span class="p">(</span><span class="dl">'</span><span class="s1">.</span><span class="dl">'</span><span class="p">);</span>
+
+    <span class="k">while</span> <span class="p">(</span><span class="nx">dot</span> <span class="o">&gt;</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">domains</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">domain</span><span class="p">);</span>
+      <span class="nx">domain</span> <span class="o">=</span> <span class="nx">domain</span><span class="p">.</span><span class="nx">slice</span><span class="p">(</span><span class="nx">dot</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="nx">domain</span><span class="p">.</span><span class="nx">length</span><span class="p">);</span>
+      <span class="nx">dot</span> <span class="o">=</span> <span class="nx">domain</span><span class="p">.</span><span class="nx">indexOf</span><span class="p">(</span><span class="dl">'</span><span class="s1">.</span><span class="dl">'</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="nx">domains</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">domain</span><span class="p">);</span>
+
+    <span class="nx">domains</span><span class="p">.</span><span class="nx">forEach</span><span class="p">((</span><span class="nx">domain</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+      <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">obj</span><span class="p">[</span><span class="nx">domain</span><span class="p">])</span> <span class="p">{</span>
+        <span class="nx">obj</span><span class="p">[</span><span class="nx">domain</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+      <span class="p">}</span>
+      <span class="nx">obj</span><span class="p">[</span><span class="nx">domain</span><span class="p">]</span> <span class="o">+=</span> <span class="nb">Number</span><span class="p">(</span><span class="nx">visited</span><span class="p">);</span>
+    <span class="p">});</span>
+  <span class="p">});</span>
+
+  <span class="kd">const</span> <span class="nx">value</span> <span class="o">=</span> <span class="p">[];</span>
+  <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">key</span> <span class="k">in</span> <span class="nx">obj</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">value</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="s2">`</span><span class="p">${</span><span class="nx">obj</span><span class="p">[</span><span class="nx">key</span><span class="p">]}</span><span class="s2"> </span><span class="p">${</span><span class="nx">key</span><span class="p">}</span><span class="s2">`</span><span class="p">);</span>
+  <span class="p">}</span>
+  <span class="k">return</span> <span class="nx">value</span><span class="p">;</span>
+<span class="p">};</span>
+</code></pre></div></div>
+
+<ol>
+  <li>먼저 주어진 cpdomains의 문자열 배열 중 각 문자열을 공백을 기준으로 <code class="language-plaintext highlighter-rouge">[방문 횟수, 도메인]</code>으로 나눈다.</li>
+  <li>다음 도메인을 “ . “ 기준으로 분리시켜야 한다. while문 내부를 살펴보자.</li>
+  <li>while문은 “ . “을 기준으로 분리시키기 위한 목적이며, “. “의 인덱스를 찾아 “ . “부터 끝까지 첫 번째 점 인덱스, 두 번째 점 인덱스로 진행하며 문자열을 잘라 domain에 넣어준다.</li>
+  <li>이제 각각 분리된 도메인들을 객체로 만들어 key는 도메인으로, value는 도메인의 방문 횟수로 정의한다.</li>
+  <li>도메인이 중복된다면 방문 횟수를 더한 값을 value로 정한다.</li>
+  <li>객체를 순회하면서 <code class="language-plaintext highlighter-rouge">[방문 횟수, 도메인]</code>으로 배열에 넣어 반환한다.</li>
+</ol>
+:ET

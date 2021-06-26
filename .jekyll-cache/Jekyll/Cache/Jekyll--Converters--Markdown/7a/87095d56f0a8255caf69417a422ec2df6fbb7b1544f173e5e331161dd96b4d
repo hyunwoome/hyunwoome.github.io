@@ -1,0 +1,28 @@
+I"�<p><a href="https://leetcode.com/problems/decode-xored-array/">문제</a></p>
+
+<h2 id="문제-설명">문제 설명</h2>
+
+<p>숫자형 배열 encoded와 숫자 first가 주어진다.</p>
+
+<p>encoded 배열에서 encoded[i + 1]과 XOR 연산한 새 배열 arr[i]와 XOR 연산을 통해 새롭게 반환한다.</p>
+
+<p>단, 새 배열의 arr[i]는 알 수 없으므로 배열의 첫 부분 first가 주어진다.</p>
+
+<p><br /></p>
+
+<h2 id="내-코드">내 코드</h2>
+
+<ul>
+  <li>Runtime: 192 ms, faster than 5.89%</li>
+  <li>Memory Usage: 45.1 MB, less than 72.00%</li>
+</ul>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">decode</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">encoded</span><span class="p">,</span> <span class="nx">first</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">let</span> <span class="nx">answer</span> <span class="o">=</span> <span class="p">[</span><span class="nx">first</span><span class="p">,</span> <span class="nx">first</span> <span class="o">^</span> <span class="nx">encoded</span><span class="p">[</span><span class="mi">0</span><span class="p">]];</span>
+  <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">encoded</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">answer</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">answer</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="o">^</span> <span class="nx">encoded</span><span class="p">[</span><span class="nx">i</span><span class="p">]);</span>
+  <span class="p">}</span>
+  <span class="k">return</span> <span class="nx">answer</span><span class="p">;</span>
+<span class="p">};</span>
+</code></pre></div></div>
+:ET

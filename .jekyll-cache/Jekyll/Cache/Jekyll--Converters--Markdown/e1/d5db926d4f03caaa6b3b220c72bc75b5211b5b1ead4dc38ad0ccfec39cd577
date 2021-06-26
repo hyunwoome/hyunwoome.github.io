@@ -1,0 +1,27 @@
+I"�
+<p><a href="https://leetcode.com/problems/last-stone-weight/">문제</a></p>
+
+<h2 id="접근하기">접근하기</h2>
+
+<p>숫자형 배열 <code class="language-plaintext highlighter-rouge">stones</code>가 주어진다. 이 배열에서 가장 큰 요소 두 개를 뽑아 만약 두 수가 같다면 둘다 없어지며, 한 쪽이 크다면, 두 요소를 뺀 수를 남긴다.
+최종적으로 남은 수를 반환한다.</p>
+
+<p><br /></p>
+
+<h2 id="참고-코드">참고 코드</h2>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">lastStoneWeight</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">stones</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">while</span> <span class="p">(</span><span class="nx">stones</span><span class="p">.</span><span class="nx">length</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">stones</span><span class="p">.</span><span class="nx">sort</span><span class="p">((</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">b</span> <span class="o">-</span> <span class="nx">a</span><span class="p">);</span>
+    <span class="nx">stones</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nb">Math</span><span class="p">.</span><span class="nx">abs</span><span class="p">(</span><span class="nx">stones</span><span class="p">.</span><span class="nx">shift</span><span class="p">()</span> <span class="o">-</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">abs</span><span class="p">(</span><span class="nx">stones</span><span class="p">.</span><span class="nx">shift</span><span class="p">())));</span>
+  <span class="p">}</span>
+  <span class="k">return</span> <span class="nx">stones</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
+<span class="p">};</span>
+</code></pre></div></div>
+
+<ol>
+  <li>먼저 <code class="language-plaintext highlighter-rouge">stones</code>를 내림차순으로 정렬한다. (<code class="language-plaintext highlighter-rouge">[8, 7, 4, 2, 1, 1]</code>)</li>
+  <li>그리고 <code class="language-plaintext highlighter-rouge">shift()</code>를 통해 맨 앞 두 요소를 뺀 값을 다시 <code class="language-plaintext highlighter-rouge">stones</code>에 푸쉬한다.</li>
+  <li>이 과정을 <code class="language-plaintext highlighter-rouge">stones</code>가 한 개만 남을 때 까지 반복한다.</li>
+</ol>
+:ET

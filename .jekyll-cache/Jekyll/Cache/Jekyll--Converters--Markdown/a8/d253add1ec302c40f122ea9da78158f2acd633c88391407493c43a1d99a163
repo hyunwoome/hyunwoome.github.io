@@ -1,0 +1,29 @@
+I"�<p><a href="https://leetcode.com/problems/add-digits/">문제</a></p>
+
+<h2 id="접근하기">접근하기</h2>
+
+<p>숫자형 <code class="language-plaintext highlighter-rouge">num</code>이 주어진다. <code class="language-plaintext highlighter-rouge">num</code>을 각 자리수로 분리해서 더한 후 더한 값이 한 자리가 될 때 해당 값을 반환한다.</p>
+
+<p><br /></p>
+
+<h2 id="내-코드">내 코드</h2>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">addDigits</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">num</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">let</span> <span class="nx">str</span> <span class="o">=</span> <span class="nb">String</span><span class="p">(</span><span class="nx">num</span><span class="p">);</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">str</span><span class="p">.</span><span class="nx">length</span> <span class="o">===</span> <span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nb">Number</span><span class="p">(</span><span class="nx">str</span><span class="p">);</span>
+  <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+    <span class="kd">let</span> <span class="nx">splittedStr</span> <span class="o">=</span> <span class="nx">str</span><span class="p">.</span><span class="nx">split</span><span class="p">(</span><span class="dl">''</span><span class="p">);</span>
+    <span class="kd">let</span> <span class="nx">answer</span> <span class="o">=</span> <span class="nx">splittedStr</span><span class="p">.</span><span class="nx">reduce</span><span class="p">((</span><span class="nx">acc</span><span class="p">,</span> <span class="nx">cur</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+      <span class="k">return</span> <span class="nb">Number</span><span class="p">(</span><span class="nx">acc</span><span class="p">)</span> <span class="o">+</span> <span class="nb">Number</span><span class="p">(</span><span class="nx">cur</span><span class="p">);</span>
+    <span class="p">});</span>
+    <span class="k">return</span> <span class="nx">addDigits</span><span class="p">(</span><span class="nx">answer</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">};</span>
+</code></pre></div></div>
+
+<ol>
+  <li>재귀로 풀었다.</li>
+  <li><code class="language-plaintext highlighter-rouge">num</code>의 자리수가 1이 아니라면, <code class="language-plaintext highlighter-rouge">num</code>을 분리시켜 <code class="language-plaintext highlighter-rouge">reduce</code>로 그 합을 구하고, 재귀함수로 재 호출해서 <code class="language-plaintext highlighter-rouge">num</code>의 자리수가 1이 될 때 까지 반복한다.</li>
+</ol>
+:ET

@@ -1,0 +1,44 @@
+I"�<p><a href="https://programmers.co.kr/learn/courses/30/lessons/64061">문제</a></p>
+
+<h2 id="접근하기">접근하기</h2>
+
+<p><code class="language-plaintext highlighter-rouge">board</code>라는 2차원 배열이 주어지는데, 숫자 0은 빈공간, 0이 아닌 숫자는 인형의 종류를 나타낸다.</p>
+
+<p><code class="language-plaintext highlighter-rouge">moves</code>라는 배열은, 2차원 배열에서 열을 나타내며, 이 순서대로 <code class="language-plaintext highlighter-rouge">board</code>의 열에서 인형을 뽑아와 바구니에 담는다. 바구니에 담을 때 같은 숫자의 인형이 맞닿아 담기면 두 인형은 사라지며 카운트가 증가한다.</p>
+
+<p>해당 <code class="language-plaintext highlighter-rouge">moves</code>만큼 인형을 빼와서 얼마나 인형이 사라지는지 반환한다. (한 번 없어질 때 마다 두 개의 인형이 사라진다.)</p>
+
+<p><br /></p>
+
+<h2 id="내-코드">내 코드</h2>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">solution</span><span class="p">(</span><span class="nx">board</span><span class="p">,</span> <span class="nx">moves</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">let</span> <span class="nx">result</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+  <span class="kd">let</span> <span class="nx">basket</span> <span class="o">=</span> <span class="p">[];</span>
+
+  <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">moves</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">j</span> <span class="o">&lt;</span> <span class="nx">board</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">j</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+      <span class="c1">// 0이 아니면</span>
+      <span class="k">if</span> <span class="p">(</span><span class="nx">board</span><span class="p">[</span><span class="nx">j</span><span class="p">][</span><span class="nx">moves</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="o">-</span> <span class="mi">1</span><span class="p">])</span> <span class="p">{</span>
+        <span class="kd">let</span> <span class="nx">doll</span> <span class="o">=</span> <span class="nx">board</span><span class="p">[</span><span class="nx">j</span><span class="p">][</span><span class="nx">moves</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="o">-</span> <span class="mi">1</span><span class="p">];</span>
+        <span class="nx">board</span><span class="p">[</span><span class="nx">j</span><span class="p">][</span><span class="nx">moves</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nx">basket</span><span class="p">[</span><span class="nx">basket</span><span class="p">.</span><span class="nx">length</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">===</span> <span class="nx">doll</span><span class="p">)</span> <span class="p">{</span>
+          <span class="nx">basket</span><span class="p">.</span><span class="nx">pop</span><span class="p">();</span>
+          <span class="nx">result</span> <span class="o">+=</span> <span class="mi">2</span><span class="p">;</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+          <span class="nx">basket</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">doll</span><span class="p">);</span>
+        <span class="p">}</span>
+        <span class="k">break</span><span class="p">;</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+  <span class="k">return</span> <span class="nx">result</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<ol>
+  <li>2차원 배열을 순회하기 위해 이중for문을 사용한다.</li>
+  <li><code class="language-plaintext highlighter-rouge">board</code>를 순회하면서 <code class="language-plaintext highlighter-rouge">moves[i] - 1</code>번째의 수에 접근하는데, 이 수가 0이 아니라면 그 수를 가져오고 가져왔으니 그 자리를 0으로 할당한다.</li>
+  <li>그리고 이미 바스켓에 들어있는 수가 <code class="language-plaintext highlighter-rouge">board</code>에서 빼려는 수와 같다면, 이미 들어있는 인형의 번호와 가져오려는 인형의 번호가 일치하므로 두 인형을 없앤다.즉, 바스켓에서 맨 위의 숫자를 빼고 카운트를 2증가 시킨다. 가져온 인형도 바스켓에 푸쉬하지 않는다.</li>
+</ol>
+:ET

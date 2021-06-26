@@ -1,0 +1,35 @@
+I"�<p><a href="https://leetcode.com/problems/maximum-units-on-a-truck/">문제</a></p>
+
+<h2 id="접근하기">접근하기</h2>
+
+<p>2차원 정수형 배열 <code class="language-plaintext highlighter-rouge">boxTypes</code>와 숫자 <code class="language-plaintext highlighter-rouge">truckSize</code>가 주어진다. <code class="language-plaintext highlighter-rouge">boxType</code>은 <code class="language-plaintext highlighter-rouge">[박스 수량, 박스에 들어있는 제품 수]</code>를 의미한다.
+박스 수량이 <code class="language-plaintext highlighter-rouge">truckSize</code>를 넘지 않는 선에서, 박스에 들어있는 제품 수를 가장 많이 채워 그 수를 반환하는 문제이다.</p>
+
+<p><br /></p>
+
+<h2 id="참고-코드">참고 코드</h2>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">maximumUnits</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">boxTypes</span><span class="p">,</span> <span class="nx">truckSize</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">boxTypes</span><span class="p">.</span><span class="nx">sort</span><span class="p">((</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">b</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="nx">a</span><span class="p">[</span><span class="mi">1</span><span class="p">]);</span>
+
+  <span class="kd">let</span> <span class="nx">units</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+
+  <span class="k">for</span> <span class="p">(</span><span class="kd">const</span> <span class="p">[</span><span class="nx">boxes</span><span class="p">,</span> <span class="nx">boxUnits</span><span class="p">]</span> <span class="k">of</span> <span class="nx">boxTypes</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">truckSize</span><span class="p">)</span> <span class="k">return</span> <span class="nx">units</span><span class="p">;</span>
+    <span class="kd">const</span> <span class="nx">boxToPlaces</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">min</span><span class="p">(</span><span class="nx">truckSize</span><span class="p">,</span> <span class="nx">boxes</span><span class="p">);</span>
+    <span class="nx">truckSize</span> <span class="o">-=</span> <span class="nx">boxToPlaces</span><span class="p">;</span>
+    <span class="nx">units</span> <span class="o">+=</span> <span class="nx">boxToPlaces</span> <span class="o">*</span> <span class="nx">boxUnits</span><span class="p">;</span>
+  <span class="p">}</span>
+  <span class="k">return</span> <span class="nx">units</span><span class="p">;</span>
+<span class="p">};</span>
+</code></pre></div></div>
+
+<ol>
+  <li>박스의 수량이 <code class="language-plaintext highlighter-rouge">truckSize</code>를 넘지 않으면서, 박스에 들어있는 제품의 수를 가장많이 실어야하기 때문에, 먼저 박스에 들어있는 제품의 수로 정렬을 한다.</li>
+  <li>for문을 이용해서, 정렬된 <code class="language-plaintext highlighter-rouge">boxType</code>을 <code class="language-plaintext highlighter-rouge">[박스 수량, 박스에 들어있는 제품 수]</code>로 나눠 저장한다. (<code class="language-plaintext highlighter-rouge">boxes</code>, <code class="language-plaintext highlighter-rouge">boxUnits</code>)</li>
+  <li><code class="language-plaintext highlighter-rouge">boxToPlaces</code>는 트럭의 사이즈와 박스의 개수에서 더 작은 수를 저장한다. 트럭 크기를 넘지 않을 때 까지 연산하기 위함이다.</li>
+  <li><code class="language-plaintext highlighter-rouge">boxToPlaces</code>는 트럭에 실은 박스의 수다. 그러므로 트럭의 사이즈(트럭의 박스 허용량)에서 트럭에 실은 박스의 수를 빼서 허용량을 줄인다.</li>
+  <li>최종적으로 실은 박스의 수 (<code class="language-plaintext highlighter-rouge">boxToPlaces</code>)와 해당 박스에 들어있는 제품의 수를 곱해 <code class="language-plaintext highlighter-rouge">units</code>라는 변수에 담는다.</li>
+  <li>이렇게 지속되면, <code class="language-plaintext highlighter-rouge">const boxToPlaces = Math.min(truckSize, boxes);</code>이부분에서 <code class="language-plaintext highlighter-rouge">truckSize</code>가 더 작아질 때가 올것이며, 남은 <code class="language-plaintext highlighter-rouge">truckSize</code>만큼만 <code class="language-plaintext highlighter-rouge">boxUnits</code>와 곱해져 <code class="language-plaintext highlighter-rouge">units</code>에 더해질 것이다.</li>
+</ol>
+:ET

@@ -1,0 +1,30 @@
+I"�<p><a href="https://www.acmicpc.net/problem/2455">문제</a></p>
+
+<h2 id="접근하기">접근하기</h2>
+
+<p>기차는 승객이 내리고 타는 것을 반복하며, 가장 많이 탔을 때 인원을 반환한다.</p>
+
+<p><br /></p>
+
+<h2 id="내-풀이">내 풀이</h2>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">input</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">fs</span><span class="dl">'</span><span class="p">)</span>
+  <span class="p">.</span><span class="nx">readFileSync</span><span class="p">(</span><span class="dl">'</span><span class="s1">src/baekjoon/implement/input</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">utf8</span><span class="dl">'</span><span class="p">)</span>
+  <span class="p">.</span><span class="nx">trim</span><span class="p">()</span>
+  <span class="p">.</span><span class="nx">split</span><span class="p">(</span><span class="dl">'</span><span class="se">\n</span><span class="dl">'</span><span class="p">);</span>
+
+<span class="kd">let</span> <span class="nx">max</span> <span class="o">=</span> <span class="p">[];</span>
+<span class="kd">let</span> <span class="nx">station</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="nx">input</span><span class="p">.</span><span class="nx">forEach</span><span class="p">((</span><span class="nx">nums</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="kd">let</span> <span class="nx">arr</span> <span class="o">=</span> <span class="nx">nums</span><span class="p">.</span><span class="nx">split</span><span class="p">(</span><span class="dl">'</span><span class="s1"> </span><span class="dl">'</span><span class="p">);</span>
+  <span class="nx">station</span> <span class="o">-=</span> <span class="nb">Number</span><span class="p">(</span><span class="nx">arr</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span>
+  <span class="nx">station</span> <span class="o">+=</span> <span class="nb">Number</span><span class="p">(</span><span class="nx">arr</span><span class="p">[</span><span class="mi">1</span><span class="p">]);</span>
+  <span class="nx">max</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">station</span><span class="p">);</span>
+<span class="p">});</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nb">Math</span><span class="p">.</span><span class="nx">max</span><span class="p">(...</span><span class="nx">max</span><span class="p">));</span>
+</code></pre></div></div>
+
+<ol>
+  <li>입력받는 수들 중 앞 번호는 내리는 사람, 뒷 번호는 타는 사람이며, 각각 더하고 빼면서 가장 큰 수를 반환한다.</li>
+</ol>
+:ET

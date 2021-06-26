@@ -1,0 +1,33 @@
+I"�<p><a href="https://leetcode.com/problems/ransom-note/">문제</a></p>
+
+<h2 id="접근하기">접근하기</h2>
+
+<p>문자열 <code class="language-plaintext highlighter-rouge">ransomNote</code>와 <code class="language-plaintext highlighter-rouge">magazine</code>이 주어진다. <code class="language-plaintext highlighter-rouge">magazine</code>에 있는 문자열들 가지고 <code class="language-plaintext highlighter-rouge">ransomNote</code>의 문자열을 완성시킬 수 있으면 <code class="language-plaintext highlighter-rouge">true</code>, 안되면 <code class="language-plaintext highlighter-rouge">false</code>를 반환하며 <code class="language-plaintext highlighter-rouge">magazine</code>에서 한 번 사용한 문자열은 다시 사용할 수 없다.</p>
+
+<p><br /></p>
+
+<h2 id="내-코드">내 코드</h2>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">canConstruct</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">ransomNote</span><span class="p">,</span> <span class="nx">magazine</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// Convert String to Array</span>
+  <span class="kd">const</span> <span class="nx">noteArr</span> <span class="o">=</span> <span class="nx">ransomNote</span><span class="p">.</span><span class="nx">split</span><span class="p">(</span><span class="dl">''</span><span class="p">);</span>
+  <span class="kd">const</span> <span class="nx">magazineArr</span> <span class="o">=</span> <span class="nx">magazine</span><span class="p">.</span><span class="nx">split</span><span class="p">(</span><span class="dl">''</span><span class="p">);</span>
+
+  <span class="c1">// If the magazine contains the string of ransomnote, find the index of the string and truncate the index.</span>
+  <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">noteArr</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">magazineArr</span><span class="p">.</span><span class="nx">includes</span><span class="p">(</span><span class="nx">noteArr</span><span class="p">[</span><span class="nx">i</span><span class="p">]))</span> <span class="p">{</span>
+      <span class="kd">const</span> <span class="nx">index</span> <span class="o">=</span> <span class="nx">magazineArr</span><span class="p">.</span><span class="nx">indexOf</span><span class="p">(</span><span class="nx">noteArr</span><span class="p">[</span><span class="nx">i</span><span class="p">]);</span>
+      <span class="nx">magazineArr</span><span class="p">.</span><span class="nx">splice</span><span class="p">(</span><span class="nx">index</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+      <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+  <span class="k">return</span> <span class="kc">true</span><span class="p">;</span>
+<span class="p">};</span>
+</code></pre></div></div>
+
+<ol>
+  <li>조작하기 편하게 두 문자열을 배열로 전환시킨다.</li>
+  <li><code class="language-plaintext highlighter-rouge">ransomNote</code>를 순회하면서 해당 문자열이 <code class="language-plaintext highlighter-rouge">magazine</code>에 포함되어 있다면, 해당 인덱스를 구하고 (<code class="language-plaintext highlighter-rouge">index</code>) 해당 문자를 잘라낸다.</li>
+</ol>
+:ET

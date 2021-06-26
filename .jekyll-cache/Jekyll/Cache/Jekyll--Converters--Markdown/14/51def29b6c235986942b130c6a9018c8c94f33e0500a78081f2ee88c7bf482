@@ -1,0 +1,32 @@
+I""<p><a href="https://leetcode.com/problems/minimum-subsequence-in-non-increasing-order/">문제</a></p>
+
+<h2 id="접근하기">접근하기</h2>
+
+<p>정수형 배열 <code class="language-plaintext highlighter-rouge">nums</code>가 주어진다. 이 배열을 순회하면서, 각 자릿수의 합이 총 합보다 넘어설 때의 값들을 반환한다.</p>
+
+<p><br /></p>
+
+<h2 id="내-코드">내 코드</h2>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">minSubsequence</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">nums</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">const</span> <span class="nx">sortArr</span> <span class="o">=</span> <span class="nx">nums</span><span class="p">.</span><span class="nx">sort</span><span class="p">((</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">b</span> <span class="o">-</span> <span class="nx">a</span><span class="p">);</span>
+  <span class="kd">let</span> <span class="nx">sum</span> <span class="o">=</span> <span class="nx">nums</span><span class="p">.</span><span class="nx">reduce</span><span class="p">((</span><span class="nx">acc</span><span class="p">,</span> <span class="nx">cur</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">acc</span> <span class="o">+</span> <span class="nx">cur</span><span class="p">);</span>
+  <span class="kd">let</span> <span class="nx">tmp</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+  <span class="kd">let</span> <span class="nx">answer</span> <span class="o">=</span> <span class="p">[];</span>
+  <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">sortArr</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">tmp</span> <span class="o">&lt;=</span> <span class="nx">sum</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">tmp</span> <span class="o">+=</span> <span class="nx">sortArr</span><span class="p">[</span><span class="nx">i</span><span class="p">];</span>
+      <span class="nx">sum</span> <span class="o">-=</span> <span class="nx">sortArr</span><span class="p">[</span><span class="nx">i</span><span class="p">];</span>
+      <span class="nx">answer</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">sortArr</span><span class="p">[</span><span class="nx">i</span><span class="p">]);</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+  <span class="k">return</span> <span class="nx">answer</span><span class="p">;</span>
+<span class="p">};</span>
+</code></pre></div></div>
+
+<ol>
+  <li>주어진 <code class="language-plaintext highlighter-rouge">nums</code>배열을 내림차순으로 정렬한다.</li>
+  <li><code class="language-plaintext highlighter-rouge">sum</code> 변수에 <code class="language-plaintext highlighter-rouge">nums</code>의 원소들의 총합을 할당한다.</li>
+  <li>정렬된 배열을 순회하면서, 배열의 앞부터 더한 값과 배열의 총합을 비교하고, 배열의 총합이 더 크다면, 다음 배열의 원소를 더하고 총합은 배열 원소를 빼서 순차적으로 원소들의 값이 더 클 때 까지 연산하고, 그 값들을 배열에 담아 반환한다.</li>
+</ol>
+:ET

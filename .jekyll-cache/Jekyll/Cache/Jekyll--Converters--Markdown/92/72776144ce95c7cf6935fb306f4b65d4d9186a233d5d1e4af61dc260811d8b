@@ -1,0 +1,25 @@
+I"-<p><a href="https://programmers.co.kr/learn/courses/30/lessons/42747#qna">문제</a></p>
+
+<h2 id="접근하기">접근하기</h2>
+
+<p>숫자형 배열 <code class="language-plaintext highlighter-rouge">citations</code>의 H-Index를 구하는 문제이다.H-Index는 연구자가 쓴 모든 논문 중 n회 이상 인용된 논문이 n개 이상일 때, 이 둘을 동시에 만족하는 n의 최대값이라고 한다.</p>
+
+<p><br /></p>
+
+<h2 id="참고-코드">참고 코드</h2>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">solution</span><span class="p">(</span><span class="nx">citations</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">let</span> <span class="nx">sortArray</span> <span class="o">=</span> <span class="nx">citations</span><span class="p">.</span><span class="nx">sort</span><span class="p">((</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">b</span> <span class="o">-</span> <span class="nx">a</span><span class="p">);</span>
+  <span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+  <span class="k">while</span> <span class="p">(</span><span class="nx">i</span> <span class="o">+</span> <span class="mi">1</span> <span class="o">&lt;=</span> <span class="nx">sortArray</span><span class="p">[</span><span class="nx">i</span><span class="p">])</span> <span class="p">{</span>
+    <span class="nx">i</span><span class="o">++</span><span class="p">;</span>
+  <span class="p">}</span>
+  <span class="k">return</span> <span class="nx">i</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<ol>
+  <li>우선 <code class="language-plaintext highlighter-rouge">citations</code>를 내림차순 한다.</li>
+  <li>내림차순 정렬된 배열을 순회하면서, 감소하는 인덱스 원소까지 카운팅하여 반환한다.</li>
+</ol>
+:ET

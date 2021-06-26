@@ -1,0 +1,34 @@
+I"�<p><a href="https://leetcode.com/problems/number-of-students-unable-to-eat-lunch/">문제</a></p>
+
+<h2 id="접근하기">접근하기</h2>
+
+<p>정수형 배열 <code class="language-plaintext highlighter-rouge">students</code>와 <code class="language-plaintext highlighter-rouge">sandwiches</code>가 주어진다. <code class="language-plaintext highlighter-rouge">students</code>의 맨 앞 원소와 <code class="language-plaintext highlighter-rouge">sandwiches</code>의 맨 앞 원소가 같다면 배열에서 제거하고, 다르다면 <code class="language-plaintext highlighter-rouge">students</code>의 원소를 <code class="language-plaintext highlighter-rouge">students</code>의 맨 뒤에 푸쉬해서 순환하도록 한다. 그렇게 해서 <code class="language-plaintext highlighter-rouge">sandwiches</code>와 일치할 때 까지 돌고, <code class="language-plaintext highlighter-rouge">students</code>의 길이를 반환한다.</p>
+
+<p><br /></p>
+
+<h2 id="참고-코드">참고 코드</h2>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">countStudents</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">students</span><span class="p">,</span> <span class="nx">sandwiches</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">while</span> <span class="p">(</span><span class="nx">students</span><span class="p">.</span><span class="nx">length</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">students</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">===</span> <span class="nx">sandwiches</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="p">{</span>
+      <span class="nx">students</span><span class="p">.</span><span class="nx">shift</span><span class="p">();</span>
+      <span class="nx">sandwiches</span><span class="p">.</span><span class="nx">shift</span><span class="p">();</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+      <span class="nx">students</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">students</span><span class="p">.</span><span class="nx">shift</span><span class="p">());</span>
+    <span class="p">}</span>
+
+    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">students</span><span class="p">.</span><span class="nx">includes</span><span class="p">(</span><span class="nx">sandwiches</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span> <span class="p">{</span>
+      <span class="k">break</span><span class="p">;</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+  <span class="k">return</span> <span class="nx">students</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span>
+<span class="p">};</span>
+</code></pre></div></div>
+
+<ol>
+  <li><code class="language-plaintext highlighter-rouge">students</code>의 길이가 0이 될 때 까지 반복하는 <code class="language-plaintext highlighter-rouge">while</code>문을 정의한다.</li>
+  <li>만약 <code class="language-plaintext highlighter-rouge">students</code>의 맨 앞 원소와 <code class="language-plaintext highlighter-rouge">sandwiches</code>의 맨 앞 원소가 같다면, 둘 다 <code class="language-plaintext highlighter-rouge">shift()</code>를 하여 제거한다.</li>
+  <li>만약 둘이 다르다면, <code class="language-plaintext highlighter-rouge">students</code> 맨 앞의 원소를 빼서 뒤로 푸쉬해준다.</li>
+  <li>반복문을 진행하면서 <code class="language-plaintext highlighter-rouge">students</code>에 <code class="language-plaintext highlighter-rouge">sandwiches</code>의 맨 앞 원소와 일치하는 원소가 없어지면 <code class="language-plaintext highlighter-rouge">while</code>문을 종료하고 <code class="language-plaintext highlighter-rouge">students</code>의 길이를 반환한다.</li>
+</ol>
+:ET

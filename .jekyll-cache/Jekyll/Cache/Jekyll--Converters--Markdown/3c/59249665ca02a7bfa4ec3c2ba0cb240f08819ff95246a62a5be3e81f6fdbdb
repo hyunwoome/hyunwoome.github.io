@@ -1,0 +1,31 @@
+I"�<p><a href="https://leetcode.com/problems/build-an-array-with-stack-operations/">문제</a></p>
+
+<h2 id="접근하기">접근하기</h2>
+
+<p>정수형 배열 <code class="language-plaintext highlighter-rouge">target</code>과 정수 <code class="language-plaintext highlighter-rouge">n</code>이 주어진다. <code class="language-plaintext highlighter-rouge">n</code>이 순회하면서 배열과 똑같이 만들면 되는데, 정수가 있다면 <code class="language-plaintext highlighter-rouge">Push</code>를, 빠져있다면 <code class="language-plaintext highlighter-rouge">Push</code>했다가 <code class="language-plaintext highlighter-rouge">Pop</code>을 해야 하니 <code class="language-plaintext highlighter-rouge">Push</code>와 <code class="language-plaintext highlighter-rouge">Pop</code>을 삽입한다.</p>
+
+<p><br /></p>
+
+<h2 id="내-코드">내 코드</h2>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">buildArray</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">target</span><span class="p">,</span> <span class="nx">n</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">let</span> <span class="nx">stack</span> <span class="o">=</span> <span class="p">[];</span>
+  <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="nx">j</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">target</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">,</span> <span class="nx">j</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">target</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="o">===</span> <span class="nx">j</span><span class="p">)</span> <span class="nx">stack</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="dl">'</span><span class="s1">Push</span><span class="dl">'</span><span class="p">);</span>
+    <span class="k">else</span> <span class="p">{</span>
+      <span class="nx">stack</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="dl">'</span><span class="s1">Push</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">Pop</span><span class="dl">'</span><span class="p">);</span>
+      <span class="nx">i</span><span class="o">--</span><span class="p">;</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+  <span class="k">return</span> <span class="nx">stack</span><span class="p">;</span>
+<span class="p">};</span>
+</code></pre></div></div>
+
+<ol>
+  <li><code class="language-plaintext highlighter-rouge">target</code>배열을 순회할 <code class="language-plaintext highlighter-rouge">i</code>와, <code class="language-plaintext highlighter-rouge">n</code>을 순회할 <code class="language-plaintext highlighter-rouge">j</code>를 정의한다.</li>
+  <li>위에서 직접 <code class="language-plaintext highlighter-rouge">n</code>으로 순회하지 않는 이유는, 배열의 길이보다 <code class="language-plaintext highlighter-rouge">n</code>이 더 클 경우엔 더이상 해도의미가 없는 push를 막기 위함이다.</li>
+  <li><code class="language-plaintext highlighter-rouge">n</code>은 1부터 시작하기 때문에, <code class="language-plaintext highlighter-rouge">target</code>의 <code class="language-plaintext highlighter-rouge">i</code>번째는 0부터 시작하고, <code class="language-plaintext highlighter-rouge">j</code>는 1부터 시작한다. (<code class="language-plaintext highlighter-rouge">target</code>의 <code class="language-plaintext highlighter-rouge">i</code>는 0을 제외한 인덱스와 비교를 해야 하기 때문)</li>
+  <li><code class="language-plaintext highlighter-rouge">i</code>와 <code class="language-plaintext highlighter-rouge">j</code>가 동일하다면, 스택에 <code class="language-plaintext highlighter-rouge">Push</code> 문자열을 삽입한다.</li>
+  <li>만약 다르다면, 중간에 숫자가 빠져있는 경우이므로, <code class="language-plaintext highlighter-rouge">'Push', 'Pop'</code>을 삽입하고, <code class="language-plaintext highlighter-rouge">i</code>를 감소시켜 다시 <code class="language-plaintext highlighter-rouge">j</code>와 비교할 수를 일치시키도록 한다.</li>
+</ol>
+:ET

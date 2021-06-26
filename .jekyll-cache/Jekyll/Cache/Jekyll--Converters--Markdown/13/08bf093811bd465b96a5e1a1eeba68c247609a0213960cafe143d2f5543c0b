@@ -1,0 +1,27 @@
+I"�<p><a href="https://leetcode.com/problems/maximum-number-of-balloons/">문제</a></p>
+
+<h2 id="접근하기">접근하기</h2>
+
+<p>문자열 <code class="language-plaintext highlighter-rouge">text</code>가 주어진다. 이 문자열은 <code class="language-plaintext highlighter-rouge">balloon</code>을 만들 수 있는 문자가 들어있다면 몇개를 만들 수 있는지 반환한다. 만들 수 없다면 0을 반환한다.</p>
+
+<p><br /></p>
+
+<h2 id="참고-코드">참고 코드</h2>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">maxNumberOfBalloons</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">text</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">const</span> <span class="nx">target</span> <span class="o">=</span> <span class="p">{</span> <span class="na">b</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="na">a</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="na">l</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="na">o</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="na">n</span><span class="p">:</span> <span class="mi">0</span> <span class="p">};</span>
+  <span class="k">for</span> <span class="p">(</span><span class="kd">const</span> <span class="nx">char</span> <span class="k">of</span> <span class="nx">text</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">target</span><span class="p">[</span><span class="nx">char</span><span class="p">]</span><span class="o">++</span><span class="p">;</span>
+  <span class="p">}</span>
+  <span class="k">return</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">floor</span><span class="p">(</span>
+    <span class="nb">Math</span><span class="p">.</span><span class="nx">min</span><span class="p">(</span><span class="nx">target</span><span class="p">.</span><span class="nx">b</span><span class="p">,</span> <span class="nx">target</span><span class="p">.</span><span class="nx">a</span><span class="p">,</span> <span class="nx">target</span><span class="p">.</span><span class="nx">l</span> <span class="o">/</span> <span class="mi">2</span><span class="p">,</span> <span class="nx">target</span><span class="p">.</span><span class="nx">o</span> <span class="o">/</span> <span class="mi">2</span><span class="p">,</span> <span class="nx">target</span><span class="p">.</span><span class="nx">n</span><span class="p">),</span>
+  <span class="p">);</span>
+<span class="p">};</span>
+</code></pre></div></div>
+
+<ol>
+  <li>먼저 확인해야 하는 문자인 <code class="language-plaintext highlighter-rouge">b</code>, <code class="language-plaintext highlighter-rouge">a</code>, <code class="language-plaintext highlighter-rouge">l</code>, <code class="language-plaintext highlighter-rouge">o</code>, <code class="language-plaintext highlighter-rouge">n</code>을 키와 값으로 구성된 객체로 만든다.</li>
+  <li><code class="language-plaintext highlighter-rouge">text</code>를 순회하면서, <code class="language-plaintext highlighter-rouge">target</code>객체의 키와 일치하는 문자는 1을 더한다.</li>
+  <li>각 키의 값들 중에서 가장 작은 값을 반환한다.</li>
+</ol>
+:ET

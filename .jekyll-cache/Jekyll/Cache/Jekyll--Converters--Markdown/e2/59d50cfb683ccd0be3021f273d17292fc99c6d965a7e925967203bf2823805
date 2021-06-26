@@ -1,0 +1,31 @@
+I"�	<p><a href="https://leetcode.com/problems/shuffle-string/">문제</a></p>
+
+<h2 id="문제-설명">문제 설명</h2>
+
+<p>문자열 s와 숫자형 배열 indices가 주어진다. s의 문자열의 인덱스가 indices이다.
+서로 매핑한 후 indices를 순서대로 정렬한 문자열을 반환한다.</p>
+
+<p><br /></p>
+
+<h2 id="내-코드">내 코드</h2>
+
+<ul>
+  <li><strong>Runtime</strong>: 84 ms, faster than 87.84%</li>
+  <li><strong>Memory Usage</strong>: 40.8 MB, less than 18.73%</li>
+</ul>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">restoreString</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">s</span><span class="p">,</span> <span class="nx">indices</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">let</span> <span class="nx">obj</span> <span class="o">=</span> <span class="p">{};</span>
+  <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">indices</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">obj</span><span class="p">[</span><span class="nx">indices</span><span class="p">[</span><span class="nx">i</span><span class="p">]]</span> <span class="o">=</span> <span class="nx">s</span><span class="p">[</span><span class="nx">i</span><span class="p">];</span>
+  <span class="p">}</span>
+  <span class="k">return</span> <span class="nb">Object</span><span class="p">.</span><span class="nx">values</span><span class="p">(</span><span class="nx">obj</span><span class="p">).</span><span class="nx">join</span><span class="p">(</span><span class="dl">''</span><span class="p">);</span>
+<span class="p">};</span>
+</code></pre></div></div>
+
+<ol>
+  <li>indices를 순회하면서, 객체의 키로 indices를, 객체의 값으로는 문자열의 문자를 매핑시켰다.</li>
+  <li>재밌는 것은 indices의 인덱스 번호는 제각각인데, 객체에 키로 넣어주면 자동으로 오름차순 정렬이 된다는 점이다.</li>
+  <li>그래서 인덱스 키를 따로 정렬할 필요 없이 객체의 값만 뽑아 문자열로 반환하면 된다.</li>
+</ol>
+:ET

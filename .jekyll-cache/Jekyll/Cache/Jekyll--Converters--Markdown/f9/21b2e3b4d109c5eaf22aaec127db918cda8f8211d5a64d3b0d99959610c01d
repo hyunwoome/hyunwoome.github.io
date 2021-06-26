@@ -1,0 +1,41 @@
+I"a<p><a href="https://leetcode.com/problems/split-a-string-in-balanced-strings/">문제</a></p>
+
+<h2 id="문제-설명">문제 설명</h2>
+
+<p>문자열 s가 주어진다.</p>
+
+<p>s는 ‘R’과 ‘L’로 이루어져 있는데, ‘R’과 ‘L’이 개수가 맞으면 분리할 수 있다.</p>
+
+<p>총 몇 개가 분리되는지 세서 반환하는 문제이다.</p>
+
+<p><br /></p>
+
+<h2 id="내-코드">내 코드</h2>
+
+<ul>
+  <li>Runtime: 76 ms, faster than 82.35%</li>
+  <li>Memory Usage: 38.9 MB, less than 22.73%</li>
+</ul>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">balancedStringSplit</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">s</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">let</span> <span class="nx">answer</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+  <span class="kd">let</span> <span class="nx">sum</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+  <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">s</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">s</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="o">===</span> <span class="dl">'</span><span class="s1">R</span><span class="dl">'</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">sum</span><span class="o">++</span><span class="p">;</span>
+      <span class="k">if</span> <span class="p">(</span><span class="nx">sum</span> <span class="o">===</span> <span class="mi">0</span><span class="p">)</span> <span class="nx">answer</span><span class="o">++</span><span class="p">;</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+      <span class="nx">sum</span><span class="o">--</span><span class="p">;</span>
+      <span class="k">if</span> <span class="p">(</span><span class="nx">sum</span> <span class="o">===</span> <span class="mi">0</span><span class="p">)</span> <span class="nx">answer</span><span class="o">++</span><span class="p">;</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+  <span class="k">return</span> <span class="nx">answer</span><span class="p">;</span>
+<span class="p">};</span>
+</code></pre></div></div>
+
+<ol>
+  <li>문자열 s를 순회한다.</li>
+  <li>순회하면서 ‘R’을 만나면 카운팅을 증가시키고, ‘L’을 만나면 카운팅을 감소시켜 0이 되면 최종 카운팅을 증가시킨다.</li>
+  <li>이렇게 증가 감소가 반복되면서 0이 되면 최종 카운팅이 증가될 것이고, 해당 최종 카운팅을 반환한다.</li>
+</ol>
+:ET

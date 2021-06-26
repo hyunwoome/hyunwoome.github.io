@@ -1,0 +1,29 @@
+I"�<p><a href="https://leetcode.com/problems/detect-capital/">문제</a></p>
+
+<h2 id="접근하기">접근하기</h2>
+
+<p>문자열 <code class="language-plaintext highlighter-rouge">word</code>가 주어진다. <code class="language-plaintext highlighter-rouge">word</code>가 문제의 조건에 부합하면 <code class="language-plaintext highlighter-rouge">true</code>를, 아니면 <code class="language-plaintext highlighter-rouge">false</code>를 반환한다.</p>
+
+<ul>
+  <li>모든 문자가 대문자일 경우</li>
+  <li>모든 문자가 소문자일 경우</li>
+  <li>첫 글자만 대문자이고 모두 소문자인 경우</li>
+</ul>
+
+<p><br /></p>
+
+<h2 id="참고-코드">참고 코드</h2>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">detectCapitalUse</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">word</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="p">(</span>
+    <span class="nx">word</span> <span class="o">===</span> <span class="nx">word</span><span class="p">.</span><span class="nx">toUpperCase</span><span class="p">()</span> <span class="o">||</span>
+    <span class="nx">word</span> <span class="o">===</span> <span class="nx">word</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="nx">word</span><span class="p">.</span><span class="nx">substring</span><span class="p">(</span><span class="mi">1</span><span class="p">).</span><span class="nx">toLowerCase</span><span class="p">()</span>
+  <span class="p">);</span>
+<span class="p">};</span>
+</code></pre></div></div>
+
+<ol>
+  <li><code class="language-plaintext highlighter-rouge">word</code>가 모두 대문자인 경우와 비교해서 일치하면 <code class="language-plaintext highlighter-rouge">true</code>를 반환한다.</li>
+  <li><code class="language-plaintext highlighter-rouge">word</code>의 앞글자를 제외하고 나머지 글자를 소문자로 전환해서, 모든 문자가 소문자인지, 아니면 중간에 대문자가 껴있는지 확인 후 반환한다.</li>
+</ol>
+:ET
