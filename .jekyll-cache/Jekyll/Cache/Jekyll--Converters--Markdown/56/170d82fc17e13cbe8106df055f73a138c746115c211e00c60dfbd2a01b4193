@@ -1,0 +1,41 @@
+I"
+	<p><a href="https://leetcode.com/explore/learn/card/data-structure-tree/">참고</a></p>
+
+<h2 id="소개">소개</h2>
+
+<p><strong>트리</strong>(Tree)는 계층적 트리 구조를 시뮬레이션하기 위해 자주 사용되는 데이터 구조이다.</p>
+
+<p>트리의 각 노드는 <strong>루트 값</strong>과 <strong>자식 노드</strong>라 불리우는 다른 노드들을 참조하는 리스트로 구성되어 있다. 그래프로 보자면, 트리는 N개의 노드와 N - 1개의 간선(Edge)이 있는 방향성 비순환 그래프로 정의될 수 있다.</p>
+
+<p><strong>이진 트리</strong>(Binary Tree)는 가장 대표적인 트리 구조 중 하나이다. 이름에서 알 수 있듯이, 이진 트리 데이터 구조는 <strong>각 노드에 최대 두 개의 자식</strong>이 있으며, 왼쪽 자식과 오른쪽 자식이라 부른다.</p>
+
+<p><br /></p>
+
+<h2 id="트리-순회-traverse-a-tree">트리 순회 (Traverse a Tree)</h2>
+
+<h3 id="전위-순회-pre-order-traversal">전위 순회 (Pre-order Traversal)</h3>
+
+<p>전위 순회는 루트를 먼저 순회한다. 그 다음 왼쪽 하위 트리를 순회한다. 마지막으로 오른쪽 하위 트리를 순회한다.</p>
+
+<p>순서: <strong>루트</strong> - 왼쪽 - 오른쪽</p>
+
+<h3 id="중위-순회-in-order-traversal">중위 순회 (In-order Traversal)</h3>
+
+<p>중위 순회는 왼쪽 하위 트리를 먼저 순회한다. 그 다음 루트를 순회한다. 마지막으로 오른쪽 하위 트리를 순회한다.</p>
+
+<p>순서: 왼쪽 - <strong>루트</strong> - 오른쪽</p>
+
+<p>일반적으로 <code class="language-plaintext highlighter-rouge">이진 탐색 트리</code>의 경우 <strong>중위 순회</strong>를 사용해서 정렬된 순서로 모든 데이터를 탐색할 수 있다.</p>
+
+<h3 id="후위-순회-post-order-traversal">후위 순회 (Post-order Traversal)</h3>
+
+<p>후위 순회는 왼쪽 하위 트리를 먼저 순회한다. 그 다음 오른쪽 하위 트리를 순회한다. 마지막으로 루트를 순회한다.</p>
+
+<p>순서: 왼쪽 - 오른쪽 - <strong>루트</strong></p>
+
+<p><br /></p>
+
+<h2 id="재귀-또는-반복-recursive-or-iterative">재귀 또는 반복 (Recursive or Iterative)</h2>
+
+<p>트리를 순회할 땐 재귀 또는 반복문으로 구현할 수 있다.</p>
+:ET
