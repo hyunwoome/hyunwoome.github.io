@@ -1,0 +1,101 @@
+I"�'<p><a href="https://leetcode.com/problems/remove-element/">문제</a></p>
+
+<h2 id="문제-설명">문제 설명</h2>
+
+<p>정수형 배열 <code class="language-plaintext highlighter-rouge">nums</code>와 정수 <code class="language-plaintext highlighter-rouge">val</code>이 주어지며, 제자리 방식(<strong>in-place</strong>)으로 <code class="language-plaintext highlighter-rouge">nums</code> 배열에 있는 <code class="language-plaintext highlighter-rouge">val</code>을 제거해야 한다. 원소들의 상대적인 순서는 변경될 수 있다.</p>
+
+<p>몇몇 언어에선 배열의 길이를 바꾸는 것이 불가능하기 때문에, 원소를 제거한 후 남아있는 배열의 개수 <code class="language-plaintext highlighter-rouge">k</code>를 반환한다.</p>
+
+<p><code class="language-plaintext highlighter-rouge">nums</code>의 처음 <code class="language-plaintext highlighter-rouge">k</code>슬롯에 최종 결과를 배치한 후 <code class="language-plaintext highlighter-rouge">k</code>를 반환한다.</p>
+
+<p>다른 배열을 사용해추가적인 공간을 할당하지 않는다. 반드시 <code class="language-plaintext highlighter-rouge">O(1)</code>의 추가 메모리를 사용하여 입력 배열에서 제자리(in-place) 수정하여 이를 수행해야 한다.</p>
+
+<p><strong>예시 1</strong></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>입력: nums = [3, 2, 2, 3], val = 3
+출력: 2, nums = [2, 2, _, _]
+설명: nums에 두 요소가 남았으므로 k = 2를 반환해야 한다. 반환된 k 이상으로 남겨두는 것은 상관없다. (따라서 밑줄로 표현한다)
+</code></pre></div></div>
+
+<p><strong>예시 2</strong></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>입력: nums = [0,1,2,2,3,0,4,2], val = 2
+출력: 5, nums = [0,1,4,0,3,_,_,_]
+설명: nums에 다섯개의 요소가 남았으므로 k = 5를 반환해야 한다.
+</code></pre></div></div>
+
+<p><strong>제한사항</strong></p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">0 &lt;= nums.length &lt;= 100</code></li>
+  <li><code class="language-plaintext highlighter-rouge">0 &lt;= nums[i] &lt;= 50</code></li>
+  <li><code class="language-plaintext highlighter-rouge">0 &lt;= val &lt;= 100</code></li>
+</ul>
+
+<h2 id="해결방법">해결방법</h2>
+
+<p><strong>접근하기</strong></p>
+
+<p><strong>또 다른 배열을 만들지 않고서</strong> <code class="language-plaintext highlighter-rouge">nums</code>에 <code class="language-plaintext highlighter-rouge">val</code>과 동일한 원소를 제거하고 <strong>나머지 원소의 갯수를 반환</strong>해야 한다. 그럼 두 가지 방법을 사용할 수 있을 것 같다.</p>
+
+<p>첫 번째는 <strong>투포인터</strong>를 이용한 방식이다. 포인터 <code class="language-plaintext highlighter-rouge">i</code>는 0부터 시작하고, 포인터 <code class="language-plaintext highlighter-rouge">j</code>는 맨 뒤부터 시작해서 탐색하는 방식이다.</p>
+
+<p>두 번째 방법은 자바스크립트는 배열을 직접 조작할 수 있으므로 제거해야할 값<code class="language-plaintext highlighter-rouge">val</code>과 같은 값을 실제로 배열에서 제거하는 방식이다. 이 방식이 좀더 직관적이라 이해하기 쉽다.</p>
+
+<p><strong>알고리즘</strong></p>
+
+<ol>
+  <li>먼저 투포인터 방식을 이용해 제거 후 남아있는 원소들의 갯수를 파악해보자.</li>
+  <li>포인터 <code class="language-plaintext highlighter-rouge">i</code>는 증가시키고, 포인터 <code class="language-plaintext highlighter-rouge">j</code>는 감소시키면서 결국 만나게 되면 모든 배열의 탐색을 마치게 되는 것이다.</li>
+  <li><code class="language-plaintext highlighter-rouge">nums[i]</code>가 제거해야할 값 <code class="language-plaintext highlighter-rouge">val</code>과 같다면, 뒤에서 오는 <code class="language-plaintext highlighter-rouge">nums[j]</code>와 스왑을 해주고 포인터 <code class="language-plaintext highlighter-rouge">j</code>를 감소시켜 위에서부터 아래로 제거해야할 값으로 채울 수 있게 한다.</li>
+  <li>만약 <code class="language-plaintext highlighter-rouge">nums[i]</code>가 제거해야할 값 <code class="language-plaintext highlighter-rouge">val</code>이 같지 않다면, <code class="language-plaintext highlighter-rouge">i</code>가 가리키는 값이 <code class="language-plaintext highlighter-rouge">val</code>이 아니므로 다음 탐색을 위해 <code class="language-plaintext highlighter-rouge">i</code>를 증가시킨다.</li>
+  <li>탐색이 끝나면 <code class="language-plaintext highlighter-rouge">j</code>가 가리키는 인덱스 번호가 <code class="language-plaintext highlighter-rouge">배열의 모든 요소 갯수 - 제거해야할 요소 갯수</code>가 되므로 <code class="language-plaintext highlighter-rouge">j</code>를 반환한다.</li>
+</ol>
+
+<hr />
+
+<ol>
+  <li>다음으로 배열을 직접 삭제하는 방식이다.</li>
+  <li>배열 <code class="language-plaintext highlighter-rouge">nums</code>를 순회하면서 제거해야할 값과 일치하다면, 해당 인덱스를 제거하는 방식이다. 자바스크립트에는 <code class="language-plaintext highlighter-rouge">Array.splice()</code>라는 메서드가 있으며, 이 메서드는 정말 자주 쓰이는 메서드이다.</li>
+  <li><code class="language-plaintext highlighter-rouge">for</code>문에서 <code class="language-plaintext highlighter-rouge">splice()</code>를 사용할 때 주의해야할 점이 있다. <code class="language-plaintext highlighter-rouge">splice()</code>는 해당 인덱스를 제거할 수 있는 기능이 있는데, 만약 제거하게 되면 빈 공간에 원소들이 하나씩 밀리게 된다. 그래서 <code class="language-plaintext highlighter-rouge">i</code>가 제거된 인덱스 다음 인덱스가 빈 <strong>공간을 차지하기 위해 내려오게 되어 한 칸을 건너뛰어버린다.</strong> 이 것을 방지하기 위해 제거했을 땐 <code class="language-plaintext highlighter-rouge">i</code>의 값을 감소시켜줌으로써 뛰어넘는 걸 방지할 수 있다.</li>
+</ol>
+
+<h2 id="풀이코드">풀이코드</h2>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Two Pointer</span>
+
+<span class="kd">var</span> <span class="nx">removeElement</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">nums</span><span class="p">,</span> <span class="nx">val</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+  <span class="kd">let</span> <span class="nx">j</span> <span class="o">=</span> <span class="nx">nums</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span>
+
+  <span class="k">while</span> <span class="p">(</span><span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">j</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">nums</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="o">===</span> <span class="nx">val</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">nums</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="o">=</span> <span class="nx">nums</span><span class="p">[</span><span class="nx">j</span> <span class="o">-</span> <span class="mi">1</span><span class="p">];</span>
+      <span class="nx">j</span><span class="o">--</span><span class="p">;</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+      <span class="nx">i</span><span class="o">++</span><span class="p">;</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+  <span class="k">return</span> <span class="nx">j</span><span class="p">;</span>
+<span class="p">};</span>
+</code></pre></div></div>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Delete Elements</span>
+
+<span class="kd">const</span> <span class="nx">removeElement</span> <span class="o">=</span> <span class="p">(</span><span class="nx">nums</span><span class="p">,</span> <span class="nx">val</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">nums</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">nums</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="o">===</span> <span class="nx">val</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">nums</span><span class="p">.</span><span class="nx">splice</span><span class="p">(</span><span class="nx">i</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
+      <span class="nx">i</span><span class="o">--</span><span class="p">;</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+  <span class="k">return</span> <span class="nx">nums</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span>
+<span class="p">};</span>
+</code></pre></div></div>
+
+<p><strong>복잡도</strong></p>
+
+<ul>
+  <li>시간복잡도: 배열의 모든 원소를 한 번씩 순회하므로 <strong>O(n)</strong>을 만족한다고 생각한다.</li>
+</ul>
+:ET

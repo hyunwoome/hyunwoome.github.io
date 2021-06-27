@@ -1,4 +1,4 @@
-I"~5<p><a href="https://leetcode.com/explore/learn/card/fun-with-arrays/525/inserting-items-into-an-array/3253/">문제</a></p>
+I"�&<p><a href="https://leetcode.com/explore/learn/card/fun-with-arrays/525/inserting-items-into-an-array/3253/">문제</a></p>
 
 <h2 id="문제-설명">문제 설명</h2>
 
@@ -10,27 +10,27 @@
 
 <p><strong>예시 1</strong></p>
 
-<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">입력</span><span class="p">:</span> <span class="nx">nums1</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="nx">m</span> <span class="o">=</span> <span class="mi">3</span><span class="p">,</span> <span class="nx">nums2</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">],</span> <span class="nx">n</span> <span class="o">=</span> <span class="mi">3</span>
-<span class="nx">출력</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">]</span>
-<span class="nx">설명</span><span class="p">:</span> <span class="nx">병합하려는</span> <span class="nx">배열은</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span><span class="nx">과</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">]</span><span class="nx">이다</span><span class="p">.</span>
-<span class="nx">병합의</span> <span class="nx">결과는</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">]</span><span class="nx">이며</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="nx">이</span> <span class="nx">nums1로부터</span> <span class="nx">들어온</span> <span class="nx">원소이다</span><span class="p">.</span>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>입력: nums1 = [1, 2, 3, 0, 0, 0], m = 3, nums2 = [2, 5, 6], n = 3
+출력: [1, 2, 2, 3, 5, 6]
+설명: 병합하려는 배열은 [1, 2, 3]과 [2, 5, 6]이다.
+병합의 결과는 [1, 2, 2, 3, 5, 6]이며, 1, 2, 3이 nums1로부터 들어온 원소이다.
 </code></pre></div></div>
 
 <p><strong>예시 2</strong></p>
 
-<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">입력</span><span class="p">:</span> <span class="nx">nums1</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="nx">m</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="nx">nums2</span> <span class="o">=</span> <span class="p">[],</span> <span class="nx">n</span> <span class="o">=</span> <span class="mi">0</span>
-<span class="nx">출력</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">]</span>
-<span class="nx">설명</span><span class="p">:</span> <span class="nx">병합하려는</span> <span class="nx">배열은</span> <span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="nx">과</span> <span class="p">[]</span><span class="nx">이다</span><span class="p">.</span>
-<span class="nx">병합의</span> <span class="nx">결과는</span> <span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="nx">이다</span><span class="p">.</span>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>입력: nums1 = [1], m = 1, nums2 = [], n = 0
+출력: [1]
+설명: 병합하려는 배열은 [1]과 []이다.
+병합의 결과는 [1]이다.
 </code></pre></div></div>
 
 <p><strong>예시 3</strong></p>
 
-<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">입력</span><span class="p">:</span> <span class="nx">nums1</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="nx">m</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="nx">nums2</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="nx">n</span> <span class="o">=</span> <span class="mi">1</span>
-<span class="nx">출력</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">]</span>
-<span class="nx">설명</span><span class="p">:</span> <span class="nx">병합하려는</span> <span class="nx">배열은</span> <span class="p">[]</span><span class="nx">과</span> <span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="nx">이다</span><span class="p">.</span>
-<span class="nx">병합의</span> <span class="nx">결과는</span> <span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="nx">이다</span><span class="p">.</span>
-<span class="nx">m</span> <span class="o">=</span> <span class="mi">0</span><span class="nx">이므로</span> <span class="nx">nums1에는</span> <span class="nx">요소가</span> <span class="nx">없다</span><span class="p">.</span> <span class="mi">0</span><span class="nx">은</span> <span class="nx">병합</span> <span class="nx">결과가</span> <span class="nx">nums1에</span> <span class="nx">들어갈</span> <span class="nx">수</span> <span class="nx">있도록</span> <span class="nx">하기</span> <span class="nx">위해서만</span> <span class="nx">존재한다</span><span class="p">.</span>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>입력: nums1 = [0], m = 0, nums2 = [1], n = 1
+출력: [1]
+설명: 병합하려는 배열은 []과 [1]이다.
+병합의 결과는 [1]이다.
+m = 0이므로 nums1에는 요소가 없다. 0은 병합 결과가 nums1에 들어갈 수 있도록 하기 위해서만 존재한다.
 </code></pre></div></div>
 
 <p><strong>제한사항</strong></p>
@@ -60,7 +60,7 @@
 위 그림에서 <code class="language-plaintext highlighter-rouge">i</code>와 <code class="language-plaintext highlighter-rouge">j</code>가 포인터가 된다.</li>
   <li><code class="language-plaintext highlighter-rouge">nums1</code>에 오름차순으로 정렬해야 하므로 <code class="language-plaintext highlighter-rouge">nums1[i]</code>와 <code class="language-plaintext highlighter-rouge">nums2[j]</code>를 비교해 <code class="language-plaintext highlighter-rouge">nums1</code>에 삽입한다. 아래 풀이코드에선, <code class="language-plaintext highlighter-rouge">nums1[i]</code>가 <code class="language-plaintext highlighter-rouge">nums2[j]</code>보다 클 때, <code class="language-plaintext highlighter-rouge">nums1[i]</code>의 앞에 위치하도록 작성되었다. 그러면 오름차순이 될 것이다. 이 조건이 성립되면 다음 인덱스를 비교하기 위해 <code class="language-plaintext highlighter-rouge">i</code>와 <code class="language-plaintext highlighter-rouge">j</code>의 인덱스 값을 증가시킨다.</li>
   <li>이 조건이 성립되지 않는다면, <code class="language-plaintext highlighter-rouge">nums[j]</code>의 값이 더 크다는 의미이므로 <code class="language-plaintext highlighter-rouge">i</code>가 가리키는 인덱스를 증가시켜 <code class="language-plaintext highlighter-rouge">nums[i]</code>의 값을 높은 값으로 변경한다.</li>
-  <li>이러한 단계는 <code class="language-plaintext highlighter-rouge">nums1</code>에 병합하려는 배열, <code class="language-plaintext highlighter-rouge">nums2</code>를 다 순회할 때 까지 진행한다.</li>
+  <li>이러한 단계는 <code class="language-plaintext highlighter-rouge">nums1</code>에 병합하려는 배열, 즉 <code class="language-plaintext highlighter-rouge">nums2</code>를 다 순회할 때 까지 진행한다.</li>
 </ol>
 
 <p><br /></p>
@@ -75,16 +75,22 @@
  * @return {void} 아무것도 반환하지 말아야 하며, 대신 제자리 방법(in-place)으로 nums1을 수정하라.
  */</span>
 <span class="kd">var</span> <span class="nx">merge</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">nums1</span><span class="p">,</span> <span class="nx">m</span><span class="p">,</span> <span class="nx">nums2</span><span class="p">,</span> <span class="nx">n</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// nums1 뒤에있는 0을 제거</span>
   <span class="nx">nums1</span><span class="p">.</span><span class="nx">splice</span><span class="p">(</span><span class="nx">m</span><span class="p">,</span> <span class="nx">nums1</span><span class="p">.</span><span class="nx">length</span> <span class="o">-</span> <span class="nx">m</span><span class="p">);</span>
 
+  <span class="c1">// 두 포인터 정의</span>
   <span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
   <span class="kd">var</span> <span class="nx">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
 
+  <span class="c1">// j는 nums2를 끝까지 순회할 때 까지 다음 조건을 반복한다.</span>
   <span class="k">while</span> <span class="p">(</span><span class="nx">j</span> <span class="o">&lt;</span> <span class="nx">nums2</span><span class="p">.</span><span class="nx">length</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// nums1[i]가 0을 제거했으므로 undefined이 되거나,</span>
+    <span class="c1">// nums1[i] &gt; nums2[j]라면, nums1의 해당 인덱스에 nums2[j]를 삽입</span>
     <span class="k">if</span> <span class="p">(</span><span class="nx">nums1</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="o">===</span> <span class="kc">undefined</span> <span class="o">||</span> <span class="nx">nums1</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="o">&gt;</span> <span class="nx">nums2</span><span class="p">[</span><span class="nx">j</span><span class="p">])</span> <span class="p">{</span>
       <span class="nx">nums1</span><span class="p">.</span><span class="nx">splice</span><span class="p">(</span><span class="nx">i</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="nx">nums2</span><span class="p">[</span><span class="nx">j</span><span class="p">]);</span>
       <span class="nx">j</span><span class="o">++</span><span class="p">;</span>
       <span class="nx">i</span><span class="o">++</span><span class="p">;</span>
+      <span class="c1">// 아니라면 nums2[j]가 nums1[i]보다 크기 때문에 nums1[i]도 수를 증가시키기 위해 i만 증가시킨다.</span>
     <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
       <span class="nx">i</span><span class="o">++</span><span class="p">;</span>
     <span class="p">}</span>
@@ -93,4 +99,8 @@
 </code></pre></div></div>
 
 <p><strong>복잡도</strong></p>
+
+<ul>
+  <li>시간 복잡도: <code class="language-plaintext highlighter-rouge">nums1</code>과 <code class="language-plaintext highlighter-rouge">nums2</code> 원소의 갯수만 순회하면 되기 때문에 <strong>O(m + n)</strong>을 만족할 것이다.</li>
+</ul>
 :ET
