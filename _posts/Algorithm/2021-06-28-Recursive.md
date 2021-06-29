@@ -43,14 +43,10 @@ comments: true
 즉, 리프 노드까지 도착하면, 더 이상 자식 노드는 없기 때문에 깊이에 대한 답을 갱신한다. 이 과정을 트리의 줄기마다 반복한다.
 
 ```js
-const maximum_depth = (root, depth) => {
-  if (!root) return;
-
-  if (root.left === null && root.right === null) {
-    answer = Math.max(answer, depth);
-  }
-  maximum_depth(root.left, depth + 1);
-  maximum_depth(root.right, depth + 1);
+var maxDepth = function (root) {
+  if (!root) return null;
+  let max = Math.max(maxDepth(root.left), maxDepth(root.right));
+  return max + 1;
 };
 ```
 

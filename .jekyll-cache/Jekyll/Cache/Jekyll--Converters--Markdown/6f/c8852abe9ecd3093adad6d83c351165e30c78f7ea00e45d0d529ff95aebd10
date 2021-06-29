@@ -1,4 +1,4 @@
-I"o(<p><a href="https://leetcode.com/explore/learn/card/data-structure-tree/17/solve-problems-recursively/534/">참고</a></p>
+I"2&<p><a href="https://leetcode.com/explore/learn/card/data-structure-tree/17/solve-problems-recursively/534/">참고</a></p>
 
 <h2 id="재귀적으로-트리-문제-해결">재귀적으로 트리 문제 해결</h2>
 
@@ -14,11 +14,11 @@
 
 <p>“Top-down”방식은 각 재귀 호출에서, 먼저 노드를 방문하여 몇가지 값을 찾고 함수를 재귀적으로 호출할 때 이 값을 자식 노드에게 전달한다. 그래서 “Top-down”방식 해결법은 <strong>전위 순회</strong>(pre-order)와 같은 문제를 해결할 때 고려할 수 있다. 구체적으로 재귀 함수 <code class="language-plaintext highlighter-rouge">top_down(root, params)</code>은 다음과 같이 동작한다.</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>1. null노드에 대한 특정 값 반환
-2. 필요한 경우 answer를 갱신  // (answer는 params)
-3. left_ans = top_down(root.left, left_params) // (left_params &lt;-- root.val, params)
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>1. return specific value for null node
+2. update the answer if needed                      // answer &lt;-- params
+3. left_ans = top_down(root.left, left_params)      // left_params &lt;-- root.val, params
 4. right_ans = top_down(root.right, right_params)   // right_params &lt;-- root.val, params
-5. 필요한 경우 answer를 반환
+5. return the answer if needed                      // answer &lt;-- left_ans, right_ans
 </code></pre></div></div>
 
 <p>예를들면, 다음과 같은 문제에 고려할 수 있다 : <strong>이진 트리가 주어지면 최대 깊이를 찾는 문제</strong></p>
@@ -34,14 +34,10 @@
 
 <p>즉, 리프 노드까지 도착하면, 더 이상 자식 노드는 없기 때문에 깊이에 대한 답을 갱신한다. 이 과정을 트리의 줄기마다 반복한다.</p>
 
-<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">maximum_depth</span> <span class="o">=</span> <span class="p">(</span><span class="nx">root</span><span class="p">,</span> <span class="nx">depth</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
-  <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">root</span><span class="p">)</span> <span class="k">return</span><span class="p">;</span>
-
-  <span class="k">if</span> <span class="p">(</span><span class="nx">root</span><span class="p">.</span><span class="nx">left</span> <span class="o">===</span> <span class="kc">null</span> <span class="o">&amp;&amp;</span> <span class="nx">root</span><span class="p">.</span><span class="nx">right</span> <span class="o">===</span> <span class="kc">null</span><span class="p">)</span> <span class="p">{</span>
-    <span class="nx">answer</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">max</span><span class="p">(</span><span class="nx">answer</span><span class="p">,</span> <span class="nx">depth</span><span class="p">);</span>
-  <span class="p">}</span>
-  <span class="nx">maximum_depth</span><span class="p">(</span><span class="nx">root</span><span class="p">.</span><span class="nx">left</span><span class="p">,</span> <span class="nx">depth</span> <span class="o">+</span> <span class="mi">1</span><span class="p">);</span>
-  <span class="nx">maximum_depth</span><span class="p">(</span><span class="nx">root</span><span class="p">.</span><span class="nx">right</span><span class="p">,</span> <span class="nx">depth</span> <span class="o">+</span> <span class="mi">1</span><span class="p">);</span>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">maxDepth</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">root</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">root</span><span class="p">)</span> <span class="k">return</span> <span class="kc">null</span><span class="p">;</span>
+  <span class="kd">let</span> <span class="nx">max</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">max</span><span class="p">(</span><span class="nx">maxDepth</span><span class="p">(</span><span class="nx">root</span><span class="p">.</span><span class="nx">left</span><span class="p">),</span> <span class="nx">maxDepth</span><span class="p">(</span><span class="nx">root</span><span class="p">.</span><span class="nx">right</span><span class="p">));</span>
+  <span class="k">return</span> <span class="nx">max</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
 <span class="p">};</span>
 </code></pre></div></div>
 
