@@ -1,5 +1,5 @@
 ---
-title: Solve Tree Problems Recursively
+title: Algorithm - Solve Tree Problems Recursively
 categories: [Algorithm]
 comments: true
 ---

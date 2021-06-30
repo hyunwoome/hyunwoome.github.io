@@ -1,6 +1,6 @@
 ---
-title: LV2. 스킬트리
-categories: [Programmers]
+title: Programmers - LV2. 스킬트리
+categories: [PS]
 comments: true
 ---
 
