@@ -1,5 +1,5 @@
 ---
-title: LV2. 멀쩡한 사각형
+title: Programmers - LV2. 멀쩡한 사각형
 categories: [Programmers]
 comments: true
 ---

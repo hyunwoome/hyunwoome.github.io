@@ -1,5 +1,5 @@
 ---
-title: LV2. 다음 큰 숫자
+title: Programmers - LV2. 다음 큰 숫자
 categories: [Programmers]
 comments: true
 ---

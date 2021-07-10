@@ -1,5 +1,5 @@
 ---
-title: LV2. 큰 수 만들기
+title: Programmers - LV2. 큰 수 만들기
 categories: [Programmers]
 comments: true
 ---

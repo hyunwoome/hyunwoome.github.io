@@ -1,5 +1,5 @@
 ---
-title: LV1. 약수의 합
+title: Programmers - LV1. 약수의 합
 categories: [Programmers]
 comments: true
 ---

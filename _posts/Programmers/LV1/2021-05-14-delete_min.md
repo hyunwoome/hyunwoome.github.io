@@ -1,5 +1,5 @@
 ---
-title: LV1. 제일 작은 수 제거하기
+title: Programmers - LV1. 제일 작은 수 제거하기
 categories: [Programmers]
 comments: true
 ---

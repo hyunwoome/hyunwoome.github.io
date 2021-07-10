@@ -1,5 +1,5 @@
 ---
-title: LV2. 행렬의 곱셈
+title: Programmers - LV2. 행렬의 곱셈
 categories: [Programmers]
 comments: true
 ---
