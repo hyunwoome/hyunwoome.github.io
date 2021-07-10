@@ -1,0 +1,52 @@
+I"�<p><a href="https://leetcode.com/problems/create-target-array-in-the-given-order/">문제</a></p>
+
+<h2 id="문제-설명">문제 설명</h2>
+
+<p>숫자형 배열 nums와 index가 주어진다.</p>
+
+<p>index배열의 숫자는 인덱스 번호를 의미하며, 이 인덱스 번호대로 nums의 숫자를 삽입해 반환하는 문제이다.</p>
+
+<p><br /></p>
+
+<h2 id="내-코드">내 코드</h2>
+
+<ul>
+  <li>Runtime: 88 ms, faster than 18.74%</li>
+  <li>Memory Usage: 39.1 MB, less than 14.11%</li>
+</ul>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">createTargetArray</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">nums</span><span class="p">,</span> <span class="nx">index</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">let</span> <span class="nx">answer</span> <span class="o">=</span> <span class="p">[];</span>
+  <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">nums</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">answer</span><span class="p">.</span><span class="nx">splice</span><span class="p">(</span><span class="nx">index</span><span class="p">[</span><span class="nx">i</span><span class="p">],</span> <span class="mi">0</span><span class="p">,</span> <span class="nx">nums</span><span class="p">[</span><span class="nx">i</span><span class="p">]);</span>
+  <span class="p">}</span>
+  <span class="k">return</span> <span class="nx">answer</span><span class="p">;</span>
+<span class="p">};</span>
+</code></pre></div></div>
+
+<ol>
+  <li>배열의 특정 인덱스에 요소를 삽입하거나 삭제할 땐 splice메서드를 사용한다.</li>
+  <li>이 메서드는 인자로 splice(시작인덱스, [제거할 요소 수], [추가할 요소])로 구성되어 있어, 인자에 맞게 넣어주면 간단하게 풀 수 있다.</li>
+</ol>
+
+<p><br /></p>
+
+<h2 id="참고-코드">참고 코드</h2>
+
+<ul>
+  <li>Runtime: 80 ms, faster than 52.92%</li>
+  <li>Memory Usage: 39 MB, less than 14.11%</li>
+</ul>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">createTargetArray</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">nums</span><span class="p">,</span> <span class="nx">index</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="nx">nums</span><span class="p">.</span><span class="nx">reduce</span><span class="p">((</span><span class="nx">acc</span><span class="p">,</span> <span class="nx">curr</span><span class="p">,</span> <span class="nx">idx</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="nx">acc</span><span class="p">.</span><span class="nx">splice</span><span class="p">(</span><span class="nx">index</span><span class="p">[</span><span class="nx">idx</span><span class="p">],</span> <span class="mi">0</span><span class="p">,</span> <span class="nx">curr</span><span class="p">);</span>
+    <span class="k">return</span> <span class="nx">acc</span><span class="p">;</span>
+  <span class="p">},</span> <span class="p">[]);</span>
+<span class="p">};</span>
+</code></pre></div></div>
+
+<ol>
+  <li>참고한 코드는 배열의 고차함수 reduce를 이용해서 더욱 간결하게 작성했다.</li>
+</ol>
+:ET

@@ -1,0 +1,41 @@
+I"�<p><a href="https://leetcode.com/problems/missing-number/">문제</a></p>
+
+<h2 id="접근하기">접근하기</h2>
+
+<p>숫자형 배열 <code class="language-plaintext highlighter-rouge">nums</code>가 주어진다. <code class="language-plaintext highlighter-rouge">nums</code>에는 <code class="language-plaintext highlighter-rouge">0부터 nums.length</code>까지 하나의 수 빼곤 포함되어 있다. 빠져있는 하나의 수를 반환하는 문제이다.</p>
+
+<p><br /></p>
+
+<h2 id="내-코드">내 코드</h2>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">missingNumber</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">nums</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">const</span> <span class="nx">len</span> <span class="o">=</span> <span class="nx">nums</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span>
+  <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">len</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">nums</span><span class="p">.</span><span class="nx">includes</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span> <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">nums</span><span class="p">.</span><span class="nx">includes</span><span class="p">(</span><span class="nx">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">))</span> <span class="k">return</span> <span class="nx">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">};</span>
+</code></pre></div></div>
+
+<ol>
+  <li>for문을 이용해 간단하게 답을 찾았다. 하지만 이 문제의 조건 중 시간복잡도 O(1)에 맞추도록 권고하고 있다.</li>
+</ol>
+
+<p><br /></p>
+
+<h2 id="참고-코드">참고 코드</h2>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">missingNumber</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">nums</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">const</span> <span class="nx">res</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Array</span><span class="p">(</span><span class="nx">nums</span><span class="p">.</span><span class="nx">length</span> <span class="o">+</span> <span class="mi">1</span><span class="p">).</span><span class="nx">fill</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">);</span>
+  <span class="k">for</span> <span class="p">(</span><span class="kd">const</span> <span class="nx">num</span> <span class="k">of</span> <span class="nx">nums</span><span class="p">)</span> <span class="nx">res</span><span class="p">[</span><span class="nx">num</span><span class="p">]</span> <span class="o">=</span> <span class="nx">num</span><span class="p">;</span>
+  <span class="k">return</span> <span class="nx">res</span><span class="p">.</span><span class="nx">indexOf</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">);</span>
+<span class="p">};</span>
+</code></pre></div></div>
+
+<ol>
+  <li>O(1)까지는 모르겠는데, 내가 작성한 코드보다 약 8배 이상 빠르다.</li>
+  <li>for문을 같이 한 번만 사용했는데, 내 코드는 아마 <code class="language-plaintext highlighter-rouge">include</code>가 있어서 그런 듯 하다. <code class="language-plaintext highlighter-rouge">include</code>를 하려면 배열을 한 번 훑어야 하지 않을까 생각한다.</li>
+  <li>위 코드는 먼저 <code class="language-plaintext highlighter-rouge">nums</code>의 길이 + 1만큼 빈 배열을 만들고 -1로 채웠다.</li>
+  <li>for문을 사용해서, <code class="language-plaintext highlighter-rouge">nums</code>의 숫자들을 <code class="language-plaintext highlighter-rouge">res</code>의 인덱스 자리에 삽입하고, 채워지지 않은 <code class="language-plaintext highlighter-rouge">-1</code>을 찾아 해당 인덱스를 반환한다.</li>
+</ol>
+:ET

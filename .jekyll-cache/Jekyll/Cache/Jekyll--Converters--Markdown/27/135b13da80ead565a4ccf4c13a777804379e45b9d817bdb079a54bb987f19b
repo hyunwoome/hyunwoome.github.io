@@ -1,0 +1,43 @@
+I"�<p><a href="https://programmers.co.kr/learn/courses/30/lessons/12905">문제</a></p>
+
+<h2 id="접근하기">접근하기</h2>
+
+<p>2차원 정수형 배열이 주어진다. 표에서 1로 이루어진 가장 큰 정사각형을 찾아 넓이를 반환한다.</p>
+
+<p><br /></p>
+
+<h2 id="참고-코드">참고 코드</h2>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">solution</span><span class="p">(</span><span class="nx">board</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">let</span> <span class="nx">x_len</span> <span class="o">=</span> <span class="nx">board</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nx">length</span><span class="p">;</span>
+  <span class="kd">let</span> <span class="nx">y_len</span> <span class="o">=</span> <span class="nx">board</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span>
+  <span class="kd">let</span> <span class="nx">answer</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+
+  <span class="k">if</span> <span class="p">(</span><span class="nx">x_len</span> <span class="o">===</span> <span class="mi">1</span> <span class="o">||</span> <span class="nx">y_len</span> <span class="o">===</span> <span class="mi">1</span><span class="p">)</span> <span class="k">return</span> <span class="mi">1</span><span class="p">;</span>
+
+  <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">y_len</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">j</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="nx">j</span> <span class="o">&lt;</span> <span class="nx">x_len</span><span class="p">;</span> <span class="nx">j</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">if</span> <span class="p">(</span><span class="nx">board</span><span class="p">[</span><span class="nx">i</span><span class="p">][</span><span class="nx">j</span><span class="p">]</span> <span class="o">!==</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kd">let</span> <span class="nx">min</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">min</span><span class="p">(</span>
+          <span class="nx">board</span><span class="p">[</span><span class="nx">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">][</span><span class="nx">j</span> <span class="o">-</span> <span class="mi">1</span><span class="p">],</span>
+          <span class="nx">board</span><span class="p">[</span><span class="nx">i</span><span class="p">][</span><span class="nx">j</span> <span class="o">-</span> <span class="mi">1</span><span class="p">],</span>
+          <span class="nx">board</span><span class="p">[</span><span class="nx">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">][</span><span class="nx">j</span><span class="p">],</span>
+        <span class="p">);</span>
+        <span class="nx">board</span><span class="p">[</span><span class="nx">i</span><span class="p">][</span><span class="nx">j</span><span class="p">]</span> <span class="o">=</span> <span class="nx">min</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+      <span class="p">}</span>
+      <span class="k">if</span> <span class="p">(</span><span class="nx">answer</span> <span class="o">&lt;</span> <span class="nx">board</span><span class="p">[</span><span class="nx">i</span><span class="p">][</span><span class="nx">j</span><span class="p">])</span> <span class="p">{</span>
+        <span class="nx">answer</span> <span class="o">=</span> <span class="nx">board</span><span class="p">[</span><span class="nx">i</span><span class="p">][</span><span class="nx">j</span><span class="p">];</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+  <span class="k">return</span> <span class="nx">answer</span> <span class="o">*</span> <span class="nx">answer</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<ol>
+  <li>먼저 배열의 크기를 알아내기 위해, x축의 길이와 y축의 길이를 구한다.</li>
+  <li>x축의 길이나 y축의 길이가 1이라면, 아무리 배열이 길어도 정사각형이 될 수 있는 크기는 1뿐이므로, 바로 1을 반환한다.</li>
+  <li>해당 2차원 배열을 하나하나 순회하면서, 해당 인덱스의 위, 왼쪽, 왼쪽 대각선을 살펴봐야 한다. 만약 세 위치가 1로 채워져 있다면, 최소 2 x 2 이상이 된다.</li>
+  <li>위, 왼쪽, 왼쪽 대각선을 다 살펴보면서 내려오면, 1로 이루어진 길이를 알 수 있으며, 이 길이를 제곱하면 정사각형의 너비를 알 수 있다.</li>
+</ol>
+:ET

@@ -1,0 +1,36 @@
+I"<p><a href="https://leetcode.com/problems/valid-palindrome/">문제</a></p>
+
+<h2 id="접근하기">접근하기</h2>
+
+<p>문자열 <code class="language-plaintext highlighter-rouge">s</code>가 주어지는데, 이 <code class="language-plaintext highlighter-rouge">s</code>가 <a href="https://ko.wikipedia.org/wiki/%ED%9A%8C%EB%AC%B8">펠린드롬</a>인지 확인하는 문제이다.</p>
+
+<p><br /></p>
+
+<h2 id="내-코드">내 코드</h2>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">isPalindrome</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">s</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">const</span> <span class="nx">reg</span> <span class="o">=</span> <span class="nx">s</span><span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="sr">/</span><span class="se">[^</span><span class="sr">a-z0-9</span><span class="se">]</span><span class="sr">/gi</span><span class="p">,</span> <span class="dl">''</span><span class="p">);</span>
+  <span class="kd">const</span> <span class="nx">lower</span> <span class="o">=</span> <span class="nx">reg</span><span class="p">.</span><span class="nx">toLowerCase</span><span class="p">();</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">lower</span><span class="p">.</span><span class="nx">length</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">)</span> <span class="k">return</span> <span class="kc">true</span><span class="p">;</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">lower</span><span class="p">.</span><span class="nx">length</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">===</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">const</span> <span class="nx">left</span> <span class="o">=</span> <span class="nx">lower</span><span class="p">.</span><span class="nx">slice</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nx">lower</span><span class="p">.</span><span class="nx">length</span> <span class="o">/</span> <span class="mi">2</span><span class="p">);</span>
+    <span class="kd">const</span> <span class="nx">right</span> <span class="o">=</span> <span class="nx">lower</span><span class="p">.</span><span class="nx">slice</span><span class="p">(</span><span class="nx">lower</span><span class="p">.</span><span class="nx">length</span> <span class="o">/</span> <span class="mi">2</span><span class="p">,</span> <span class="nx">lower</span><span class="p">.</span><span class="nx">length</span><span class="p">);</span>
+    <span class="kd">const</span> <span class="nx">reverse</span> <span class="o">=</span> <span class="nx">right</span><span class="p">.</span><span class="nx">split</span><span class="p">(</span><span class="dl">''</span><span class="p">).</span><span class="nx">reverse</span><span class="p">().</span><span class="nx">join</span><span class="p">(</span><span class="dl">''</span><span class="p">);</span>
+    <span class="k">return</span> <span class="nx">left</span> <span class="o">===</span> <span class="nx">reverse</span><span class="p">;</span>
+  <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+    <span class="kd">const</span> <span class="nx">left</span> <span class="o">=</span> <span class="nx">lower</span><span class="p">.</span><span class="nx">slice</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">floor</span><span class="p">(</span><span class="nx">lower</span><span class="p">.</span><span class="nx">length</span> <span class="o">/</span> <span class="mi">2</span><span class="p">));</span>
+    <span class="kd">const</span> <span class="nx">right</span> <span class="o">=</span> <span class="nx">lower</span><span class="p">.</span><span class="nx">slice</span><span class="p">(</span><span class="nb">Math</span><span class="p">.</span><span class="nx">floor</span><span class="p">(</span><span class="nx">lower</span><span class="p">.</span><span class="nx">length</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="nx">lower</span><span class="p">.</span><span class="nx">length</span><span class="p">);</span>
+    <span class="kd">const</span> <span class="nx">reverse</span> <span class="o">=</span> <span class="nx">right</span><span class="p">.</span><span class="nx">split</span><span class="p">(</span><span class="dl">''</span><span class="p">).</span><span class="nx">reverse</span><span class="p">().</span><span class="nx">join</span><span class="p">(</span><span class="dl">''</span><span class="p">);</span>
+    <span class="k">return</span> <span class="nx">left</span> <span class="o">===</span> <span class="nx">reverse</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">};</span>
+</code></pre></div></div>
+
+<ol>
+  <li>먼저 주어진 조건에 알파뉴메릭(알파벳과 숫자)만 올 수 있기 때문에, 정규식으로 알파뉴메릭을 제외한 나머지를 제거한다.</li>
+  <li>소문자로 통일시킨다.</li>
+  <li>문자열 하나만 주어지면 바로 <code class="language-plaintext highlighter-rouge">true</code>를 반환한다.</li>
+  <li>각각 문자열의 개수가 짝수일 때와 홀수일 때를 구분하여 문자열을 가운데를 기준으로 자르고, 잘린 오른쪽 문자열은 다시 <code class="language-plaintext highlighter-rouge">reverse</code>하여 순서를 맞춰준다.</li>
+  <li>그 후 두 문자열을 비교한다.</li>
+</ol>
+:ET

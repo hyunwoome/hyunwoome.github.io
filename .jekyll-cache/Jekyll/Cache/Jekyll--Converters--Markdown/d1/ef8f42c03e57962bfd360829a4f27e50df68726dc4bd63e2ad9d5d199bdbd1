@@ -1,0 +1,23 @@
+I"j<p><a href="https://leetcode.com/problems/truncate-sentence/">문제</a></p>
+
+<h2 id="접근하기">접근하기</h2>
+
+<p>주어진 문자열 <code class="language-plaintext highlighter-rouge">s</code>에서 빈 칸을 기준으로 <code class="language-plaintext highlighter-rouge">k</code>수만큼 단어를 반환하는 문제이다.</p>
+
+<p><br /></p>
+
+<h2 id="내-코드">내 코드</h2>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">truncateSentence</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">s</span><span class="p">,</span> <span class="nx">k</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">const</span> <span class="nx">splittedArray</span> <span class="o">=</span> <span class="nx">s</span><span class="p">.</span><span class="nx">split</span><span class="p">(</span><span class="dl">'</span><span class="s1"> </span><span class="dl">'</span><span class="p">);</span>
+  <span class="kd">const</span> <span class="nx">sliceArray</span> <span class="o">=</span> <span class="nx">splittedArray</span><span class="p">.</span><span class="nx">slice</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nx">k</span><span class="p">);</span>
+  <span class="k">return</span> <span class="nx">sliceArray</span><span class="p">.</span><span class="nx">join</span><span class="p">(</span><span class="dl">'</span><span class="s1"> </span><span class="dl">'</span><span class="p">);</span>
+<span class="p">};</span>
+</code></pre></div></div>
+
+<ol>
+  <li>주어진 문자열 <code class="language-plaintext highlighter-rouge">s</code>를 빈칸을 기준으로 배열로 만든다.</li>
+  <li><code class="language-plaintext highlighter-rouge">slice()</code>를 이용해서 0부터 <code class="language-plaintext highlighter-rouge">k</code>번째 까지 배열을 자른다.</li>
+  <li><code class="language-plaintext highlighter-rouge">join()</code>을 이용해 배열을 문자열로 변경시킨 후 반환한다.</li>
+</ol>
+:ET

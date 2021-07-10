@@ -1,0 +1,27 @@
+I"�<p><a href="https://leetcode.com/problems/can-make-arithmetic-progression-from-sequence/">문제</a></p>
+
+<h2 id="접근하기">접근하기</h2>
+
+<p>정수형 배열 <code class="language-plaintext highlighter-rouge">arr</code>가 주어진다. 배열안에 연속되는 두 정수요소의 차이가 동일하면 <code class="language-plaintext highlighter-rouge">true</code>를, 아니라면 <code class="language-plaintext highlighter-rouge">false</code>를 반환한다.</p>
+
+<p><br /></p>
+
+<h2 id="내-코드">내 코드</h2>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">canMakeArithmeticProgression</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">arr</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">arr</span><span class="p">.</span><span class="nx">sort</span><span class="p">((</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">a</span> <span class="o">-</span> <span class="nx">b</span><span class="p">);</span>
+  <span class="kd">const</span> <span class="nx">diff</span> <span class="o">=</span> <span class="nx">arr</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="nx">arr</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
+  <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">arr</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">arr</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="o">-</span> <span class="nx">arr</span><span class="p">[</span><span class="nx">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">!==</span> <span class="nx">diff</span><span class="p">)</span> <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
+  <span class="p">}</span>
+  <span class="k">return</span> <span class="kc">true</span><span class="p">;</span>
+<span class="p">};</span>
+</code></pre></div></div>
+
+<ol>
+  <li>배열의 원소를 먼저 오름차순으로 정렬시킨다.</li>
+  <li>인접한 원소의 차이를 먼저 구한다. (<code class="language-plaintext highlighter-rouge">diff</code>)</li>
+  <li>배열의 0번 인덱스와 1번 인덱스로 <code class="language-plaintext highlighter-rouge">diff</code>를 구했으니 배열의 2번 인덱스부터 시작하여 순회한다.</li>
+  <li>순회하면서 배열의 <code class="language-plaintext highlighter-rouge">i</code>번 인덱스 - <code class="language-plaintext highlighter-rouge">i - 1</code>번 인덱스를 비교해가면서, <code class="language-plaintext highlighter-rouge">diff</code>와 그 차이가 다르다면 <code class="language-plaintext highlighter-rouge">false</code>를 즉시 반환하고, 모두 통과되면 <code class="language-plaintext highlighter-rouge">true</code>를 반환한다.</li>
+</ol>
+:ET

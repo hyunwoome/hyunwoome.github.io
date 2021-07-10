@@ -1,0 +1,50 @@
+I"�<p><a href="https://leetcode.com/problems/valid-anagram/">문제</a></p>
+
+<h2 id="접근하기">접근하기</h2>
+
+<p>문자열 <code class="language-plaintext highlighter-rouge">s</code>와 <code class="language-plaintext highlighter-rouge">t</code>가 주어진다. 두 문자열이 <a href="https://namu.wiki/w/%EC%95%A0%EB%84%88%EA%B7%B8%EB%9E%A8?from=%EC%95%84%EB%82%98%EA%B7%B8%EB%9E%A8">아나그램</a>인지 확인하는 문제이다.</p>
+
+<p><br /></p>
+
+<h2 id="내-코드">내 코드</h2>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">isAnagram</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">s</span><span class="p">,</span> <span class="nx">t</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// 해시</span>
+  <span class="kd">const</span> <span class="nx">sToObject</span> <span class="o">=</span> <span class="p">{};</span>
+  <span class="k">for</span> <span class="p">(</span><span class="kd">const</span> <span class="nx">char</span> <span class="k">of</span> <span class="nx">s</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">sToObject</span><span class="p">[</span><span class="nx">char</span><span class="p">]</span> <span class="o">=</span> <span class="nx">sToObject</span><span class="p">[</span><span class="nx">char</span><span class="p">]</span> <span class="p">?</span> <span class="nx">sToObject</span><span class="p">[</span><span class="nx">char</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1</span> <span class="p">:</span> <span class="mi">1</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="c1">// 해시</span>
+  <span class="kd">const</span> <span class="nx">tToObject</span> <span class="o">=</span> <span class="p">{};</span>
+  <span class="k">for</span> <span class="p">(</span><span class="kd">const</span> <span class="nx">char</span> <span class="k">of</span> <span class="nx">t</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">tToObject</span><span class="p">[</span><span class="nx">char</span><span class="p">]</span> <span class="o">=</span> <span class="nx">tToObject</span><span class="p">[</span><span class="nx">char</span><span class="p">]</span> <span class="p">?</span> <span class="nx">tToObject</span><span class="p">[</span><span class="nx">char</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1</span> <span class="p">:</span> <span class="mi">1</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="c1">// 객체 정렬</span>
+  <span class="kd">const</span> <span class="nx">ordered_s</span> <span class="o">=</span> <span class="nb">Object</span><span class="p">.</span><span class="nx">keys</span><span class="p">(</span><span class="nx">sToObject</span><span class="p">)</span>
+    <span class="p">.</span><span class="nx">sort</span><span class="p">()</span>
+    <span class="p">.</span><span class="nx">reduce</span><span class="p">((</span><span class="nx">obj</span><span class="p">,</span> <span class="nx">key</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+      <span class="nx">obj</span><span class="p">[</span><span class="nx">key</span><span class="p">]</span> <span class="o">=</span> <span class="nx">sToObject</span><span class="p">[</span><span class="nx">key</span><span class="p">];</span>
+      <span class="k">return</span> <span class="nx">obj</span><span class="p">;</span>
+    <span class="p">},</span> <span class="p">{});</span>
+
+  <span class="c1">// 객체 정렬</span>
+  <span class="kd">const</span> <span class="nx">ordered_t</span> <span class="o">=</span> <span class="nb">Object</span><span class="p">.</span><span class="nx">keys</span><span class="p">(</span><span class="nx">tToObject</span><span class="p">)</span>
+    <span class="p">.</span><span class="nx">sort</span><span class="p">()</span>
+    <span class="p">.</span><span class="nx">reduce</span><span class="p">((</span><span class="nx">obj</span><span class="p">,</span> <span class="nx">key</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+      <span class="nx">obj</span><span class="p">[</span><span class="nx">key</span><span class="p">]</span> <span class="o">=</span> <span class="nx">tToObject</span><span class="p">[</span><span class="nx">key</span><span class="p">];</span>
+      <span class="k">return</span> <span class="nx">obj</span><span class="p">;</span>
+    <span class="p">},</span> <span class="p">{});</span>
+
+  <span class="c1">// 일치 비교</span>
+  <span class="k">return</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">ordered_s</span><span class="p">)</span> <span class="o">===</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">ordered_t</span><span class="p">);</span>
+<span class="p">};</span>
+</code></pre></div></div>
+
+<ol>
+  <li>두 문자열을 해시를 이용해서 문자와 문자의 개수를 얻는다.</li>
+  <li>정확한 비교를 위해 <code class="language-plaintext highlighter-rouge">key</code>순서로 정렬한다.</li>
+  <li>정렬된 객체를 <code class="language-plaintext highlighter-rouge">JSON.stringfy()</code>를 사용하여 문자열로 변환 후 비교한다.</li>
+</ol>
+:ET

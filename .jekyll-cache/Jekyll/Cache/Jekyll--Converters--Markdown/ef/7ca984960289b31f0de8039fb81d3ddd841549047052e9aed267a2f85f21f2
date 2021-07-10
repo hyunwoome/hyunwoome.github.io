@@ -1,0 +1,25 @@
+I"|<p><a href="https://programmers.co.kr/learn/courses/30/lessons/12909">문제</a></p>
+
+<h2 id="접근하기">접근하기</h2>
+
+<p>문자열이 주어진다. 이 문자열은 <code class="language-plaintext highlighter-rouge">(</code>와 <code class="language-plaintext highlighter-rouge">)</code>로 이루어져 있으며, 모든 괄호가 올바르게 <code class="language-plaintext highlighter-rouge">()</code> 모양이 된다면 <code class="language-plaintext highlighter-rouge">true</code>를, 하나라도 올바르지 못한 괄호가 존재한다면 <code class="language-plaintext highlighter-rouge">false</code>를 반환한다.</p>
+
+<p><br /></p>
+
+<h2 id="내-코드">내 코드</h2>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">solution</span><span class="p">(</span><span class="nx">s</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">let</span> <span class="nx">stack</span> <span class="o">=</span> <span class="p">[];</span>
+  <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">x</span> <span class="k">of</span> <span class="nx">s</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">stack</span><span class="p">[</span><span class="nx">stack</span><span class="p">.</span><span class="nx">length</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">===</span> <span class="dl">'</span><span class="s1">(</span><span class="dl">'</span> <span class="o">&amp;&amp;</span> <span class="nx">x</span> <span class="o">===</span> <span class="dl">'</span><span class="s1">)</span><span class="dl">'</span><span class="p">)</span> <span class="nx">stack</span><span class="p">.</span><span class="nx">pop</span><span class="p">();</span>
+    <span class="k">else</span> <span class="nx">stack</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">x</span><span class="p">);</span>
+  <span class="p">}</span>
+  <span class="k">return</span> <span class="nx">stack</span><span class="p">.</span><span class="nx">length</span> <span class="p">?</span> <span class="kc">false</span> <span class="p">:</span> <span class="kc">true</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<ol>
+  <li>주어진 문자열을 순회하면서, <code class="language-plaintext highlighter-rouge">stack</code>배열에 삽입하는데, 삽입된 스택배열의 맨 마지막 원소가 <code class="language-plaintext highlighter-rouge">(</code>이고 (전에 바로 삽입된 원소), 들어갈 원소가 <code class="language-plaintext highlighter-rouge">)</code>라면 서로 만나 <code class="language-plaintext highlighter-rouge">()</code>가 된다.</li>
+  <li>들어있던 <code class="language-plaintext highlighter-rouge">(</code>을 <code class="language-plaintext highlighter-rouge">pop()</code>하여 제거하고, 문자열을 다 돌았을 때, 배열에 남아있지 않다면 정상적으로 모두 <code class="language-plaintext highlighter-rouge">pop</code>된 것이기 때문에 <code class="language-plaintext highlighter-rouge">true</code>을 반환하고, 남아있다면 <code class="language-plaintext highlighter-rouge">false</code>를 반환한다.</li>
+</ol>
+:ET

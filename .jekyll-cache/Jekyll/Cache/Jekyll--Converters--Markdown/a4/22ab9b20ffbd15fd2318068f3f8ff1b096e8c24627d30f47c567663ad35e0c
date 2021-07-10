@@ -1,0 +1,138 @@
+I"#2<p><a href="https://programmers.co.kr/learn/courses/30/lessons/17687">문제</a></p>
+
+<h2 id="문제-설명">문제 설명</h2>
+
+<p>상세한 문제 설명은 위 링크를 통해 확인하고, 여기선 간단하게 구현해야할 부분을 설명한다.</p>
+
+<p>대략적으로 설명하자면, <strong>0부터 특정 수 까지 순회를 하는데, 각 수들을 문제에서 주어지는 진수로 변환해 각 자릿수로 끊어서 해당 인덱스의 값을 문자열로 더해 반환</strong>하는 문제이다.</p>
+
+<p>진수를 나타내는 <code class="language-plaintext highlighter-rouge">n</code>, 미리 구해야할 숫자의 개수, 즉 명시된 숫자만큼 더해야하는 수 <code class="language-plaintext highlighter-rouge">t</code>, 인터벌을 의미하는 <code class="language-plaintext highlighter-rouge">m</code>, 해당 인터벌에서 인덱스를 의미하는 <code class="language-plaintext highlighter-rouge">p</code>가 주어진다.</p>
+
+<p><strong>예시 1</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>n</th>
+      <th>t</th>
+      <th>m</th>
+      <th>p</th>
+      <th>result</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>2</td>
+      <td>4</td>
+      <td>2</td>
+      <td>1</td>
+      <td>“0111”</td>
+    </tr>
+    <tr>
+      <td>16</td>
+      <td>16</td>
+      <td>2</td>
+      <td>1</td>
+      <td>“02468ACE11111111”</td>
+    </tr>
+    <tr>
+      <td>16</td>
+      <td>16</td>
+      <td>2</td>
+      <td>2</td>
+      <td>“13579BDF01234567”</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><br /></p>
+
+<h2 id="해결방법">해결방법</h2>
+
+<p><strong>접근하기</strong></p>
+
+<p>0부터 특정 범위까지 순회를 하고, 각 인덱스를 <code class="language-plaintext highlighter-rouge">n</code>에 명시된 진법으로 변환 후 각 자릿수를 기준으로 배열로 변환한다. 그리고 <code class="language-plaintext highlighter-rouge">m</code>만큼 구분해서 <code class="language-plaintext highlighter-rouge">m</code>의 <code class="language-plaintext highlighter-rouge">p - 1</code>인덱스의 수를 문자열로 더해서 반환한다.</p>
+
+<p><strong>알고리즘</strong></p>
+
+<ol>
+  <li>먼저 0부터 순회할 지점을 설정해야 한다. <code class="language-plaintext highlighter-rouge">t</code>는 최종 구해야할 문자열의 개수이고, 인터벌이 <code class="language-plaintext highlighter-rouge">m</code>이기 때문에, 최소 <code class="language-plaintext highlighter-rouge">t * m</code>까지 순회가 되어야 한다. 그래야 각 인터벌에서 하나씩 수를 뽑아 <code class="language-plaintext highlighter-rouge">t</code>의 갯수를 채울 수 있기 때문이다.</li>
+  <li>순회하면서 인덱스 번호를 <code class="language-plaintext highlighter-rouge">n</code>의 진법으로 변환해서 <code class="language-plaintext highlighter-rouge">str</code>에 담는다.</li>
+  <li>문제에서 <code class="language-plaintext highlighter-rouge">n</code>진법으로 변환된 문자열들을 각 자릿수로 접근해야 하므로 <code class="language-plaintext highlighter-rouge">split()</code>을 통해 자릿수 하나하나씩 분리시켜주고, 반환할 땐 대문자로 반환해야 하므로 <code class="language-plaintext highlighter-rouge">toUpperCase()</code>로 대문자로 변경시킨다.</li>
+  <li>내가 생각한 방법은 이렇다. 이렇게 분리된 문자열 배열을 <code class="language-plaintext highlighter-rouge">m</code>인터벌만큼 끊어주고 거기서 <code class="language-plaintext highlighter-rouge">p - 1</code>의 인덱스에 접근해야 하므로, <code class="language-plaintext highlighter-rouge">m</code>만큼 잘라서 다른 배열에 삽입해 주었다.</li>
+  <li>삽입된 배열 <code class="language-plaintext highlighter-rouge">divideArr</code>는 이중배열로 되어있고, <code class="language-plaintext highlighter-rouge">divideArr</code>를 순회하면서 <code class="language-plaintext highlighter-rouge">p - 1</code>인덱스에 접근해 최종 <code class="language-plaintext highlighter-rouge">answer</code>에 담아 반환한다.</li>
+</ol>
+
+<p><br /></p>
+
+<h2 id="풀이코드">풀이코드</h2>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">solution</span><span class="p">(</span><span class="nx">n</span><span class="p">,</span> <span class="nx">t</span><span class="p">,</span> <span class="nx">m</span><span class="p">,</span> <span class="nx">p</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">let</span> <span class="nx">str</span> <span class="o">=</span> <span class="dl">''</span><span class="p">;</span>
+
+  <span class="c1">// #1</span>
+  <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">t</span> <span class="o">*</span> <span class="nx">m</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// #2</span>
+    <span class="nx">str</span> <span class="o">+=</span> <span class="nx">i</span><span class="p">.</span><span class="nx">toString</span><span class="p">(</span><span class="nx">n</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="c1">// #3</span>
+  <span class="kd">let</span> <span class="nx">arr</span> <span class="o">=</span> <span class="nx">str</span><span class="p">.</span><span class="nx">toUpperCase</span><span class="p">().</span><span class="nx">split</span><span class="p">(</span><span class="dl">''</span><span class="p">);</span>
+
+  <span class="kd">let</span> <span class="nx">divideArr</span> <span class="o">=</span> <span class="p">[];</span>
+  <span class="kd">let</span> <span class="nx">tmp</span> <span class="o">=</span> <span class="p">[];</span>
+
+  <span class="c1">// #4</span>
+  <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;=</span> <span class="nx">arr</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">tmp</span><span class="p">.</span><span class="nx">length</span> <span class="o">&lt;</span> <span class="nx">m</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">tmp</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">arr</span><span class="p">[</span><span class="nx">i</span><span class="p">]);</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+      <span class="nx">divideArr</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">tmp</span><span class="p">);</span>
+      <span class="nx">tmp</span> <span class="o">=</span> <span class="p">[];</span>
+      <span class="nx">tmp</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">arr</span><span class="p">[</span><span class="nx">i</span><span class="p">]);</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+
+  <span class="c1">// #5</span>
+  <span class="kd">let</span> <span class="nx">answer</span> <span class="o">=</span> <span class="dl">''</span><span class="p">;</span>
+  <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">divideArr</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">answer</span><span class="p">.</span><span class="nx">length</span> <span class="o">&lt;</span> <span class="nx">t</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">answer</span> <span class="o">+=</span> <span class="nx">divideArr</span><span class="p">[</span><span class="nx">i</span><span class="p">][</span><span class="nx">p</span> <span class="o">-</span> <span class="mi">1</span><span class="p">];</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+      <span class="k">break</span><span class="p">;</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+
+  <span class="k">return</span> <span class="nx">answer</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<h2 id="참고-코드">참고 코드</h2>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">solution</span><span class="p">(</span><span class="nx">n</span><span class="p">,</span> <span class="nx">t</span><span class="p">,</span> <span class="nx">m</span><span class="p">,</span> <span class="nx">p</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">answer</span> <span class="o">=</span> <span class="dl">''</span><span class="p">;</span>
+  <span class="kd">var</span> <span class="nx">numSet</span> <span class="o">=</span> <span class="p">[];</span>
+
+  <span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">t</span> <span class="o">*</span> <span class="nx">m</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">numSet</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">i</span><span class="p">.</span><span class="nx">toString</span><span class="p">(</span><span class="nx">n</span><span class="p">));</span>
+  <span class="p">}</span>
+
+  <span class="kd">var</span> <span class="nx">numStr</span> <span class="o">=</span> <span class="nx">numSet</span><span class="p">.</span><span class="nx">join</span><span class="p">(</span><span class="dl">''</span><span class="p">);</span>
+
+  <span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">j</span> <span class="o">&lt;</span> <span class="nx">t</span> <span class="o">*</span> <span class="nx">m</span><span class="p">;</span> <span class="nx">j</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">j</span> <span class="o">%</span> <span class="nx">m</span> <span class="o">===</span> <span class="nx">p</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">answer</span> <span class="o">=</span> <span class="nx">answer</span> <span class="o">+</span> <span class="nx">numStr</span><span class="p">[</span><span class="nx">j</span><span class="p">].</span><span class="nx">toUpperCase</span><span class="p">();</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+  <span class="k">return</span> <span class="nx">answer</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<ol>
+  <li>문제를 풀고 다른 분의 코드를 참고해봤다.</li>
+  <li>첫 번째로 나와 다른점은 나는 순회하면서 문자열로 더하고 배열로 변경했고, 위 코드는 배열에 푸쉬한 후 문자열로 변경했다. 자바스크립트는 문자열도 인덱스로 접근이 가능하다.</li>
+  <li>다음은 차이가 많이 나은 부분이다. 나는 인터벌만큼 배열로 쪼개서 담고 다시 순회하며 인덱스에 접근했다. 그러면서 불필요한 코드가 많아졌다. 위 코드처럼 증가하는 인덱스 <code class="language-plaintext highlighter-rouge">j</code>에 인터벌 <code class="language-plaintext highlighter-rouge">m</code>의 나머지를 구하면 해당 인터벌만큼 인덱스가 반복되어 접근할 수 있게 한 부분이 코드의 양을 많이 줄인 것 같다.</li>
+</ol>
+:ET

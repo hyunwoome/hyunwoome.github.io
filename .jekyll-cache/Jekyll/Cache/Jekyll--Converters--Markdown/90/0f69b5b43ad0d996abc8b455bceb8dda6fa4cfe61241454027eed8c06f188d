@@ -1,0 +1,33 @@
+I"�<p><a href="https://leetcode.com/problems/maximize-sum-of-array-after-k-negations/">문제</a></p>
+
+<h2 id="접근하기">접근하기</h2>
+
+<p>숫자형 배열 <code class="language-plaintext highlighter-rouge">nums</code>와 숫자 <code class="language-plaintext highlighter-rouge">k</code>가 주어진다. <code class="language-plaintext highlighter-rouge">nums</code>배열의 요소들 중 <code class="language-plaintext highlighter-rouge">k</code>만큼의 횟수로 부호를 바꿔 가장 큰 수가 되면 반환하는 문제이다.</p>
+
+<p><br /></p>
+
+<h2 id="참고-코드">참고 코드</h2>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">largestSumAfterKNegations</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">nums</span><span class="p">,</span> <span class="nx">k</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">nums</span><span class="p">.</span><span class="nx">sort</span><span class="p">((</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">a</span> <span class="o">-</span> <span class="nx">b</span><span class="p">);</span>
+  <span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+  <span class="k">while</span> <span class="p">(</span><span class="nx">k</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">nums</span><span class="p">[</span><span class="nx">i</span><span class="p">])</span> <span class="k">break</span><span class="p">;</span>
+    <span class="nx">nums</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="nx">nums</span><span class="p">[</span><span class="nx">i</span><span class="p">];</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">nums</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="o">&gt;</span> <span class="nx">nums</span><span class="p">[</span><span class="nx">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">])</span> <span class="nx">i</span><span class="o">++</span><span class="p">;</span>
+    <span class="nx">k</span><span class="o">--</span><span class="p">;</span>
+  <span class="p">}</span>
+  <span class="k">return</span> <span class="nx">nums</span><span class="p">;</span>
+<span class="p">};</span>
+</code></pre></div></div>
+
+<ol>
+  <li>입력 예시로 <code class="language-plaintext highlighter-rouge">nums = [2, -3, -1, 5, -4];</code>와 <code class="language-plaintext highlighter-rouge">k = 2</code>를 들겠다.</li>
+  <li>먼저 <code class="language-plaintext highlighter-rouge">nums</code>를 오름차순으로 소팅한다. (<code class="language-plaintext highlighter-rouge">[-4, -3, -1, 2, 5]</code>)</li>
+  <li><code class="language-plaintext highlighter-rouge">while</code>문을 사용해서 <code class="language-plaintext highlighter-rouge">k</code>만큼 반복한다.</li>
+  <li>이제 <code class="language-plaintext highlighter-rouge">i</code>로 순회하는데, <code class="language-plaintext highlighter-rouge">nums</code>에서 0이 있다면, 모든 <code class="language-plaintext highlighter-rouge">k</code>횟수를 0으로 몰면 되므로 0을 만나면 <code class="language-plaintext highlighter-rouge">break</code>를 한다.</li>
+  <li>0이 아닌 수를 만나면, 부호를 변경한다. 이미 소팅했으니 양수로썬 가장 작은 수 이며, 음수로선 가장 큰 수 가 될 것이다.</li>
+  <li><code class="language-plaintext highlighter-rouge">nums</code>의 첫 요소인 <code class="language-plaintext highlighter-rouge">-4</code>를 만나면, 부호가 바껴 <code class="language-plaintext highlighter-rouge">4</code>가 되고, 다음 <code class="language-plaintext highlighter-rouge">if</code>문인 <code class="language-plaintext highlighter-rouge">nums[i] &gt; nums[i + 1]</code>이 성립된다. (<code class="language-plaintext highlighter-rouge">nums = [4, -3 ...]</code>)</li>
+  <li>조건이 성립되면 <code class="language-plaintext highlighter-rouge">i</code>를 증가시켜 다음 인덱스를 바라보게 하고, <code class="language-plaintext highlighter-rouge">k</code>를 부호를 변경했으므로 <code class="language-plaintext highlighter-rouge">k</code>를 감소시켜 <code class="language-plaintext highlighter-rouge">while</code>문의 종료조건을 만족시킨다.</li>
+</ol>
+:ET

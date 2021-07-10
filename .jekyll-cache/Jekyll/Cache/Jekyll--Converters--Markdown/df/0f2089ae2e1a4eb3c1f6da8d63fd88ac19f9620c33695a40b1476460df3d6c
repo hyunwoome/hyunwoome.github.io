@@ -1,0 +1,29 @@
+I"<p><a href="https://leetcode.com/problems/single-number/">문제</a></p>
+
+<h2 id="접근하기">접근하기</h2>
+
+<p>숫자형 배열 <code class="language-plaintext highlighter-rouge">nums</code>가 주어진다. <code class="language-plaintext highlighter-rouge">nums</code>의 요소들 중 중복되지 않은 숫자를 찾아 반환한다.</p>
+
+<p><br /></p>
+
+<h2 id="내-코드">내 코드</h2>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">singleNumber</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">nums</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">let</span> <span class="nx">obj</span> <span class="o">=</span> <span class="p">{};</span>
+  <span class="k">for</span> <span class="p">(</span><span class="kd">const</span> <span class="nx">num</span> <span class="k">of</span> <span class="nx">nums</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">obj</span><span class="p">[</span><span class="nx">num</span><span class="p">]</span> <span class="o">=</span> <span class="nx">obj</span><span class="p">[</span><span class="nx">num</span><span class="p">]</span> <span class="p">?</span> <span class="nx">obj</span><span class="p">[</span><span class="nx">num</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1</span> <span class="p">:</span> <span class="mi">1</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="p">[</span><span class="nx">key</span><span class="p">,</span> <span class="nx">value</span><span class="p">]</span> <span class="k">of</span> <span class="nb">Object</span><span class="p">.</span><span class="nx">entries</span><span class="p">(</span><span class="nx">obj</span><span class="p">))</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">value</span> <span class="o">===</span> <span class="mi">1</span><span class="p">)</span> <span class="k">return</span> <span class="nb">parseInt</span><span class="p">(</span><span class="nx">key</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">};</span>
+</code></pre></div></div>
+
+<ol>
+  <li>해시를 이용해서 풀었다.</li>
+  <li><code class="language-plaintext highlighter-rouge">nums</code>배열을 순회하면서 객체에 할당했고, 키가 중복되면 값에 +1을 하도록 했다.</li>
+  <li>객체를 순회하면서 <code class="language-plaintext highlighter-rouge">value</code>가 1인 <code class="language-plaintext highlighter-rouge">key</code>값을 반환했다.</li>
+  <li>시간복잡도는 O(N)이 나온다.</li>
+</ol>
+:ET

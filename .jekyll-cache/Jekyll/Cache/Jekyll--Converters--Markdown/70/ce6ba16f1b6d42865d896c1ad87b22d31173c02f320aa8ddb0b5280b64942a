@@ -1,6 +1,0 @@
-I"q<p><a href="https://developer.mozilla.org/ko/docs/Web/JavaScript/Guide/Regular_Expressions">참고</a></p>
-
-<h2 id="정규-표현식">정규 표현식</h2>
-
-<p>정규 표현식은 문자열에 나타나는 특정 문자 조합과 대응시키기 위해 사용되는 패턴이다. JS에서 정규표현식 또한 <strong>객체</strong>이다. JS에서 정규 표현식을 만드는 방법은 두 가지가 있는데, <strong>정규식 리터럴</strong> (슬래쉬”/”로 감싸는 패턴)과 <code class="language-plaintext highlighter-rouge">RegExp</code>객체의 생성자 함수를 호출하는 방법도 있다.</p>
-:ET

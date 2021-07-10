@@ -1,0 +1,30 @@
+I"w<p><a href="https://leetcode.com/problems/check-if-the-sentence-is-pangram/">문제</a></p>
+
+<h2 id="문제-설명">문제 설명</h2>
+
+<p>문자열 sentence가 주어진다.</p>
+
+<p>pangram이란 해당 문자열이 적어도 한 번 이상 모든 알파벳이 포함되어 있는 것을 pangram이라고 한다.</p>
+
+<p>주어진 문자열이 pangram이라면 true를, 아니면 false를 반환한다.</p>
+
+<p><br /></p>
+
+<h2 id="내-코드">내 코드</h2>
+
+<ul>
+  <li>Runtime: 72 ms, faster than 96.12%</li>
+  <li>Memory Usage: 40 MB, less than 31.72%</li>
+</ul>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">checkIfPangram</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">sentence</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">let</span> <span class="kd">set</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Set</span><span class="p">(</span><span class="nx">sentence</span><span class="p">.</span><span class="nx">split</span><span class="p">(</span><span class="dl">''</span><span class="p">));</span>
+  <span class="k">return</span> <span class="kd">set</span><span class="p">.</span><span class="nx">size</span> <span class="o">===</span> <span class="mi">26</span><span class="p">;</span>
+<span class="p">};</span>
+</code></pre></div></div>
+
+<ol>
+  <li>문자열의 중복을 모두 제거한다.</li>
+  <li>중복이 제거된 문자열과 알파벳의 총 개수 26개가 맞다면 true를, 아니면 false를 반환한다.</li>
+</ol>
+:ET

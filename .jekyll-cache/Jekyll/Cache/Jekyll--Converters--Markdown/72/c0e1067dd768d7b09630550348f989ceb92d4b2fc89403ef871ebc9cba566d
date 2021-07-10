@@ -1,0 +1,25 @@
+I"Y<p><a href="https://programmers.co.kr/learn/courses/30/lessons/12985">문제</a></p>
+
+<h2 id="접근하기">접근하기</h2>
+
+<p>문제 설명은 길지만, 동일한 수가 될 때 까지 나누어 나눈 횟수를 반환하는 문제이다.</p>
+
+<p><br /></p>
+
+<h2 id="참고-코드">참고 코드</h2>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">solution</span><span class="p">(</span><span class="nx">n</span><span class="p">,</span> <span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">let</span> <span class="nx">answer</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+  <span class="k">while</span> <span class="p">(</span><span class="nx">a</span> <span class="o">!==</span> <span class="nx">b</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">a</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">ceil</span><span class="p">(</span><span class="nx">a</span> <span class="o">/</span> <span class="mi">2</span><span class="p">);</span>
+    <span class="nx">b</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">ceil</span><span class="p">(</span><span class="nx">b</span> <span class="o">/</span> <span class="mi">2</span><span class="p">);</span>
+    <span class="nx">answer</span><span class="o">++</span><span class="p">;</span>
+  <span class="p">}</span>
+  <span class="k">return</span> <span class="nx">answer</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<ol>
+  <li><code class="language-plaintext highlighter-rouge">ceil()</code>은 소수점 올림 메서드이다.</li>
+</ol>
+:ET

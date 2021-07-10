@@ -1,0 +1,24 @@
+I"�	<p><a href="https://leetcode.com/problems/kth-missing-positive-number/">문제</a></p>
+
+<h2 id="접근하기">접근하기</h2>
+
+<p>숫자형 배열 <code class="language-plaintext highlighter-rouge">arr</code>와 숫자 <code class="language-plaintext highlighter-rouge">k</code>가 주어진다. 양수 중에서, <code class="language-plaintext highlighter-rouge">arr</code>를 제외한 수들 중 <code class="language-plaintext highlighter-rouge">k</code>번째 수를 반환한다.</p>
+
+<p><br /></p>
+
+<h2 id="내-코드">내 코드</h2>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">findKthPositive</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">arr</span><span class="p">,</span> <span class="nx">k</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">let</span> <span class="nx">tmp</span> <span class="o">=</span> <span class="p">[];</span>
+  <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;=</span> <span class="mi">10000</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">arr</span><span class="p">.</span><span class="nx">indexOf</span><span class="p">(</span><span class="nx">i</span><span class="p">)</span> <span class="o">===</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="nx">tmp</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">i</span><span class="p">);</span>
+  <span class="p">}</span>
+  <span class="k">return</span> <span class="nx">tmp</span><span class="p">[</span><span class="nx">k</span> <span class="o">-</span> <span class="mi">1</span><span class="p">];</span>
+<span class="p">};</span>
+</code></pre></div></div>
+
+<ol>
+  <li>정수 범위를 지정하고 <code class="language-plaintext highlighter-rouge">arr</code>에 해당 인덱스가 없다면 속하지않은 정수이기 때문에 배열에 담아준다.</li>
+  <li>담은 배열에서 <code class="language-plaintext highlighter-rouge">k - 1</code>번째 수를 반환한다.</li>
+</ol>
+:ET

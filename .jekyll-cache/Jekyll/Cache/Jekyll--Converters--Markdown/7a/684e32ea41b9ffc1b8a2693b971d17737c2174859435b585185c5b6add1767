@@ -1,0 +1,33 @@
+I"a<p><a href="https://leetcode.com/problems/sum-of-all-odd-length-subarrays/">문제</a></p>
+
+<h2 id="접근하기">접근하기</h2>
+
+<p>간단한 문제인듯 한데 조건세우는 걸 생각못해서 다른사람 풀이를 참고했다.
+정수로 이루어진 <code class="language-plaintext highlighter-rouge">arr</code>배열에서 모든 가능한 홀수 길이 만큼 수를 더하는 문제이다.</p>
+
+<p><br /></p>
+
+<h2 id="다른-풀이">다른 풀이</h2>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">sumOddLengthSubarrays</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">arr</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">let</span> <span class="nx">count</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+  <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">arr</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">j</span> <span class="o">&lt;</span> <span class="nx">arr</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">j</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">if</span> <span class="p">((</span><span class="nx">i</span> <span class="o">-</span> <span class="nx">j</span><span class="p">)</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">===</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">k</span> <span class="o">=</span> <span class="nx">i</span><span class="p">;</span> <span class="nx">k</span> <span class="o">&lt;=</span> <span class="nx">j</span><span class="p">;</span> <span class="nx">k</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+          <span class="nx">count</span> <span class="o">+=</span> <span class="nx">arr</span><span class="p">[</span><span class="nx">k</span><span class="p">];</span>
+        <span class="p">}</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+  <span class="k">return</span> <span class="nx">count</span><span class="p">;</span>
+<span class="p">};</span>
+</code></pre></div></div>
+
+<ol>
+  <li>전체 배열을 순회하기 위한 for문을 정의한다. (i)</li>
+  <li>홀수만큼 더하기 위한 종료지점 for문을 정의한다. (j)</li>
+  <li>i (시작인덱스)에서 j(종료인덱스)를 뺀 값이 2로 나누어 떨어지는 경우, 인덱스이기 때문에 갯수로 따지면 홀수이다.</li>
+  <li>i부터 j까지 홀수개인 배열을 순회하기 위한 for문을 정의하고 (i부터 j까지) 값들을 더해 반환한다.</li>
+</ol>
+:ET

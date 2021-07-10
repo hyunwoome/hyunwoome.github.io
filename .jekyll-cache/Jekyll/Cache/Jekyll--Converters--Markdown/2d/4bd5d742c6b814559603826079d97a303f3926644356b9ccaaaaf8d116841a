@@ -1,0 +1,40 @@
+I"�<p><a href="https://leetcode.com/problems/determine-color-of-a-chessboard-square/">문제</a></p>
+
+<h2 id="접근하기">접근하기</h2>
+
+<p><code class="language-plaintext highlighter-rouge">coordinates</code>라는 문자열이 주어지는데, 이 문자열은 체크판의 좌표를 나타낸다.</p>
+
+<p>이 좌표가 검정색 칸을 가리킨다면 <code class="language-plaintext highlighter-rouge">false</code>를, 흰색이면 <code class="language-plaintext highlighter-rouge">true</code>를 반환한다</p>
+
+<p><br /></p>
+
+<h2 id="내-코드">내 코드</h2>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">squareIsWhite</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">coordinates</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">let</span> <span class="nx">ascii</span> <span class="o">=</span> <span class="nx">coordinates</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nx">charCodeAt</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+  <span class="kd">let</span> <span class="nx">num</span> <span class="o">=</span> <span class="nx">coordinates</span><span class="p">[</span><span class="mi">1</span><span class="p">];</span>
+
+  <span class="k">if</span> <span class="p">(</span><span class="nx">ascii</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">!==</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="nx">num</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">!==</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
+  <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">ascii</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">===</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="nx">num</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">===</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
+  <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">ascii</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">!==</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="nx">num</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">===</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="kc">true</span><span class="p">;</span>
+  <span class="p">}</span> <span class="k">else</span> <span class="k">return</span> <span class="kc">true</span><span class="p">;</span>
+<span class="p">};</span>
+</code></pre></div></div>
+
+<ol>
+  <li>주어진 문자열의 각 자리수를 구한다.</li>
+  <li>알파벳은 아스키코드로 변경하여 짝,홀수를 판별한다.</li>
+  <li>주어진 체스판의 조건에 맞게 분기처리를 한다.</li>
+</ol>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// 체스판 조건</span>
+
+<span class="nx">홀수</span> <span class="o">&amp;&amp;</span> <span class="nx">홀수</span> <span class="o">=</span> <span class="nx">검정</span> <span class="p">(</span><span class="kc">false</span><span class="p">)</span>
+<span class="nx">짝수</span> <span class="o">&amp;&amp;</span> <span class="nx">짝수</span> <span class="o">=</span> <span class="nx">검정</span> <span class="p">(</span><span class="kc">false</span><span class="p">)</span>
+<span class="nx">홀수</span> <span class="o">&amp;&amp;</span> <span class="nx">짝수</span> <span class="o">=</span> <span class="nx">흰색</span> <span class="p">(</span><span class="kc">true</span><span class="p">)</span>
+<span class="nx">짝수</span> <span class="o">&amp;&amp;</span> <span class="nx">홀수</span> <span class="o">=</span> <span class="nx">흰색</span> <span class="p">(</span><span class="kc">true</span><span class="p">)</span>
+</code></pre></div></div>
+:ET

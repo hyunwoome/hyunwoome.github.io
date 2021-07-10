@@ -1,0 +1,32 @@
+I"�<p><a href="https://programmers.co.kr/learn/courses/30/lessons/12911">문제</a></p>
+
+<h2 id="접근하기">접근하기</h2>
+
+<p>정수 <code class="language-plaintext highlighter-rouge">n</code>이 주어진다. <code class="language-plaintext highlighter-rouge">n</code>의 다음 큰 숫자를 반환하는데, <code class="language-plaintext highlighter-rouge">n</code>보다 커야하고, <code class="language-plaintext highlighter-rouge">n</code>의 비트개수와 같아야 하며, 두 조건을 모두 만족하면서 가장 작은 수를 반환한다.</p>
+
+<p><br /></p>
+
+<h2 id="내-코드">내 코드</h2>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">solution</span><span class="p">(</span><span class="nx">n</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">function</span> <span class="nx">countBit</span><span class="p">(</span><span class="nx">num</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">let</span> <span class="nx">answer</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="kd">let</span> <span class="nx">binary</span> <span class="o">=</span> <span class="nx">num</span><span class="p">.</span><span class="nx">toString</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">binary</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">if</span> <span class="p">(</span><span class="nx">binary</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="o">===</span> <span class="dl">'</span><span class="s1">1</span><span class="dl">'</span><span class="p">)</span> <span class="nx">answer</span><span class="o">++</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="nx">answer</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="nx">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="mi">1000000</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">let</span> <span class="nx">bits</span> <span class="o">=</span> <span class="nx">countBit</span><span class="p">(</span><span class="nx">n</span><span class="p">);</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">bits</span> <span class="o">===</span> <span class="nx">countBit</span><span class="p">(</span><span class="nx">i</span><span class="p">))</span> <span class="k">return</span> <span class="nx">i</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<ol>
+  <li>먼저 정수를 2진수로 변환후 1의 개수, 즉 비트 수를 반환하는 함수 <code class="language-plaintext highlighter-rouge">countBit</code>를 정의했다.</li>
+  <li><code class="language-plaintext highlighter-rouge">n</code> 이상 순회하면서, <code class="language-plaintext highlighter-rouge">n</code>의 비트수와 같은 숫자를 찾아내 반환한다.</li>
+</ol>
+:ET

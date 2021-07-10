@@ -1,0 +1,39 @@
+I"#<p><a href="https://leetcode.com/problems/delete-columns-to-make-sorted/">문제</a></p>
+
+<h2 id="접근하기">접근하기</h2>
+
+<p>문자열 배열 <code class="language-plaintext highlighter-rouge">strs</code>가 주어진다. 이 배열의 문자열들의 인덱스별로 묶어, 알파벳 순서로 되어있는지를 확인하는 문제이다.</p>
+
+<p>기존 배열의 문자열들을 인덱스별로 묶은것과, 그 묶은것을 알파벳순으로 정렬한 문자열 배열과 비교하여, 서로 맞지 않은 문자열의 개수를 반환한다.</p>
+
+<p><br /></p>
+
+<h2 id="내-코드">내 코드</h2>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">minDeletionSize</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">strs</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">let</span> <span class="nx">arr1</span> <span class="o">=</span> <span class="p">[];</span>
+  <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">strs</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">let</span> <span class="nx">tmp</span> <span class="o">=</span> <span class="dl">''</span><span class="p">;</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">j</span> <span class="o">&lt;</span> <span class="nx">strs</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">j</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">tmp</span> <span class="o">+=</span> <span class="nx">strs</span><span class="p">[</span><span class="nx">j</span><span class="p">][</span><span class="nx">i</span><span class="p">];</span>
+    <span class="p">}</span>
+    <span class="nx">arr1</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">tmp</span><span class="p">);</span>
+    <span class="nx">tmp</span> <span class="o">=</span> <span class="dl">''</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="kd">let</span> <span class="nx">copy</span> <span class="o">=</span> <span class="nx">arr1</span><span class="p">.</span><span class="nx">slice</span><span class="p">();</span>
+  <span class="kd">let</span> <span class="nx">arr2</span> <span class="o">=</span> <span class="nx">copy</span><span class="p">.</span><span class="nx">map</span><span class="p">((</span><span class="nx">el</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">el</span><span class="p">.</span><span class="nx">split</span><span class="p">(</span><span class="dl">''</span><span class="p">).</span><span class="nx">sort</span><span class="p">().</span><span class="nx">join</span><span class="p">(</span><span class="dl">''</span><span class="p">));</span>
+  <span class="kd">let</span> <span class="nx">answer</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+  <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">arr1</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">arr1</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="o">!==</span> <span class="nx">arr2</span><span class="p">[</span><span class="nx">i</span><span class="p">])</span> <span class="nx">answer</span><span class="o">++</span><span class="p">;</span>
+  <span class="p">}</span>
+  <span class="k">return</span> <span class="nx">answer</span><span class="p">;</span>
+<span class="p">};</span>
+</code></pre></div></div>
+
+<ol>
+  <li>주어진 문자열 배열의 인덱스 별로 묶기 위해 이중for문을 사용했다.</li>
+  <li>인덱스 별로 묶은 배열을 복사하고(<code class="language-plaintext highlighter-rouge">slice()</code>), 각각의 문자열들을 정렬하기 위해 <code class="language-plaintext highlighter-rouge">map()</code>등을 이용해서 정렬하고 기존 인덱스 별로 묶은 배열과 비교하기 위해 다시 <code class="language-plaintext highlighter-rouge">join()</code>으로 문자열로 만든다.</li>
+  <li>for문을 이용해 각 문자열을 비교한다.</li>
+</ol>
+:ET

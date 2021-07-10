@@ -1,0 +1,26 @@
+I"�<p><a href="https://leetcode.com/problems/running-sum-of-1d-array/">문제</a></p>
+
+<h2 id="문제-설명">문제 설명</h2>
+
+<p>숫자형 배열 nums가 주어진다. 이 배열의 누적 합계를 정의하려고 한다. 누적 합계는 sum[i] = sum[nums[0] … nums[i]]로 정의하며 nums의 누적 숫자를 반환하면 된다.</p>
+
+<p><br /></p>
+
+<h2 id="내-코드">내 코드</h2>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">runningSum</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">nums</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">const</span> <span class="nx">result</span> <span class="o">=</span> <span class="p">[];</span>
+  <span class="kd">let</span> <span class="nx">sum</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+  <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">nums</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">result</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">sum</span> <span class="o">+</span> <span class="nx">nums</span><span class="p">[</span><span class="nx">i</span><span class="p">]);</span>
+    <span class="nx">sum</span> <span class="o">+=</span> <span class="nx">nums</span><span class="p">[</span><span class="nx">i</span><span class="p">];</span>
+  <span class="p">}</span>
+  <span class="k">return</span> <span class="nx">result</span><span class="p">;</span>
+<span class="p">};</span>
+</code></pre></div></div>
+
+<ol>
+  <li>nums를 순회하면서 각 원소는 이전 원소의 합이다.</li>
+  <li>이전 원소의 합을 저장하기 위한 sum 변수를 생성하고 sum + nums[i]를 진행하며 반환한다.</li>
+</ol>
+:ET

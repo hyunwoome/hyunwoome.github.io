@@ -1,0 +1,27 @@
+I"�	<p><a href="https://programmers.co.kr/learn/courses/30/lessons/12934">문제</a></p>
+
+<h2 id="접근하기">접근하기</h2>
+
+<p>주어진 정수의 제곱근이 정수라면, 제곱근 한 값에 1을 더하고 제곱하여 반환하는 문제이다.
+만약 정수의 제곱근이 실수라면, <code class="language-plaintext highlighter-rouge">-1</code>을 반환한다.</p>
+
+<p><br /></p>
+
+<h2 id="내-코드">내 코드</h2>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">solution</span><span class="p">(</span><span class="nx">n</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nb">Number</span><span class="p">.</span><span class="nx">isInteger</span><span class="p">(</span><span class="nb">Math</span><span class="p">.</span><span class="nx">sqrt</span><span class="p">(</span><span class="nx">n</span><span class="p">)))</span> <span class="p">{</span>
+    <span class="kd">const</span> <span class="nx">sqrtSum</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">sqrt</span><span class="p">(</span><span class="nx">n</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="k">return</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">pow</span><span class="p">(</span><span class="nx">sqrtSum</span><span class="p">,</span> <span class="mi">2</span><span class="p">);</span>
+  <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<ol>
+  <li><code class="language-plaintext highlighter-rouge">Math.sqrt()</code> 메서드를 사용하면 손쉽게 제곱근을 구할 수 있다.</li>
+  <li>자바스크립트에서 <code class="language-plaintext highlighter-rouge">Number.isInteger</code>로 정수형인지 판별할 수 있다. 만약 정수형이 맞다면 <code class="language-plaintext highlighter-rouge">true</code>를 반환하고 아니라면 <code class="language-plaintext highlighter-rouge">false</code>를 반환한다.</li>
+  <li>주어진 정수의 제곱근이 정수라면 제곱근에 1을 더하고 제곱하여 반환한다.</li>
+</ol>
+:ET

@@ -1,0 +1,40 @@
+I"�<p><a href="https://leetcode.com/problems/maximum-nesting-depth-of-the-parentheses/">문제</a></p>
+
+<h2 id="문제-설명">문제 설명</h2>
+
+<p>문자열 s가 주어진다.</p>
+
+<p>s는 수식이 문자열로 들어가 있는데, 해당 수식에 있는 괄호의 깊이를 반환한다.</p>
+
+<p><br /></p>
+
+<h2 id="내-코드">내 코드</h2>
+
+<ul>
+  <li>Runtime: 68 ms, faster than 99.53%</li>
+  <li>Memory Usage: 38.8 MB, less than 35.95%</li>
+</ul>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">maxDepth</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">s</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">let</span> <span class="nx">parenthesesArr</span> <span class="o">=</span> <span class="p">[];</span>
+  <span class="kd">let</span> <span class="nx">sum</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+  <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">s</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">s</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="o">===</span> <span class="dl">'</span><span class="s1">(</span><span class="dl">'</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">sum</span><span class="o">++</span><span class="p">;</span>
+      <span class="nx">parenthesesArr</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">sum</span><span class="p">);</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">s</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="o">===</span> <span class="dl">'</span><span class="s1">)</span><span class="dl">'</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">sum</span><span class="o">--</span><span class="p">;</span>
+      <span class="nx">parenthesesArr</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">sum</span><span class="p">);</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+  <span class="k">return</span> <span class="nx">parenthesesArr</span><span class="p">.</span><span class="nx">length</span> <span class="p">?</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">max</span><span class="p">(...</span><span class="nx">parenthesesArr</span><span class="p">)</span> <span class="p">:</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">};</span>
+</code></pre></div></div>
+
+<ol>
+  <li>문자열 s를 순회한다.</li>
+  <li>순회하면서 ‘ ( ‘가 나오면 카운팅을 증가시키고 증가시킨 값을 배열에 담는다.</li>
+  <li>순회하면서 ‘ ) ‘가 나오면 카운팅을 감소시키고 감소시킨 값을 배열에 담는다.</li>
+  <li>순회가 끝나고 최종적으로 가장 큰 값이 가장 깊은 깊이이다. 괄호가 아예 없다면 0을 반환한다.</li>
+</ol>
+:ET

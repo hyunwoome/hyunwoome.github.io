@@ -1,0 +1,25 @@
+I"�	<p><a href="https://programmers.co.kr/learn/courses/30/lessons/42746">문제</a></p>
+
+<h2 id="접근하기">접근하기</h2>
+
+<p>숫자형 배열 <code class="language-plaintext highlighter-rouge">numbers</code>가 주어진다. <code class="language-plaintext highlighter-rouge">numbers</code>의 각 원소들을 더해 가장 큰 값을 반환한다.</p>
+
+<p><br /></p>
+
+<h2 id="참고-코드">참고 코드</h2>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">solution</span><span class="p">(</span><span class="nx">numbers</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">let</span> <span class="nx">answer</span> <span class="o">=</span> <span class="nx">numbers</span>
+    <span class="p">.</span><span class="nx">map</span><span class="p">((</span><span class="nx">el</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">el</span> <span class="o">+</span> <span class="dl">''</span><span class="p">)</span>
+    <span class="p">.</span><span class="nx">sort</span><span class="p">((</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">b</span> <span class="o">+</span> <span class="nx">a</span> <span class="o">-</span> <span class="p">(</span><span class="nx">a</span> <span class="o">+</span> <span class="nx">b</span><span class="p">))</span>
+    <span class="p">.</span><span class="nx">join</span><span class="p">(</span><span class="dl">''</span><span class="p">);</span>
+  <span class="k">return</span> <span class="nx">answer</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">===</span> <span class="dl">'</span><span class="s1">0</span><span class="dl">'</span> <span class="p">?</span> <span class="dl">'</span><span class="s1">0</span><span class="dl">'</span> <span class="p">:</span> <span class="nx">answer</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<ol>
+  <li><code class="language-plaintext highlighter-rouge">numbers</code>의 각 원소들을 문자열로 변경한다.</li>
+  <li>오름차순으로 정렬한다.</li>
+  <li>앞자리가 0이라면 <code class="language-plaintext highlighter-rouge">0</code>을 반환하고, 아니면 <code class="language-plaintext highlighter-rouge">answer</code>를 반환한다.</li>
+</ol>
+:ET

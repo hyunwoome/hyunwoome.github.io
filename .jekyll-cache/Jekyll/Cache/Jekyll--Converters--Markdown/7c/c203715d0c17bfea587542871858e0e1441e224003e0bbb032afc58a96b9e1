@@ -1,0 +1,29 @@
+I"�<p><a href="https://leetcode.com/problems/climbing-stairs/">문제</a></p>
+
+<h2 id="접근하기">접근하기</h2>
+
+<p>숫자형 <code class="language-plaintext highlighter-rouge">n</code>이 주어진다. <code class="language-plaintext highlighter-rouge">n</code>칸의 계단을 올라가는데, 한 번에 1 또는 2칸을 갈 수 있다. <code class="language-plaintext highlighter-rouge">n</code>까지 올라갈 수 있는 방법의 수를 반환하는 문제이다.</p>
+
+<p><br /></p>
+
+<h2 id="내-코드">내 코드</h2>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">climbStairs</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">n</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">let</span> <span class="nx">answer</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+  <span class="kd">let</span> <span class="nx">dy</span> <span class="o">=</span> <span class="nb">Array</span><span class="p">(</span><span class="nx">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">).</span><span class="nx">fill</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+  <span class="nx">dy</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+  <span class="nx">dy</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+  <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;=</span> <span class="nx">n</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">dy</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="o">=</span> <span class="nx">dy</span><span class="p">[</span><span class="nx">i</span> <span class="o">-</span> <span class="mi">2</span><span class="p">]</span> <span class="o">+</span> <span class="nx">dy</span><span class="p">[</span><span class="nx">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">];</span>
+  <span class="p">}</span>
+  <span class="nx">answer</span> <span class="o">=</span> <span class="nx">dy</span><span class="p">[</span><span class="nx">n</span><span class="p">];</span>
+  <span class="k">return</span> <span class="nx">answer</span><span class="p">;</span>
+<span class="p">};</span>
+</code></pre></div></div>
+
+<ol>
+  <li>DP문제이며, DP테이블을 만들어서 푼다.</li>
+  <li><code class="language-plaintext highlighter-rouge">n</code>까지 가려면, <code class="language-plaintext highlighter-rouge">n - 1</code>, <code class="language-plaintext highlighter-rouge">n - 2</code>까지 가는 방법의 합을 구하면 된다.</li>
+  <li><code class="language-plaintext highlighter-rouge">dy</code>라는 DP테이블을 만들어 <code class="language-plaintext highlighter-rouge">n</code>전까지가는 방법의 수를 DP테이블(배열)에 저장한 후 테이블을 참조하여 <code class="language-plaintext highlighter-rouge">n</code>까지 가는 방법의 수를 알아낸다.</li>
+</ol>
+:ET

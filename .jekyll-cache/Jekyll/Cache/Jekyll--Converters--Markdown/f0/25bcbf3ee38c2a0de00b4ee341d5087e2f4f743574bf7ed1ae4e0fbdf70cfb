@@ -1,0 +1,26 @@
+I"�<p><a href="https://leetcode.com/problems/shuffle-the-array/">문제</a></p>
+
+<h2 id="문제-설명">문제 설명</h2>
+
+<p>숫자형 배열 nums와 숫자 n이 주어진다. nums배열의 순서를 바꿔서 출력하는데,
+인덱스를 2n 한 요소로 구성되게끔 한다.</p>
+
+<p><br /></p>
+
+<h2 id="내-코드">내 코드</h2>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">shuffle</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">nums</span><span class="p">,</span> <span class="nx">n</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">let</span> <span class="nx">answer</span> <span class="o">=</span> <span class="p">[];</span>
+  <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">nums</span><span class="p">.</span><span class="nx">length</span> <span class="o">-</span> <span class="nx">n</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">answer</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">nums</span><span class="p">[</span><span class="nx">i</span><span class="p">]);</span>
+    <span class="nx">answer</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">nums</span><span class="p">[</span><span class="nx">i</span> <span class="o">+</span> <span class="nx">n</span><span class="p">]);</span>
+  <span class="p">}</span>
+  <span class="k">return</span> <span class="nx">answer</span><span class="p">;</span>
+<span class="p">};</span>
+</code></pre></div></div>
+
+<ol>
+  <li>nums 배열을 순회하는데, 한 번에 2n까지 출력을 해야 하므로, -n 만큼만 순회시킨다.</li>
+  <li>정답 배열에 담을 때, i번 인덱스의 요소와 i + n번 인덱스의 요소를 함께 담아 반환한다.</li>
+</ol>
+:ET

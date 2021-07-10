@@ -1,0 +1,32 @@
+I"�<p><a href="https://leetcode.com/problems/relative-sort-array/">문제</a></p>
+
+<h2 id="접근하기">접근하기</h2>
+
+<p>숫자형 배열 <code class="language-plaintext highlighter-rouge">arr1</code>과 <code class="language-plaintext highlighter-rouge">arr2</code>가 주어진다. <code class="language-plaintext highlighter-rouge">arr1</code>을 <code class="language-plaintext highlighter-rouge">arr2</code>순서로 정렬하고, <code class="language-plaintext highlighter-rouge">arr2</code>에 없는 숫자는 맨뒤에 오름차순으로 정렬하여 붙여 반환한다.</p>
+
+<p><br /></p>
+
+<h2 id="내-코드">내 코드</h2>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">relativeSortArray</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">arr1</span><span class="p">,</span> <span class="nx">arr2</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">let</span> <span class="nx">arr</span> <span class="o">=</span> <span class="p">[];</span>
+  <span class="kd">let</span> <span class="nx">remain</span> <span class="o">=</span> <span class="p">[];</span>
+  <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">arr2</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">j</span> <span class="o">&lt;</span> <span class="nx">arr1</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">j</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">if</span> <span class="p">(</span><span class="nx">arr2</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="o">===</span> <span class="nx">arr1</span><span class="p">[</span><span class="nx">j</span><span class="p">])</span> <span class="nx">arr</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">arr1</span><span class="p">[</span><span class="nx">j</span><span class="p">]);</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+  <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">arr1</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">arr2</span><span class="p">.</span><span class="nx">indexOf</span><span class="p">(</span><span class="nx">arr1</span><span class="p">[</span><span class="nx">i</span><span class="p">])</span> <span class="o">===</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="nx">remain</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">arr1</span><span class="p">[</span><span class="nx">i</span><span class="p">]);</span>
+  <span class="p">}</span>
+  <span class="nx">remain</span><span class="p">.</span><span class="nx">sort</span><span class="p">((</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">a</span> <span class="o">-</span> <span class="nx">b</span><span class="p">);</span>
+  <span class="k">return</span> <span class="p">[...</span><span class="nx">arr</span><span class="p">,</span> <span class="p">...</span><span class="nx">remain</span><span class="p">];</span>
+<span class="p">};</span>
+</code></pre></div></div>
+
+<ol>
+  <li>먼저 <code class="language-plaintext highlighter-rouge">arr1</code>을 <code class="language-plaintext highlighter-rouge">arr2</code>의 순서로 정렬하기 위해서 2중for문을 두 배열의 같은 원소를 새로운 배열에 삽입한다.</li>
+  <li><code class="language-plaintext highlighter-rouge">arr1</code>에는 있지만 <code class="language-plaintext highlighter-rouge">arr2</code>에는 없는 원소들을 걸러내기 위해 for문을 한번더 사용했고, <code class="language-plaintext highlighter-rouge">remain</code>배열에 삽입해주었다.</li>
+  <li><code class="language-plaintext highlighter-rouge">remain</code>배열을 오름차순하고 두 배열을 합쳐 반환한다.</li>
+</ol>
+:ET

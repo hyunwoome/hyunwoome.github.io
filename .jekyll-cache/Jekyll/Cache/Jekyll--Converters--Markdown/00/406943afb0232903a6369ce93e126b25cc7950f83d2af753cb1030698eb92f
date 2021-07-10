@@ -1,0 +1,32 @@
+I"_<p><a href="https://programmers.co.kr/learn/courses/30/lessons/42883">문제</a></p>
+
+<h2 id="접근하기">접근하기</h2>
+
+<p>문자열 <code class="language-plaintext highlighter-rouge">number</code>와 숫자 <code class="language-plaintext highlighter-rouge">k</code>가 주어진다. <code class="language-plaintext highlighter-rouge">number</code>에서 <code class="language-plaintext highlighter-rouge">k</code>만큼 빼 만들 수 있는 가장 큰 숫자를 만들어 반환한다.</p>
+
+<p><br /></p>
+
+<h2 id="참고-코드">참고 코드</h2>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">solution</span><span class="p">(</span><span class="nx">number</span><span class="p">,</span> <span class="nx">k</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">let</span> <span class="nx">stack</span> <span class="o">=</span> <span class="p">[];</span>
+
+  <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">number</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">while</span> <span class="p">(</span><span class="nx">k</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="nx">stack</span><span class="p">.</span><span class="nx">length</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="nx">stack</span><span class="p">[</span><span class="nx">stack</span><span class="p">.</span><span class="nx">length</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">&lt;</span> <span class="nx">number</span><span class="p">[</span><span class="nx">i</span><span class="p">])</span> <span class="p">{</span>
+      <span class="nx">stack</span><span class="p">.</span><span class="nx">pop</span><span class="p">();</span>
+      <span class="nx">k</span><span class="o">--</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="nx">stack</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">number</span><span class="p">[</span><span class="nx">i</span><span class="p">]);</span>
+  <span class="p">}</span>
+  <span class="nx">stack</span><span class="p">.</span><span class="nx">splice</span><span class="p">(</span><span class="nx">stack</span><span class="p">.</span><span class="nx">length</span> <span class="o">-</span> <span class="nx">k</span><span class="p">,</span> <span class="nx">k</span><span class="p">);</span>
+  <span class="k">return</span> <span class="nx">stack</span><span class="p">.</span><span class="nx">join</span><span class="p">(</span><span class="dl">''</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<ol>
+  <li>처음에 이중for문을 이용해서 풀려고 했는데, 잘 안되서 다른 코드를 참고한다.</li>
+  <li>참고한 코드는 스택을 이용해서 풀었다. 먼저 스택을 하나 정의한다.</li>
+  <li><code class="language-plaintext highlighter-rouge">number</code>를 순회하면서, 숫자들을 스택에 푸쉬한다.</li>
+  <li>푸쉬하다가 스택에 넣은 마지막 숫자와 넣으려는 숫자를 비교해 넣으려는 숫자가 더 클 경우, 기존의 스택에 있던 숫자를 <code class="language-plaintext highlighter-rouge">pop</code>하고 넣으려는 숫자를 넣게 되면 숫자를 하나 뺸 것이기 때문에 <code class="language-plaintext highlighter-rouge">k</code> 수를 감소시킨다.</li>
+</ol>
+:ET

@@ -1,0 +1,38 @@
+I"�<p><a href="https://leetcode.com/problems/self-dividing-numbers/">문제</a></p>
+
+<h2 id="접근하기">접근하기</h2>
+
+<p><code class="language-plaintext highlighter-rouge">left</code>와 <code class="language-plaintext highlighter-rouge">right</code>라는 두 정수가 주어진다. 이 두 정수 사이의 숫자들이 각각의 모든 자릿수가 자기 자신과 나눠진다면 self-dividing 수라고 한다.</p>
+
+<p><code class="language-plaintext highlighter-rouge">left</code>와 <code class="language-plaintext highlighter-rouge">right</code> 사이의 수들 중 self-dividing 수를 모두 찾아 배열로 반환한다.</p>
+
+<p><br /></p>
+
+<h2 id="내-코드">내 코드</h2>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">selfDividingNumbers</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">left</span><span class="p">,</span> <span class="nx">right</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">function</span> <span class="nx">div</span><span class="p">(</span><span class="nx">num</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">let</span> <span class="nx">arr</span> <span class="o">=</span> <span class="nx">num</span><span class="p">.</span><span class="nx">toString</span><span class="p">().</span><span class="nx">split</span><span class="p">(</span><span class="dl">''</span><span class="p">);</span>
+    <span class="kd">let</span> <span class="nx">answer</span> <span class="o">=</span> <span class="p">[];</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">arr</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">if</span> <span class="p">(</span><span class="nx">num</span> <span class="o">%</span> <span class="nx">arr</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="o">===</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">answer</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="nx">answer</span><span class="p">.</span><span class="nx">length</span> <span class="o">===</span> <span class="nx">arr</span><span class="p">.</span><span class="nx">length</span> <span class="p">?</span> <span class="kc">true</span> <span class="p">:</span> <span class="kc">false</span><span class="p">;</span>
+  <span class="p">}</span>
+  <span class="kd">let</span> <span class="nx">answer</span> <span class="o">=</span> <span class="p">[];</span>
+  <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="nx">left</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;=</span> <span class="nx">right</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">div</span><span class="p">(</span><span class="nx">i</span><span class="p">))</span> <span class="nx">answer</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">i</span><span class="p">);</span>
+  <span class="p">}</span>
+  <span class="k">return</span> <span class="nx">answer</span><span class="p">;</span>
+<span class="p">};</span>
+</code></pre></div></div>
+
+<ol>
+  <li>먼저 주어진 수가 각 자릿수와 나눠지는지 판별하기 위해 <code class="language-plaintext highlighter-rouge">div()</code>라는 함수를 만들었다.</li>
+  <li>이 함수는 먼저 인수로 받은 수를 각 자릿수에 접근하기 위해 배열로 만들고 배열의 각 수와 인수로 받은 수를 나누어 0이 되면 self-dividing 수이다.</li>
+  <li>함수를 나와서, <code class="language-plaintext highlighter-rouge">left</code>와 <code class="language-plaintext highlighter-rouge">right</code> 사이를 돌면서 각각의 수를 <code class="language-plaintext highlighter-rouge">div()</code>함수를 적용시킨다.</li>
+  <li><code class="language-plaintext highlighter-rouge">true</code>라면 self-dividing 수이기 때문에 배열에 담고 반환한다.</li>
+</ol>
+:ET

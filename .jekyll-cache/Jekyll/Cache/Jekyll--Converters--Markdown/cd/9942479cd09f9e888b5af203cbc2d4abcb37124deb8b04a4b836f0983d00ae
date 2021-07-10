@@ -1,0 +1,31 @@
+I"=<p><a href="https://leetcode.com/problems/can-place-flowers/">문제</a></p>
+
+<h2 id="접근하기">접근하기</h2>
+
+<p>숫자형 배열 <code class="language-plaintext highlighter-rouge">flowerbed</code>와 숫자 <code class="language-plaintext highlighter-rouge">n</code>이 주어진다. <code class="language-plaintext highlighter-rouge">flowerbed</code>는 0과 1로 이루어져 있으며, 0은 비어있고 1은 비어있지 않다.</p>
+
+<p>만약 <code class="language-plaintext highlighter-rouge">n</code>의 수 만큼 1을 <code class="language-plaintext highlighter-rouge">flowerbed</code>의 0 자리에 넣었을 때, 인접한 숫자가 중복되지 않고 띄엄띄엄 될 수 있으면 <code class="language-plaintext highlighter-rouge">true</code>를, 아니면 <code class="language-plaintext highlighter-rouge">false</code>를 반환한다.</p>
+
+<p><br /></p>
+
+<h2 id="참고-코드">참고 코드</h2>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">canPlaceFlowers</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">flowerbed</span><span class="p">,</span> <span class="nx">n</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">n</span> <span class="o">===</span> <span class="mi">0</span><span class="p">)</span> <span class="k">return</span> <span class="kc">true</span><span class="p">;</span>
+  <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">flowerbed</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">flowerbed</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="o">===</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="o">!</span><span class="nx">flowerbed</span><span class="p">[</span><span class="nx">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">&amp;&amp;</span> <span class="o">!</span><span class="nx">flowerbed</span><span class="p">[</span><span class="nx">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">])</span> <span class="p">{</span>
+      <span class="nx">n</span> <span class="o">-=</span> <span class="mi">1</span><span class="p">;</span>
+      <span class="nx">flowerbed</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+      <span class="k">if</span> <span class="p">(</span><span class="nx">n</span> <span class="o">&lt;</span> <span class="mi">1</span><span class="p">)</span> <span class="k">return</span> <span class="kc">true</span><span class="p">;</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+  <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
+<span class="p">};</span>
+</code></pre></div></div>
+
+<ol>
+  <li><code class="language-plaintext highlighter-rouge">true</code>가 되기 위해선, <code class="language-plaintext highlighter-rouge">flowerbed</code>가 인접한 세 인덱스가 모두 0이여야 한다. 그럼 가운데에 1이 들어갈 수 있다.</li>
+  <li><code class="language-plaintext highlighter-rouge">flowerbed</code>를 순회하면서, <code class="language-plaintext highlighter-rouge">i</code>가 0이여야 하고, <code class="language-plaintext highlighter-rouge">i - 1</code>은 0 또는 맨 왼쪽이라서 <code class="language-plaintext highlighter-rouge">undefined</code>가 나와야 하며, <code class="language-plaintext highlighter-rouge">i + 1</code>은 0 또는 맨 오른쪽이라서 <code class="language-plaintext highlighter-rouge">undefined</code>가 나오는 이 세 조건이 모두 맞아야 <code class="language-plaintext highlighter-rouge">n</code>을 의 카운팅을 줄 일 수 있다.</li>
+  <li>순회하면서 <code class="language-plaintext highlighter-rouge">n</code>이 0이 되면, 모든 조건을 만족한 것이므로 <code class="language-plaintext highlighter-rouge">true</code>를 반환하고, 아니면 <code class="language-plaintext highlighter-rouge">false</code>를 반환한다.</li>
+</ol>
+:ET

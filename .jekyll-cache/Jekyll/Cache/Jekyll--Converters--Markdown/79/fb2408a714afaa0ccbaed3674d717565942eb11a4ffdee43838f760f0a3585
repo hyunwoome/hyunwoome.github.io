@@ -1,0 +1,31 @@
+I"O<p><a href="https://leetcode.com/problems/sort-integers-by-the-number-of-1-bits/">문제</a></p>
+
+<h2 id="접근하기">접근하기</h2>
+
+<p>정수 <code class="language-plaintext highlighter-rouge">n</code>이 주어진다. 0부터 <code class="language-plaintext highlighter-rouge">n</code>까지의 숫자들의 비트의 수를 배열로 담아 반환한다.</p>
+
+<p><br /></p>
+
+<h2 id="내-코드">내 코드</h2>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">countBits</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">n</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">function</span> <span class="nx">getBit</span><span class="p">(</span><span class="nx">num</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">let</span> <span class="nx">answer</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="kd">let</span> <span class="nx">bit</span> <span class="o">=</span> <span class="nx">num</span><span class="p">.</span><span class="nx">toString</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">bit</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">if</span> <span class="p">(</span><span class="nx">bit</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="o">===</span> <span class="dl">'</span><span class="s1">1</span><span class="dl">'</span><span class="p">)</span> <span class="nx">answer</span><span class="o">++</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="nx">answer</span><span class="p">;</span>
+  <span class="p">}</span>
+  <span class="kd">let</span> <span class="nx">result</span> <span class="o">=</span> <span class="p">[];</span>
+  <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;=</span> <span class="nx">n</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">result</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">getBit</span><span class="p">(</span><span class="nx">i</span><span class="p">));</span>
+  <span class="p">}</span>
+  <span class="k">return</span> <span class="nx">result</span><span class="p">;</span>
+<span class="p">};</span>
+</code></pre></div></div>
+
+<ol>
+  <li>비트의 개수를 구하는 함수 <code class="language-plaintext highlighter-rouge">getBit()</code>를 만들어 <code class="language-plaintext highlighter-rouge">n</code>까지 순회하면서 각 원소들의 비트를 가져와 배열에 담아 반환한다.</li>
+</ol>
+:ET

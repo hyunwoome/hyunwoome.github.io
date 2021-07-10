@@ -1,0 +1,24 @@
+I"
+<p><a href="https://programmers.co.kr/learn/courses/30/lessons/62048">문제</a></p>
+
+<h2 id="접근하기">접근하기</h2>
+
+<p>숫자형 <code class="language-plaintext highlighter-rouge">w</code>와 <code class="language-plaintext highlighter-rouge">h</code>가 주어진다. <code class="language-plaintext highlighter-rouge">w</code>와 <code class="language-plaintext highlighter-rouge">h</code>는 너비와 높이를 나타내며, 해당 크기만큼 직사각형이 존재하고, 1칸당 1cm를 나타낸다. 한 칸식 잘라서 사용하려 했는데 대각선이 잘려있어서 잘린 부분을 제외한 멀쩡한 사각형의 개수를 반환한다.</p>
+
+<p><br /></p>
+
+<h2 id="참고-코드">참고 코드</h2>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">solution</span><span class="p">(</span><span class="nx">w</span><span class="p">,</span> <span class="nx">h</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">function</span> <span class="nx">gcd</span><span class="p">(</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">const</span> <span class="nx">mod</span> <span class="o">=</span> <span class="nx">a</span> <span class="o">%</span> <span class="nx">b</span><span class="p">;</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">mod</span> <span class="o">===</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">return</span> <span class="nx">b</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="nx">gcd</span><span class="p">(</span><span class="nx">b</span><span class="p">,</span> <span class="nx">mod</span><span class="p">);</span>
+  <span class="p">}</span>
+  <span class="kd">const</span> <span class="nx">gcdValue</span> <span class="o">=</span> <span class="nx">gcd</span><span class="p">(</span><span class="nx">w</span><span class="p">,</span> <span class="nx">h</span><span class="p">);</span>
+  <span class="k">return</span> <span class="nx">w</span> <span class="o">*</span> <span class="nx">h</span> <span class="o">-</span> <span class="p">(</span><span class="nx">w</span> <span class="o">+</span> <span class="nx">h</span> <span class="o">-</span> <span class="nx">gcdValue</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
+:ET

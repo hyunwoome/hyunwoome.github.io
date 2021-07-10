@@ -1,0 +1,15 @@
+I"�<p><a href="https://programmers.co.kr/learn/courses/30/lessons/12937">문제</a></p>
+
+<h2 id="접근하기">접근하기</h2>
+
+<p>주어진 수가 짝수인지 홀수인지 판별하는 문제이다.</p>
+
+<p><br /></p>
+
+<h2 id="내-코드">내 코드</h2>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">solution</span><span class="p">(</span><span class="nx">num</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="nx">num</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">===</span> <span class="mi">0</span> <span class="p">?</span> <span class="dl">'</span><span class="s1">Even</span><span class="dl">'</span> <span class="p">:</span> <span class="dl">'</span><span class="s1">Odd</span><span class="dl">'</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+:ET

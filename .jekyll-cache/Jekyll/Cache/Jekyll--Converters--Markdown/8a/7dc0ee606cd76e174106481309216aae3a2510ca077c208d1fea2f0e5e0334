@@ -1,0 +1,19 @@
+I"�<p><a href="https://programmers.co.kr/learn/courses/30/lessons/12954">문제</a></p>
+
+<h2 id="접근하기">접근하기</h2>
+
+<p>주어진 숫자 x만큼 n번 반복하는 문제이다.</p>
+
+<p><br /></p>
+
+<h2 id="내-코드">내 코드</h2>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">solution</span><span class="p">(</span><span class="nx">x</span><span class="p">,</span> <span class="nx">n</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">answer</span> <span class="o">=</span> <span class="p">[];</span>
+  <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;=</span> <span class="nx">n</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">answer</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">x</span> <span class="o">*</span> <span class="nx">i</span><span class="p">);</span>
+  <span class="p">}</span>
+  <span class="k">return</span> <span class="nx">answer</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+:ET

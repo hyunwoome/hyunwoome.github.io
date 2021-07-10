@@ -1,0 +1,29 @@
+I"v<p><a href="https://leetcode.com/problems/robot-return-to-origin/">문제</a></p>
+
+<h2 id="접근하기">접근하기</h2>
+
+<p>문자열이 주어진다. 이 문자열은 로봇의 이동방향을 나타낸다. 이 로봇이 좌표를 순회하고 제자리에 있다면 <code class="language-plaintext highlighter-rouge">true</code>를, 아니면 <code class="language-plaintext highlighter-rouge">false</code>를 반환한다.</p>
+
+<p><br /></p>
+
+<h2 id="내-코드">내 코드</h2>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">judgeCircle</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">moves</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">let</span> <span class="nx">x</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+  <span class="kd">let</span> <span class="nx">y</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+  <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">str</span> <span class="k">of</span> <span class="nx">moves</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">str</span> <span class="o">===</span> <span class="dl">'</span><span class="s1">L</span><span class="dl">'</span><span class="p">)</span> <span class="nx">x</span> <span class="o">-=</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">str</span> <span class="o">===</span> <span class="dl">'</span><span class="s1">R</span><span class="dl">'</span><span class="p">)</span> <span class="nx">x</span> <span class="o">+=</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">str</span> <span class="o">===</span> <span class="dl">'</span><span class="s1">U</span><span class="dl">'</span><span class="p">)</span> <span class="nx">y</span> <span class="o">+=</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">str</span> <span class="o">===</span> <span class="dl">'</span><span class="s1">D</span><span class="dl">'</span><span class="p">)</span> <span class="nx">y</span> <span class="o">-=</span> <span class="mi">1</span><span class="p">;</span>
+  <span class="p">}</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">x</span> <span class="o">===</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="nx">y</span> <span class="o">===</span> <span class="mi">0</span><span class="p">)</span> <span class="k">return</span> <span class="kc">true</span><span class="p">;</span>
+  <span class="k">else</span> <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
+<span class="p">};</span>
+</code></pre></div></div>
+
+<ol>
+  <li>각각의 문자열은 좌표의 이동방향을 나타낸다.</li>
+  <li>각 문자열의 x와 y 이동 방향을 더한 값이 0이라면 제자리에 돌아온 것이기 때문에 <code class="language-plaintext highlighter-rouge">true</code>를 반환하고 아니면 <code class="language-plaintext highlighter-rouge">false</code>를 반환한다.</li>
+</ol>
+:ET

@@ -1,0 +1,35 @@
+I"�	<p><a href="https://leetcode.com/problems/xor-operation-in-an-array/">문제</a></p>
+
+<h2 id="문제-설명">문제 설명</h2>
+
+<p>숫자형 n과 start가 주어진다.</p>
+
+<p>start부터 시작해서 n만큼 start + 2를 하고, 순회하면서 XOR연산을 한 값은 반환한다.</p>
+
+<p><br /></p>
+
+<h2 id="내-코드">내 코드</h2>
+
+<ul>
+  <li>Runtime: 76 ms, faster than 76.72%</li>
+  <li>Memory Usage: 39.1 MB, less than 6.03%</li>
+</ul>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">xorOperation</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">n</span><span class="p">,</span> <span class="nx">start</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">let</span> <span class="nx">arr</span> <span class="o">=</span> <span class="p">[</span><span class="nx">start</span><span class="p">];</span>
+  <span class="kd">let</span> <span class="nx">sum</span> <span class="o">=</span> <span class="nx">start</span><span class="p">;</span>
+  <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">n</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">sum</span> <span class="o">+=</span> <span class="mi">2</span><span class="p">;</span>
+    <span class="nx">arr</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">sum</span><span class="p">);</span>
+  <span class="p">}</span>
+  <span class="k">return</span> <span class="nx">arr</span><span class="p">.</span><span class="nx">reduce</span><span class="p">((</span><span class="nx">acc</span><span class="p">,</span> <span class="nx">cur</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nx">acc</span> <span class="o">^</span> <span class="nx">cur</span><span class="p">;</span>
+  <span class="p">});</span>
+<span class="p">};</span>
+</code></pre></div></div>
+
+<ol>
+  <li>먼저 start부터 n만큼의 배열을 만들어야 한다.</li>
+  <li>만든 후 각각 XOR연산을 한 후 반환한다.</li>
+</ol>
+:ET

@@ -1,0 +1,27 @@
+I"=<p><a href="https://programmers.co.kr/learn/courses/30/lessons/12910">문제</a></p>
+
+<h2 id="접근하기">접근하기</h2>
+
+<p>배열과 정수가 주어지는데, 배열의 숫자들이 주어진 정수에 나누어 떨어지는 숫자들을 오름차순으로 반환한다.
+단, 나누어 떨어지지 않는다면 <code class="language-plaintext highlighter-rouge">[-1]</code>을 반환한다.</p>
+
+<p><br /></p>
+
+<h2 id="내-코드">내 코드</h2>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">solution</span><span class="p">(</span><span class="nx">arr</span><span class="p">,</span> <span class="nx">divisor</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">answer</span> <span class="o">=</span> <span class="p">[];</span>
+  <span class="kd">let</span> <span class="nx">sortArr</span> <span class="o">=</span> <span class="nx">arr</span><span class="p">.</span><span class="nx">sort</span><span class="p">((</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">a</span> <span class="o">-</span> <span class="nx">b</span><span class="p">);</span>
+  <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">sortArr</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="p">(</span><span class="nx">sortArr</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="o">%</span> <span class="nx">divisor</span><span class="p">))</span> <span class="nx">answer</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">sortArr</span><span class="p">[</span><span class="nx">i</span><span class="p">]);</span>
+  <span class="p">}</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">answer</span><span class="p">.</span><span class="nx">length</span><span class="p">)</span> <span class="k">return</span> <span class="nx">answer</span><span class="p">;</span>
+  <span class="k">else</span> <span class="k">return</span> <span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">];</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<ol>
+  <li>순회하기 전 배열을 오름차순으로 정렬했다.</li>
+  <li>배열을 순회하면서 <code class="language-plaintext highlighter-rouge">divisor</code>정수에 나누어 떨어지는지 확인하고, 나누어 떨어지면 해당 수를 배열에 담아 반환하고, 아니면 <code class="language-plaintext highlighter-rouge">[-1]</code>을 반환한다.</li>
+</ol>
+:ET

@@ -1,0 +1,42 @@
+I"�<p><a href="https://leetcode.com/problems/lemonade-change/">문제</a></p>
+
+<h2 id="접근하기">접근하기</h2>
+
+<p>숫자형 배열 <code class="language-plaintext highlighter-rouge">bills</code>가 주어진다. 고객은 레모네이드를 사기 위해 5달러를 지불해야 한다. <code class="language-plaintext highlighter-rouge">bills</code>는 <code class="language-plaintext highlighter-rouge">i</code>씩 고객들이 낸 금액이며, 한 번에 한 잔만 살 수 있으므로 5달러가 넘어가면 그에 맞는 거스름돈을 주어야 한다. 배열을 돌면서 모두 완벽하게 거스름돈을 주면 <code class="language-plaintext highlighter-rouge">true</code>, 주지 못한다면 <code class="language-plaintext highlighter-rouge">false</code>를 반환한다.</p>
+
+<p><br /></p>
+
+<h2 id="참고-코드">참고 코드</h2>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">lemonadeChange</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">bills</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">let</span> <span class="nx">fives</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+  <span class="kd">let</span> <span class="nx">tens</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+
+  <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">bills</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">bills</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="o">===</span> <span class="mi">5</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">fives</span><span class="o">++</span><span class="p">;</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">bills</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="o">===</span> <span class="mi">10</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">tens</span><span class="o">++</span><span class="p">;</span>
+      <span class="nx">fives</span><span class="o">--</span><span class="p">;</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">bills</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="o">===</span> <span class="mi">20</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">if</span> <span class="p">(</span><span class="nx">tens</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">tens</span><span class="o">--</span><span class="p">;</span>
+        <span class="nx">fives</span><span class="o">--</span><span class="p">;</span>
+      <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+        <span class="nx">fives</span> <span class="o">-=</span> <span class="mi">3</span><span class="p">;</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">fives</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="o">||</span> <span class="nx">tens</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span> <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
+  <span class="p">}</span>
+  <span class="k">return</span> <span class="kc">true</span><span class="p">;</span>
+<span class="p">};</span>
+</code></pre></div></div>
+
+<ol>
+  <li>먼저 거스름돈을 보유하는 변수 <code class="language-plaintext highlighter-rouge">fives</code>와 <code class="language-plaintext highlighter-rouge">tens</code>를 선언한다.</li>
+  <li><code class="language-plaintext highlighter-rouge">bills</code>를 순회하면서, 만약 5를 만나면, <code class="language-plaintext highlighter-rouge">fives</code>를 1 증가시킨다.</li>
+  <li>만약 10을 만나면 <code class="language-plaintext highlighter-rouge">tens</code>를 증가시키고, 거스름돈으로 5달러를 주어야 하기 때문에 <code class="language-plaintext highlighter-rouge">fives</code>를 1 감소시킨다.</li>
+  <li>만약 20을 만나면, 총 15를 반환해주어야 한다. <code class="language-plaintext highlighter-rouge">tens</code>가 있다면 <code class="language-plaintext highlighter-rouge">tens</code>를 1 감소시키고, 나머지 <code class="language-plaintext highlighter-rouge">fives</code>도 1 감소시켜 15를 거스름돈으로 내주어야 한다. 하지만 <code class="language-plaintext highlighter-rouge">tens</code>가 없다면 5달러로 세 장을 거스름돈으로 주어야 하므로 <code class="language-plaintext highlighter-rouge">fives</code> 를 3 감소시킨다.</li>
+  <li>최종적으로 <code class="language-plaintext highlighter-rouge">fives</code>와 <code class="language-plaintext highlighter-rouge">tens</code>가 0이하로 떨어졌다면 거스름돈이 부족한 것이므로 <code class="language-plaintext highlighter-rouge">false</code>를 반환하고, 이를 다 통과했다면 <code class="language-plaintext highlighter-rouge">true</code>를 반환한다.</li>
+</ol>
+:ET

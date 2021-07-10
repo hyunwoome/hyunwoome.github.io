@@ -1,0 +1,69 @@
+I"<p><a href="https://leetcode.com/problems/unique-morse-code-words/">문제</a></p>
+
+<h2 id="접근하기">접근하기</h2>
+
+<p><code class="language-plaintext highlighter-rouge">a - z</code>까지 모스부호가 있으며, 주어진 문자열 배열을 순회하며 각 문자열을 모스부호로 변환시킨다.</p>
+
+<p>변환 시킨 모스부호를 비교해 몇가지 종류가 있는지 개수를 반환하는 문제이다.</p>
+
+<p><br /></p>
+
+<h2 id="내-코드">내 코드</h2>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+ * @param {string[]} words
+ * @return {number}
+ */</span>
+<span class="kd">var</span> <span class="nx">uniqueMorseRepresentations</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">words</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">const</span> <span class="nx">morse</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="dl">'</span><span class="s1">.-</span><span class="dl">'</span><span class="p">,</span>
+    <span class="dl">'</span><span class="s1">-...</span><span class="dl">'</span><span class="p">,</span>
+    <span class="dl">'</span><span class="s1">-.-.</span><span class="dl">'</span><span class="p">,</span>
+    <span class="dl">'</span><span class="s1">-..</span><span class="dl">'</span><span class="p">,</span>
+    <span class="dl">'</span><span class="s1">.</span><span class="dl">'</span><span class="p">,</span>
+    <span class="dl">'</span><span class="s1">..-.</span><span class="dl">'</span><span class="p">,</span>
+    <span class="dl">'</span><span class="s1">--.</span><span class="dl">'</span><span class="p">,</span>
+    <span class="dl">'</span><span class="s1">....</span><span class="dl">'</span><span class="p">,</span>
+    <span class="dl">'</span><span class="s1">..</span><span class="dl">'</span><span class="p">,</span>
+    <span class="dl">'</span><span class="s1">.---</span><span class="dl">'</span><span class="p">,</span>
+    <span class="dl">'</span><span class="s1">-.-</span><span class="dl">'</span><span class="p">,</span>
+    <span class="dl">'</span><span class="s1">.-..</span><span class="dl">'</span><span class="p">,</span>
+    <span class="dl">'</span><span class="s1">--</span><span class="dl">'</span><span class="p">,</span>
+    <span class="dl">'</span><span class="s1">-.</span><span class="dl">'</span><span class="p">,</span>
+    <span class="dl">'</span><span class="s1">---</span><span class="dl">'</span><span class="p">,</span>
+    <span class="dl">'</span><span class="s1">.--.</span><span class="dl">'</span><span class="p">,</span>
+    <span class="dl">'</span><span class="s1">--.-</span><span class="dl">'</span><span class="p">,</span>
+    <span class="dl">'</span><span class="s1">.-.</span><span class="dl">'</span><span class="p">,</span>
+    <span class="dl">'</span><span class="s1">...</span><span class="dl">'</span><span class="p">,</span>
+    <span class="dl">'</span><span class="s1">-</span><span class="dl">'</span><span class="p">,</span>
+    <span class="dl">'</span><span class="s1">..-</span><span class="dl">'</span><span class="p">,</span>
+    <span class="dl">'</span><span class="s1">...-</span><span class="dl">'</span><span class="p">,</span>
+    <span class="dl">'</span><span class="s1">.--</span><span class="dl">'</span><span class="p">,</span>
+    <span class="dl">'</span><span class="s1">-..-</span><span class="dl">'</span><span class="p">,</span>
+    <span class="dl">'</span><span class="s1">-.--</span><span class="dl">'</span><span class="p">,</span>
+    <span class="dl">'</span><span class="s1">--..</span><span class="dl">'</span><span class="p">,</span>
+  <span class="p">];</span>
+
+  <span class="kd">let</span> <span class="nx">arr</span> <span class="o">=</span> <span class="p">[];</span>
+  <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">words</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">let</span> <span class="nx">tmp</span> <span class="o">=</span> <span class="dl">''</span><span class="p">;</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">x</span> <span class="k">of</span> <span class="nx">words</span><span class="p">[</span><span class="nx">i</span><span class="p">])</span> <span class="p">{</span>
+      <span class="kd">let</span> <span class="nx">map</span> <span class="o">=</span> <span class="nx">x</span><span class="p">.</span><span class="nx">charCodeAt</span><span class="p">()</span> <span class="o">-</span> <span class="mi">97</span><span class="p">;</span>
+      <span class="nx">tmp</span> <span class="o">+=</span> <span class="nx">morse</span><span class="p">[</span><span class="nx">map</span><span class="p">];</span>
+    <span class="p">}</span>
+    <span class="nx">arr</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">tmp</span><span class="p">);</span>
+    <span class="nx">tmp</span> <span class="o">=</span> <span class="dl">''</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="kd">let</span> <span class="kd">set</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Set</span><span class="p">(</span><span class="nx">arr</span><span class="p">);</span>
+
+  <span class="k">return</span> <span class="kd">set</span><span class="p">.</span><span class="nx">size</span><span class="p">;</span>
+<span class="p">};</span>
+</code></pre></div></div>
+
+<ol>
+  <li>먼저 배열을 이중for문을 사용해서 각각의 문자열에 접근한다.</li>
+  <li>접근한 문자열을 모스부호가 들어있는 배열과 일치시키기 위해 아스키넘버로 변환후 0부터 시작할 수 있게 소문자 기준 97을 빼준다. 그럼 0부터 시작한다.</li>
+  <li>모스부호와 매핑해서 배열에 담고, <code class="language-plaintext highlighter-rouge">Set</code>을 이용해 중복을 제거한 후 크기를 반환한다.</li>
+</ol>
+:ET

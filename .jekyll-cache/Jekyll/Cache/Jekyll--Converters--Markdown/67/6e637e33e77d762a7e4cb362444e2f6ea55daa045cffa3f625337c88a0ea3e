@@ -1,0 +1,28 @@
+I"
+<p><a href="https://programmers.co.kr/learn/courses/30/lessons/12948">문제</a></p>
+
+<h2 id="접근하기">접근하기</h2>
+
+<p>주어진 문자열에서 뒤 네자리를 뺀 나머지는 *로 반환하고, 나머지 네자리는 주어진 문자열을 반환한다.</p>
+
+<p><br /></p>
+
+<h2 id="내-코드">내 코드</h2>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">solution</span><span class="p">(</span><span class="nx">phone_number</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">answer</span> <span class="o">=</span> <span class="dl">''</span><span class="p">;</span>
+  <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">phone_number</span><span class="p">.</span><span class="nx">length</span> <span class="o">-</span> <span class="mi">4</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">answer</span> <span class="o">+=</span> <span class="dl">'</span><span class="s1">*</span><span class="dl">'</span><span class="p">;</span>
+  <span class="p">}</span>
+  <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="nx">phone_number</span><span class="p">.</span><span class="nx">length</span> <span class="o">-</span> <span class="mi">4</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">phone_number</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">answer</span> <span class="o">+=</span> <span class="nx">phone_number</span><span class="p">[</span><span class="nx">i</span><span class="p">];</span>
+  <span class="p">}</span>
+  <span class="k">return</span> <span class="nx">answer</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<ol>
+  <li>첫 for문은 주어진 숫자의 길이에서 4를 뺀 위치까지 순회하면서 *를 삽입하고,</li>
+  <li>두 번째 for문은 남은 뒤 4자리는 주어진 문자열 그대로 더해서 반환한다.</li>
+</ol>
+:ET

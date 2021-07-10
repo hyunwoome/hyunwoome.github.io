@@ -1,0 +1,39 @@
+I"�<p><a href="https://leetcode.com/problems/count-items-matching-a-rule/">문제</a></p>
+
+<h2 id="문제-설명">문제 설명</h2>
+
+<p>문자열 2차원 배열 items와 문자열 rulekey, ruleValue가 주어진다.</p>
+
+<p>2차원 배열 items는 [i] = [typei, colori, namei]라는 뜻을 갖는다.</p>
+
+<p>ruleKey와 ruleValue를 참고하여, items에 있는 항목들 중 몇 개가 일치하는지 반환하는 문제이다.</p>
+
+<p><br /></p>
+
+<h2 id="내-코드">내 코드</h2>
+
+<ul>
+  <li>Runtime: 92 ms, faster than 70.15%</li>
+  <li>Memory Usage: 41.7 MB, less than 99.25%</li>
+</ul>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">countMatches</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">items</span><span class="p">,</span> <span class="nx">ruleKey</span><span class="p">,</span> <span class="nx">ruleValue</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">let</span> <span class="nx">answer</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+  <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">items</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">ruleKey</span> <span class="o">===</span> <span class="dl">'</span><span class="s1">type</span><span class="dl">'</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">if</span> <span class="p">(</span><span class="nx">items</span><span class="p">[</span><span class="nx">i</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">===</span> <span class="nx">ruleValue</span><span class="p">)</span> <span class="nx">answer</span><span class="o">++</span><span class="p">;</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">ruleKey</span> <span class="o">===</span> <span class="dl">'</span><span class="s1">color</span><span class="dl">'</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">if</span> <span class="p">(</span><span class="nx">items</span><span class="p">[</span><span class="nx">i</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span> <span class="o">===</span> <span class="nx">ruleValue</span><span class="p">)</span> <span class="nx">answer</span><span class="o">++</span><span class="p">;</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">ruleKey</span> <span class="o">===</span> <span class="dl">'</span><span class="s1">name</span><span class="dl">'</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">if</span> <span class="p">(</span><span class="nx">items</span><span class="p">[</span><span class="nx">i</span><span class="p">][</span><span class="mi">2</span><span class="p">]</span> <span class="o">===</span> <span class="nx">ruleValue</span><span class="p">)</span> <span class="nx">answer</span><span class="o">++</span><span class="p">;</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+  <span class="k">return</span> <span class="nx">answer</span><span class="p">;</span>
+<span class="p">};</span>
+</code></pre></div></div>
+
+<ol>
+  <li>items 2차원 배열을 순회한다.</li>
+  <li>주어진 ruleKey의 문자열에 맞게 해당 열만 순회하도록 조건문을 세우고, ruleValue와 일치하면 카운팅을 증가시킨다.</li>
+</ol>
+:ET
